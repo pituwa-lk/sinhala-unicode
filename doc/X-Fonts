@@ -14,8 +14,13 @@ This is the new system
 
   If local.conf is not there, add this line to /etc/fonts/fonts.conf.
 
-* If the font is not found by XFT applications (if things
-  don't work, say ;-)), run
+* See if the font is in X by running
+
+    fc-list
+
+  and grepping for the relevent font (may be with an -i)
+
+* If the font is not found, try running
 
     fc-cache -v -f
 

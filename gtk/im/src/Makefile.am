@@ -23,11 +23,11 @@ localedir = $(datadir)/locale
 AM_CPPFLAGS = -DLOCALEDIR=\"$(localedir)\" -DGTK_DISABLE_DEPRECATED=1
 
 moduledir = $(libdir)/gtk-2.0/$(GTK_BINARY_VERSION)/immodules
-module_LTLIBRARIES = im-sinhala-p.la
+module_LTLIBRARIES = im-sinhala-t.la
 
-im_sinhala_p_la_LDFLAGS = -rpath $(moduledir) -avoid-version -module
-im_sinhala_p_la_SOURCES = imsinhala-p.c
-im_sinhala_p_la_LIBADD = @GTK_LIBS@
+im_sinhala_t_la_LDFLAGS = -rpath $(moduledir) -avoid-version -module
+im_sinhala_t_la_SOURCES = imsinhala-t.c
+im_sinhala_t_la_LIBADD = @GTK_LIBS@
 
 noinst_PROGRAMS = im-module-file
 im_module_file_SOURCES = im-module-file.c

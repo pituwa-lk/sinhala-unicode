@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2004 by Anuradha Ratnaweera
  *
- * GTK+ Sinhala input method (phonetic)
+ * GTK+ Sinhala input method (transliterated)
  * http://sinhala.linux.lk
  *
  * This library is free software; you can redistribute it and/or
@@ -61,7 +61,7 @@ struct {
 } consonents[] = {
 	{0xa4, 0x00, 0x00, GDK_q},
 	{0xa5, 0x00, 0x00, GDK_Q},
-	{0xca, 0x00, 0x00, GDK_w},
+	{0xc0, 0x00, 0x00, GDK_w},
 	{0x0c, 0x00, 0x00, GDK_W},
 	{0xbb, 0x00, 0x00, GDK_r},
 	{0xbb, 0x00, 0x00, GDK_R},
@@ -241,7 +241,7 @@ create_unicode_character_from_lsb(int lsb)
 }
 
 static void
-sinhala_phonetic_reset(GtkIMContext *context)
+sinhala_transliterated_reset(GtkIMContext *context)
 {
 	//gtk_im_context_get_surrounding(context, &editing_text, &cursor_ptr);
 	/* do we need to check editing_text for not NULL */
@@ -252,7 +252,7 @@ sinhala_phonetic_reset(GtkIMContext *context)
 /* FIXME : made this non-static to avoid a warning, change later */
 
 void     
-sinhala_phonetic_get_preedit_string(GtkIMContext *context,
+sinhala_transliterated_get_preedit_string(GtkIMContext *context,
                            gchar **str,
                            PangoAttrList **attrs,
                            gint *cursor_pos)
@@ -260,7 +260,7 @@ sinhala_phonetic_get_preedit_string(GtkIMContext *context,
 }
 
 static gboolean
-sinhala_phonetic_filter_keypress(GtkIMContext *context,
+sinhala_transliterated_filter_keypress(GtkIMContext *context,
                         GdkEventKey  *event)
 {
 	int c, c1, l1;
@@ -275,6 +275,17 @@ sinhala_phonetic_filter_keypress(GtkIMContext *context,
 
 	if (event->keyval) {
 		has_surroundings = gtk_im_context_get_surrounding(context, &text, &cursor);
+
+		if ((event->keyval == GDK_w) && has_surroundings && (cursor >= 3)) {
+			c1 = get_known_lsb_character(text + cursor - 3);
+			if (c1 && is_consonent(c1)) {
+				u = create_unicode_character_from_lsb(0xca);
+				g_signal_emit_by_name (context, "commit", u);
+				free(u);
+				if (has_surroundings) free(text);
+				return TRUE;
+			}
+		}
 
 		c = find_consonent_by_key(event->keyval);
 		if (c >= 0) {
@@ -411,11 +422,11 @@ sinhala_phonetic_filter_keypress(GtkIMContext *context,
 }
 
 static void
-sinhala_phonetic_class_init(GtkIMContextClass *clazz)
+sinhala_transliterated_class_init(GtkIMContextClass *clazz)
 {
-	clazz->filter_keypress = sinhala_phonetic_filter_keypress;
-//	clazz->get_preedit_string = sinhala_phonetic_get_preedit_string;
-	clazz->reset = sinhala_phonetic_reset;
+	clazz->filter_keypress = sinhala_transliterated_filter_keypress;
+//	clazz->get_preedit_string = sinhala_transliterated_get_preedit_string;
+	clazz->reset = sinhala_transliterated_reset;
 }
 
 void 
@@ -424,50 +435,50 @@ im_module_exit()
 }
 
 static void
-sinhala_phonetic_init(GtkIMContext *im_context)
+sinhala_transliterated_init(GtkIMContext *im_context)
 {
 }
 
 static void
-sinhala_phonetic_register_type(GTypeModule *module)
+sinhala_transliterated_register_type(GTypeModule *module)
 {
 	static const GTypeInfo object_info = {
 		sizeof(GtkIMContextClass),
 		(GBaseInitFunc)NULL,
 		(GBaseFinalizeFunc)NULL,
-		(GClassInitFunc)sinhala_phonetic_class_init,
+		(GClassInitFunc)sinhala_transliterated_class_init,
 		NULL,           /* class_finalize */
 		NULL,           /* class_data */
 		sizeof(GtkIMContext),
 		0,
-		(GInstanceInitFunc)sinhala_phonetic_init,
+		(GInstanceInitFunc)sinhala_transliterated_init,
 	};
 
 	type_sinhala = 
 		g_type_module_register_type(module, GTK_TYPE_IM_CONTEXT,
-				"GtkIMContextSinhalaPhonetic", &object_info, 0);
+				"GtkIMContextSinhalaTransliterated", &object_info, 0);
 }
 
 static const
-GtkIMContextInfo sinhala_phonetic_info = 
+GtkIMContextInfo sinhala_transliterated_info = 
 {
-	"sinhala-phonetic",       /* ID */
-	"Sinhala (phonetic)",   /* Human readable name */
-	GETTEXT_PACKAGE, /* Translation domain */
-	LOCALEDIR,       /* Dir for bindtextdomain */
-	"si",            /* Languages for which this module is the default */
+	"sinhala-transliterated",     /* ID */
+	"Sinhala (Transliterated)",  /* Human readable name */
+	GETTEXT_PACKAGE,     /* Translation domain */
+	LOCALEDIR,           /* Dir for bindtextdomain */
+	"si",                /* Languages for which this module is the default */
 };
 
 static const
 GtkIMContextInfo *info_list[] = 
 {
-	&sinhala_phonetic_info,
+	&sinhala_transliterated_info,
 };
 
 void
 im_module_init(GTypeModule *module)
 {
-	sinhala_phonetic_register_type(module);
+	sinhala_transliterated_register_type(module);
 }
 
 void 
@@ -480,7 +491,7 @@ im_module_list(const GtkIMContextInfo ***contexts, gint *n_contexts)
 GtkIMContext *
 im_module_create(const gchar *context_id)
 {
-	if (strcmp(context_id, "sinhala-phonetic") == 0)
+	if (strcmp(context_id, "sinhala-transliterated") == 0)
 		return GTK_IM_CONTEXT(g_object_new(type_sinhala, NULL));
 	else
 		return NULL;

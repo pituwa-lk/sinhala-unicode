@@ -19,7 +19,9 @@
    rendering/pango.  Creating DEB and RPM packages are
    explained in doc/README.deb and doc/README.rpm.
 
-6. Install gtk keyboard method in keyboard/gtk-im/.
+6. Install gtk keyboard method in keyboard/gtk-im/.  Running
+   autogen.sh (step 2) is not necessary if the `configure'
+   script is already there.
 
    cd keyboard/gtk-im/
    ./autogen.sh

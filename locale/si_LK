@@ -137,8 +137,8 @@ d_fmt "<U0025><U0059><U0020><U0025><U0042><U0020><U0025><U0065><U0020><U0DC0><U0
 t_fmt       "<U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
 %
 % Appropriate 12 h time representation
-% %p %H:%M:%S %Z
-t_fmt_ampm  "<U0025><U0070><U0020><U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
+% %p %I:%M:%S %Z
+t_fmt_ampm  "<U0025><U0070><U0020><U0025><U0049><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
 %
 END LC_TIME
 
@@ -146,17 +146,14 @@ END LC_TIME
 LC_MESSAGES
 % This is the POSIX Locale definition for the LC_MESSAGES category
 %
-% ^[\u0b86\u0bae\u0bcd]
+% ^[\u0d94\u0059\u0079]
 yesexpr     "<U005E><U005B><U0D94><U0059><U0079><U005D>"
-
 %
-% ^[\u0b87\u0bb2\u0bcd\u0bb2\u0bc8]
+% ^[\u0db1\u004e\u006e]
 noexpr      "<U005E><U005B><U0DB1><U004E><U006E><U005D>"
-
-% \u0d94\u0dc0\u0dca
+%
 yesstr      "<U0D94><U0DC0><U0DCA>"
 %
-% \u0db1\u0dd0\u0dad
 nostr       "<U0DB1><U0DD0><U0DAD>"
 %
 END LC_MESSAGES
@@ -196,7 +193,11 @@ END LC_ADDRESS
 LC_TELEPHONE
 % This is the ISO_IEC TR14652 Locale definition for the LC_TELEPHONE
 %
-tel_int_fmt "<U002B><U0025><U0063><U0020><U003B><U0025><U0061><U0020><U003B><U0025><U006C>"
+tel_int_fmt    "<U002B><U0025><U0063><U0020><U0028><U0025><U0061><U0029>/
+<U0020><U0025><U006C>"
+tel_dom_fmt    "<U0028><U0025><U0061><U0029><U0020><U0025><U006C>"
+int_select     "<U0030><U0030>"
+int_prefix     "<U0039><U0034>"
 
 END LC_TELEPHONE
 

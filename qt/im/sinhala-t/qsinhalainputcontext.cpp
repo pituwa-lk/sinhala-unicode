@@ -3,7 +3,7 @@
 **
 ** Implementation of QSinhalaTInputContext class
 **
-** Copyright (C) 2004 by Anuradha Ratnaweera
+** Copyright (C) 2004 by Anuradha Ratnaweera.
 **
 ** This file is written to contribute to Trolltech AS under their own
 ** licence. You may use this file under your Qt license. Following
@@ -45,18 +45,19 @@
 #include <qnamespace.h>
 #include <qevent.h>
 #include <qglobal.h>
+#include <qlineedit.h>
 
 static const int ignoreKeys[] = {
-    Qt::Key_Shift,
-    Qt::Key_Control,
-    Qt::Key_Meta,
-    Qt::Key_Alt,
-    Qt::Key_CapsLock,
-    Qt::Key_Super_L,
-    Qt::Key_Super_R,
-    Qt::Key_Hyper_L,
-    Qt::Key_Hyper_R,
-    Qt::Key_Mode_switch
+	Qt::Key_Shift,
+	Qt::Key_Control,
+	Qt::Key_Meta,
+	Qt::Key_Alt,
+	Qt::Key_CapsLock,
+	Qt::Key_Super_L,
+	Qt::Key_Super_R,
+	Qt::Key_Hyper_L,
+	Qt::Key_Hyper_R,
+	Qt::Key_Mode_switch
 };
 
 struct {
@@ -132,132 +133,190 @@ struct {
 
 
 QSinhalaTInputContext::QSinhalaTInputContext()
-    : QInputContext()
+	: QInputContext()
 {
+	sinhalaInput = TRUE;
 }
 
 QSinhalaTInputContext::~QSinhalaTInputContext()
 {
 }
 
-bool QSinhalaTInputContext::filterEvent( const QEvent *event )
+bool QSinhalaTInputContext::filterEvent(const QEvent *event)
 {
-    if ( event->type() != QEvent::KeyPress )
-        return FALSE;
+	if (event->type() != QEvent::KeyPress)
+		return FALSE;
 
-    QKeyEvent *keyevent = (QKeyEvent *)event;
-    int keyval = keyevent->key();
-	QString text = keyevent->text();
-    int val = 0;
+	QKeyEvent *keyevent = (QKeyEvent *)event;
 
-    if ( isIgnoreKeys( keyval ) )
-        return FALSE;
+	int keyval = keyevent->key();
+	if (isIgnoreKeys(keyval))
+		return FALSE;
 
-	qDebug( "%d %s\n", keyval, text.ascii() );
+	if (keyval == Qt::Key_F12) {
+		sinhalaInput = !sinhalaInput;
+		return TRUE;
+	}
 
-    return FALSE;
+	QString keytext = keyevent->text();
+	if (keytext.length() < 1)
+		return FALSE;
+
+	int key = keytext[0].unicode();
+	if (!sinhalaInput && (keyval < 128)) {
+		commitChar(key);
+		return TRUE;
+	}
+
+	QString text;
+	int cursor;
+	bool hasSurrounding = getSurrounding(&text, &cursor);
+
+	if (hasSurrounding) qDebug("%s %d\n", text.ascii(), cursor);
+
+	int c = findConsonentByKey(key);
+
+	if (c >= 0) {
+		if (hasSurrounding && (cursor >= 1)) {
+			int c1 = getKnownLsbCharacter(text[cursor - 1].unicode());
+			int l1 = findConsonent(c1);
+			if (l1 >= 0) {
+				if (key == 'w') {
+					commitChar(0xdca);
+					return TRUE;
+				}
+				if (key == 'W') {
+					commitChar(0xdca);
+					commitChar(0x200d);
+					return TRUE;
+				}
+				if ((key == 'H') && (consonents[l1].mahaprana)) {
+					deleteSurrounding(-1, 1);
+					commitChar(lsbToUnicode(consonents[l1].mahaprana));
+					return TRUE;
+				}
+				if ((key == 'G') && (consonents[l1].mahaprana)) {
+					deleteSurrounding(-1, 1);
+					commitChar(lsbToUnicode(consonents[l1].mahaprana));
+					return TRUE;
+				}
+				if (key == 'R') {
+					commitChar(0x0dca);
+					commitChar(0x200d);
+					commitChar(0x0dbb);
+					return TRUE;
+				}
+				if (key == 'Y') {
+					commitChar(0x0dca);
+					commitChar(0x200d);
+					commitChar(0x0dba);
+					return TRUE;
+				}
+			}
+		}
+
+		commitChar(lsbToUnicode(consonents[c].character));
+		return TRUE;
+		// End of consonent handling
+	}
+
+	c = findVowelByKey(key);
+
+	if (c >=0) {
+		if (hasSurrounding && (cursor >= 1)) {
+			int c1 = getKnownLsbCharacter(text[cursor - 1].unicode());
+			if (isConsonent(c1)) {
+				commitChar(lsbToUnicode(vowels[c].single1));
+				return TRUE;
+			}
+			else if (c1 == vowels[c].single0) {
+				deleteSurrounding(-1, 1);
+				commitChar(lsbToUnicode(vowels[c].double0));
+				return TRUE;
+			}
+			else if (c1 == vowels[c].single1) {
+				deleteSurrounding(-1, 1);
+				commitChar(lsbToUnicode(vowels[c].double1));
+				return TRUE;
+			}
+		}
+		commitChar(lsbToUnicode(vowels[c].single0));
+		return TRUE;
+	}
+
+	return FALSE;
 }
 
 void QSinhalaTInputContext::setFocus()
 {
-    qDebug( "QSinhalaTInputContext: %p->setFocus(), focusWidget()=%p",
-            this, focusWidget() );
 }
 
 void QSinhalaTInputContext::unsetFocus()
 {
-    qDebug( "QSinhalaTInputContext: %p->unsetFocus(), focusWidget()=%p",
-            this, focusWidget() );
-    reset();
+	reset();
 }
 
-void QSinhalaTInputContext::setMicroFocus( int x, int y, int w, int h, QFont *f )
+void QSinhalaTInputContext::setMicroFocus(int x, int y, int w, int h, QFont *f)
 {
 }
 
-void QSinhalaTInputContext::mouseHandler( int x, QEvent::Type type,
-				     Qt::ButtonState button,
-				     Qt::ButtonState state )
+void QSinhalaTInputContext::mouseHandler(int x, QEvent::Type type,
+					 Qt::ButtonState button,
+					 Qt::ButtonState state)
 {
-    switch ( type ) {
-    case QEvent::MouseButtonPress:
-    case QEvent::MouseButtonRelease:
-    case QEvent::MouseButtonDblClick:
-    case QEvent::MouseMove:
-        qDebug( "QSinhalaTInputContext::mouseHandler: "
-                "x=%d, type=%d, button=%d, state=%d", x, type, button, state );
-        break;
-    default:
-        break;
-    }
+	switch (type) {
+	case QEvent::MouseButtonPress:
+	case QEvent::MouseButtonRelease:
+	case QEvent::MouseButtonDblClick:
+	case QEvent::MouseMove:
+	default:
+		break;
+	}
 }
-
 
 void QSinhalaTInputContext::reset()
 {
-    QInputContext::reset();
+	QInputContext::reset();
 }
 
 QString QSinhalaTInputContext::identifierName()
 {
-    return "sinhala-t";
+	return "sinhala-t";
 }
 
 QString QSinhalaTInputContext::language()
 {
-    return "si";
+	return "si";
 }
 
-bool QSinhalaTInputContext::isIgnoreKeys( int keyval )
+bool QSinhalaTInputContext::isIgnoreKeys(int keyval)
 {
-    for ( uint i = 0; i < (sizeof(ignoreKeys)/sizeof(ignoreKeys[0])); i++ )
-        if ( keyval == ignoreKeys[i] )
-            return TRUE;
+	for (uint i = 0; i < (sizeof(ignoreKeys)/sizeof(ignoreKeys[0])); i++)
+		if (keyval == ignoreKeys[i])
+			return TRUE;
 
-    return FALSE;
+	return FALSE;
 }
 
-void QSinhalaTInputContext::commitChar( uint c )
+void QSinhalaTInputContext::commitChar(uint c)
 {
-    sendIMEvent( QEvent::IMStart );
-    sendIMEvent( QEvent::IMEnd, QString(QChar(c)) );
+	sendIMEvent(QEvent::IMStart);
+	sendIMEvent(QEvent::IMEnd, QString(QChar(c)));
 }
 
-// Checks TEXT to see if it starts with a Sinhala Unicode character or a
-// Joiner, and returns the 8 least significant bits of the unicode
-// value.
-//
-// If the returned value XX larger than or equal to 128, it represents
-// the Sinhala character 0x0DXX.
-//
-// If it returns a non-zero value YY smaller than 128, it represents the
-// joiner 0x20YY.  Only "known" joiners, ZWJ and ZWNJ, will return
-// non-zero.
-//
-// Returns 0 for other cases.
-
-int QSinhalaTInputContext::getKnownLsbCharacter(unsigned char *text)
+int QSinhalaTInputContext::getKnownLsbCharacter(int c)
 {
-	if (*text == 0xe0) {
-		if (*++text == 0xb6) return *++text;
-		if (*text == 0xb7) return *++text | 0x40;
-	}
-	if ((*text == 0xe2) && (*++text == 0x80)) {
-		if (*++text == 0x8c) return 0x0c;
-		if (*text == 0x8d) return 0x0d;
-	}
-	return 0;
+	if ((c >= 0xd80) && (c <= 0xdff))
+		return c - 0xd80 + 128;
+	if ((c == 0x200c) && (c == 0x200d))
+		return c - 0x2000;
+	return -1;
 }
-
-// Returns true if C is a consonent.
 
 int QSinhalaTInputContext::isConsonent(int c)
 {
 	return (c >= 0x9a) && (c <= 0xc6) ? 1 : 0;
 }
-
-// Search the consonent list to see if a key has a corresponding
-// entry. Returns the index in the list or -1 if not found.
 
 int QSinhalaTInputContext::findConsonentByKey(int k)
 {
@@ -269,9 +328,6 @@ int QSinhalaTInputContext::findConsonentByKey(int k)
 	}
 	return -1;
 }
-
-// Search the consonent list to see if a character is in one
-// of its sublists.  Returns the index or -1 if not found.
 
 int QSinhalaTInputContext::findConsonent(int c)
 {
@@ -287,9 +343,6 @@ int QSinhalaTInputContext::findConsonent(int c)
 	return -1;
 }
 
-// Search the vowel list to see if a key has a corresponding
-// entry. Returns the index in the list or -1 if not found.
-
 int QSinhalaTInputContext::findVowelByKey(int k)
 {
 	int i = 0;
@@ -301,35 +354,12 @@ int QSinhalaTInputContext::findVowelByKey(int k)
 	return -1;
 }
 
-// Creates a UTF-8 sequence for a given LSB value.
-// IMPORTANT: the returned value must be delete()ed.
-
-unsigned char *QSinhalaTInputContext::createUnicodeCharacterFromLsb(int lsb)
+int QSinhalaTInputContext::lsbToUnicode(int lsb)
 {
-	unsigned char *u = new unsigned char[4];
-
-	if (lsb >= 128) {
-		u[0] = 0xe0;
-		if (lsb < 192) {
-			u[1] = 0xb6;
-			u[2] = lsb;
-		}
-		else {
-			u[1] = 0xb7;
-			u[2] = (lsb & 0x3f) | 0x80;
-		}
-		u[3] = 0;
-	}
-	else if ((lsb == 0x0c) || (lsb == 0x0d)) {
-		u[0] = 0xe2;
-		u[1] = 0x80;
-		u[2] = 0x80 | lsb;
-		u[3] = 0;
-	}
-	else {
-		u[0] = 0;
-	}
-
-	return u;
+	if (lsb >= 128)
+		return 0x0D80 + (lsb - 128);
+	if ((lsb == 0x0c) || (lsb == 0x0d))
+		return 0x2000 + lsb;
+	return 0;
 }
 

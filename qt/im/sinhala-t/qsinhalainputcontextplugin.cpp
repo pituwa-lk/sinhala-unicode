@@ -3,7 +3,7 @@
 **
 ** Implementation of QSinhalaTInputContextPlugin class
 **
-** Copyright (C) 2004 by Anuradha Ratnaweera
+** Copyright (C) 2004 by Anuradha Ratnaweera.
 **
 ** This file is written to contribute to Trolltech AS under their own
 ** licence. You may use this file under your Qt license. Following

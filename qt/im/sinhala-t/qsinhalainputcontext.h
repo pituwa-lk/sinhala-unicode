@@ -3,7 +3,7 @@
 **
 ** Definition of QSinhalaTInputContext class
 **
-** Copyright (C) 2004 by Anuradha Ratnaweera
+** Copyright (C) 2004 by Anuradha Ratnaweera.
 **
 ** This file is written to contribute to Trolltech AS under their own
 ** licence. You may use this file under your Qt license. Following
@@ -69,30 +69,30 @@ public:
     virtual QString identifierName();
     virtual QString language();
 
-    virtual bool filterEvent( const QEvent *event );
+    virtual bool filterEvent(const QEvent *event);
     virtual void reset();
     virtual void setFocus();
     virtual void unsetFocus();
-    virtual void setMicroFocus( int x, int y, int w, int h, QFont *f = 0 );
-    virtual void mouseHandler( int x, QEvent::Type type,
-			       Qt::ButtonState button, Qt::ButtonState state );
+    virtual void setMicroFocus(int x, int y, int w, int h, QFont *f = 0);
+    virtual void mouseHandler(int x, QEvent::Type type,
+			       Qt::ButtonState button, Qt::ButtonState state);
 
 protected:
-    bool isIgnoreKeys(int keyval );
-    bool isComposingKeys( int keyval );
-//    bool checkComposeTable( uint composeBuffer[], const QComposeTable *composeTable );
+    bool isIgnoreKeys(int keyval);
+    bool isComposingKeys(int keyval);
+//    bool checkComposeTable(uint composeBuffer[], const QComposeTable *composeTable);
 
-    void commitChar( uint c );
-	int getKnownLsbCharacter( unsigned char * );
-	int isConsonent( int );
-	int findConsonentByKey( int );
-	int findConsonent( int );
-	int findVowelByKey( int );
-	unsigned char *createUnicodeCharacterFromLsb(int);
+    void commitChar(uint c);
+	int getKnownLsbCharacter(int);
+	int isConsonent(int);
+	int findConsonentByKey(int);
+	int findConsonent(int);
+	int findVowelByKey(int);
+	int lsbToUnicode(int);
 
-protected:
-    uint composeBuffer[QT_KEYSEQUENCE_MAX_LEN + 1];
-    static const QComposeTable defaultComposeTable;
+private:
+    bool sinhalaInput;
+
 };
 
 #endif // QSINHALATINPUT_CONTEXT_H

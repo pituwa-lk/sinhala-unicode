@@ -1,0 +1,162 @@
+diff -rua qt-x11-free-3.3.3.old/src/kernel/qinputcontext.cpp qt-x11-free-3.3.3/src/kernel/qinputcontext.cpp
+--- qt-x11-free-3.3.3.old/src/kernel/qinputcontext.cpp	2004-09-21 21:11:54.000000000 +0600
++++ qt-x11-free-3.3.3/src/kernel/qinputcontext.cpp	2004-09-22 10:40:34.660564256 +0600
+@@ -418,6 +418,19 @@
+ }
+ #endif  // Q_WS_X11
+ 
++#if !defined(QT_NO_IM_EXTENSIONS)
++/*! Surround text */
++bool QInputContext::getSurrounding( QString *txt, int *cur )
++{
++    return d->composingWidget->imGetSurrounding( txt, cur );
++}
++
++void QInputContext::deleteSurrounding( int offset, int length )
++{
++    d->composingWidget->imDeleteSurrounding( offset, length );
++}
++#endif
++
+ /*!
+     \internal
+     This function can be reimplemented in a subclass as returning TRUE
+diff -rua qt-x11-free-3.3.3.old/src/kernel/qinputcontext.h qt-x11-free-3.3.3/src/kernel/qinputcontext.h
+--- qt-x11-free-3.3.3.old/src/kernel/qinputcontext.h	2004-09-21 21:11:54.000000000 +0600
++++ qt-x11-free-3.3.3/src/kernel/qinputcontext.h	2004-09-21 21:14:10.000000000 +0600
+@@ -113,6 +113,12 @@
+     virtual void releaseComposingWidget( QWidget *w );
+ #endif
+ 
++#if !defined(QT_NO_IM_EXTENSIONS)
++    // Surrounding text
++    bool getSurrounding( QString *, int * );
++    void deleteSurrounding( int, int );
++#endif
++
+ signals:
+     void deletionRequested();
+     void imEventGenerated( QObject *receiver, QIMEvent *e );
+diff -rua qt-x11-free-3.3.3.old/src/kernel/qwidget.cpp qt-x11-free-3.3.3/src/kernel/qwidget.cpp
+--- qt-x11-free-3.3.3.old/src/kernel/qwidget.cpp	2004-09-21 21:11:54.000000000 +0600
++++ qt-x11-free-3.3.3/src/kernel/qwidget.cpp	2004-09-22 10:39:47.791689408 +0600
+@@ -6038,6 +6038,17 @@
+ /*!\obsolete  Use setPaletteBackgroundPixmap() or setErasePixmap() instead. */
+ void QWidget::setBackgroundPixmap( const QPixmap &pm ) { setErasePixmap( pm ); }
+ 
++#if !defined(QT_NO_IM_EXTENSIONS)
++// Surrounding text
++bool QWidget::imGetSurrounding( QString *text, int *cursor )
++{
++    return FALSE;
++}
++
++void QWidget::imDeleteSurrounding( int offset, int length )
++{
++}
++#endif
+ 
+ // documentation in qdesktopwidget_win.cpp
+ void QDesktopWidget::insertChild( QObject *obj )
+diff -rua qt-x11-free-3.3.3.old/src/kernel/qwidget.h qt-x11-free-3.3.3/src/kernel/qwidget.h
+--- qt-x11-free-3.3.3.old/src/kernel/qwidget.h	2004-09-21 21:11:54.000000000 +0600
++++ qt-x11-free-3.3.3/src/kernel/qwidget.h	2004-09-21 21:08:24.000000000 +0600
+@@ -281,6 +281,12 @@
+     const QPixmap *	backgroundPixmap() const; // obsolete, use erasePixmap()
+     virtual void	setBackgroundPixmap( const QPixmap & ); // obsolete, use setErasePixmap()
+ 
++#if !defined(QT_NO_IM_EXTENSIONS)
++    // Surrounding text
++    virtual bool	imGetSurrounding( QString *, int * );
++    virtual void	imDeleteSurrounding( int, int );
++#endif
++
+ public slots:
+ #ifndef QT_NO_WIDGET_TOPEXTRA
+     virtual void	setCaption( const QString &);
+diff -rua qt-x11-free-3.3.3.old/src/widgets/qlineedit.cpp qt-x11-free-3.3.3/src/widgets/qlineedit.cpp
+--- qt-x11-free-3.3.3.old/src/widgets/qlineedit.cpp	2004-09-21 21:11:54.000000000 +0600
++++ qt-x11-free-3.3.3/src/widgets/qlineedit.cpp	2004-09-22 10:55:39.325034352 +0600
+@@ -1096,6 +1096,23 @@
+     return TRUE;
+ }
+ 
++#if !defined(QT_NO_IM_EXTENSIONS)
++/*! Surrounding text */
++bool QLineEdit::imGetSurrounding( QString *txt, int *cur )
++{
++    *txt = d->text;
++    *cur = d->cursor;
++    return TRUE;
++}
++
++void QLineEdit::imDeleteSurrounding( int offset, int length )
++{
++    if ( d->readOnly ) return;
++    d->text.remove( d->cursor + offset, length );
++    if ( offset < 0 ) d->cursor += offset;
++    d->textDirty = TRUE;
++}
++#endif
+ 
+ /*!
+     \property QLineEdit::inputMask
+diff -rua qt-x11-free-3.3.3.old/src/widgets/qlineedit.h qt-x11-free-3.3.3/src/widgets/qlineedit.h
+--- qt-x11-free-3.3.3.old/src/widgets/qlineedit.h	2004-09-21 21:11:54.000000000 +0600
++++ qt-x11-free-3.3.3/src/widgets/qlineedit.h	2004-09-21 21:10:14.000000000 +0600
+@@ -143,6 +143,11 @@
+     void setInputMask( const QString &inputMask );
+     bool hasAcceptableInput() const;
+ 
++#if !defined(QT_NO_IM_EXTENSIONS)
++    bool imGetSurrounding( QString *, int * );
++    void imDeleteSurrounding( int, int );
++#endif
++
+ public slots:
+     virtual void setText( const QString &);
+     virtual void selectAll();
+diff -rua qt-x11-free-3.3.3.old/src/widgets/qtextedit.cpp qt-x11-free-3.3.3/src/widgets/qtextedit.cpp
+--- qt-x11-free-3.3.3.old/src/widgets/qtextedit.cpp	2004-09-21 21:11:54.000000000 +0600
++++ qt-x11-free-3.3.3/src/widgets/qtextedit.cpp	2004-09-22 12:14:06.726400568 +0600
+@@ -7388,4 +7388,25 @@
+ 	return 0;
+ }
+ 
++#if !defined(QT_NO_IM_EXTENSIONS)
++/*! Surround text */
++bool QTextEdit::imGetSurrounding( QString *txt, int *cur )
++{
++    int para;
++    getCursorPosition(&para, cur);
++    *txt = text(para);
++    return TRUE;
++}
++
++void QTextEdit::imDeleteSurrounding( int offset, int length )
++{
++    if ( isReadOnly() ) return;
++    if ( cursor->paragraph() )
++	cursor->paragraph()->remove( cursor->index() + offset, length );
++    if (offset < 0)
++	cursor->setIndex( cursor->index() + offset );
++    repaintChanged();
++}
++#endif
++
+ #endif //QT_NO_TEXTEDIT
+diff -rua qt-x11-free-3.3.3.old/src/widgets/qtextedit.h qt-x11-free-3.3.3/src/widgets/qtextedit.h
+--- qt-x11-free-3.3.3.old/src/widgets/qtextedit.h	2004-09-21 21:11:54.000000000 +0600
++++ qt-x11-free-3.3.3/src/widgets/qtextedit.h	2004-09-21 21:10:25.000000000 +0600
+@@ -305,6 +305,11 @@
+     uint autoFormatting() const;
+     QSyntaxHighlighter *syntaxHighlighter() const;
+ 
++#if !defined(QT_NO_IM_EXTENSIONS)
++    bool imGetSurrounding( QString *, int * );
++    void imDeleteSurrounding( int, int );
++#endif
++
+ public slots:
+     void setEnabled( bool );
+ #ifndef QT_NO_MIME

@@ -19,7 +19,7 @@ Fedora Core 2.
 - Unpack the source
 
   cd /usr/src/redhat/SOURCES/
-  tar -xzvf pango-1.4.0.tar.gz
+  tar -xjvf pango-1.4.0.tar.bz2
 
 - Go to this directory and apply the patch
 
@@ -30,12 +30,17 @@ Fedora Core 2.
 
 - Create the tarball anew with the patched sources
 
-  tar -cvzf pango-1.4.0.tar.gz pango-1.4.0/
+  tar -cjvf pango-1.4.0.tar.bz2 pango-1.4.0/
 
 - Go to the SPECS directory and build the RPM.
 
   cd /usr/src/redhat/SPECS/
-  rpm-build -bb pango-1.4.0*spec
+  rpm-build -bb pango.spec
 
-This will build the new RPM in /usr/src/redhat/RPMS/i386/.
+  This will build the new RPM in /usr/src/redhat/RPMS/i386/.
+
+- Install the new RPM
+
+  cd /usr/src/redhat/RPMS/i386/
+  rpm -Uvh --replacepkgs pango*rpm
 

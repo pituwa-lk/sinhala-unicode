@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2004-10-12 01:17+0200\n"
+"PO-Revision-Date: 2004-10-13 20:10+600\n"
+"Last-Translator: Prabath Ranasinghe <praveena_js@bonbon.net>\n"
+"Language-Team: Sinhala <sinhala@linux.lk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: UTF-8\n"
+
+msgid " ships."
+msgstr "යානා ගණන"
+
+msgid "Brake"
+msgstr "තිරිංග"
+
+msgid "Fuel"
+msgstr "ඉන්ධන"
+
+msgid "Game Over!"
+msgstr "තරගය නිමාවිය!"
+
+msgid "General"
+msgstr "පොදු කරුණු"
+
+msgid "KAsteroids"
+msgstr "K උල්කා"
+
+msgid "KAsteroids is paused."
+msgstr "K උල්කා ක්‍රීඩාව ක්‍රීඩාකිරීම තාවකාලිකව අත්හිටුචා තිබේ."
+
+msgid "KDE Space Game"
+msgstr "KDE අවකාශ ක්‍රීඩාව"
+
+msgid "Launch"
+msgstr "ගුවන්ගත කිරීම"
+
+msgid "Level"
+msgstr "තත්වය"
+
+msgid "Paused"
+msgstr "තාවකාලිකව ක්‍රීඩාකිරීම අත්හිටුචා තිබේ."
+
+msgid "Player can destroy Powerups"
+msgstr "ක්‍රීඩකයාට බලයේ වැඩි දියුණු කිරීම් විනාශ කළ කැක"
+
+msgid "Press %1 to launch."
+msgstr "යානාව ගුවන්ගත කිරීමට %1 ඔබන්න!!!"
+
+msgid "Rotate Left"
+msgstr "වමට කැරකවීම"
+
+msgid "Rotate Right"
+msgstr "දකුණට කැරකවීම"
+
+msgid "Score"
+msgstr "ලකුණු"
+
+msgid "Shield"
+msgstr "ආවරණ ශක්තිය"
+
+msgid "Ship Destroyed. Press %1 to launch."
+msgstr "යානාව විනාශ විය,නැවත නව යානාවක් ගුවන්ගත කිරීමට %1 ඔබන්න!"
+
+msgid "Ships"
+msgstr "යානා ගණන"
+
+msgid "Shoot"
+msgstr "පහර දීම"
+
+msgid "Show highscores on Game Over"
+msgstr "ක්‍රීඩාව අවසානයේදී වැඩිm ළකුණු ප්‍රමාණයන් දර්ශනය කරන්න"
+
+msgid "Sound to play when a rock gets destroyed."
+msgstr "උල්කාවක් විනාශ වූ බව ශබ්දයකින් දන්වන්න"
+
+msgid "Sound to play when a ship gets destroyed."
+msgstr "යානාවක් විනාශ වූ බව ශබ්දයකින් දන්වන්න"
+
+msgid "Start new game with"
+msgstr "නැවත ක්‍රීඩාව ආරම්භකිරීම"
+
+msgid "The number of ships per game."
+msgstr "ක්‍රීඩාව සදහා නියමිත යානා ගණන"
+
+msgid "Thrust"
+msgstr "බලය"
+
+msgid "Whether power upgrades can be shot."
+msgstr "බලය වැඩි දියුණු කිරීම් මගින් පහර දිය හැක."
+
+msgid "Whether to play sounds."
+msgstr "ශබ්ද වාදනය කිරීමට ඇවැසිද?"

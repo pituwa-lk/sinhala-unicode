@@ -42,5 +42,5 @@ Fedora Core 2.
 - Install the new RPM
 
   cd /usr/src/redhat/RPMS/i386/
-  rpm -Uvh --replacepkgs pango*rpm
+  rpm -Uvh --replacepkgs --replacefiles pango*rpm
 

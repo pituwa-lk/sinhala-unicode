@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasteroids\n"
 "POT-Creation-Date: 2004-10-12 01:17+0200\n"
-"PO-Revision-Date: 2004-10-13 20:11+0600\n"
+"PO-Revision-Date: 2004-10-13 20:10+0600\n"
 "Last-Translator: Prabath Ranasinghe <praveena_js@bonbon.net>\n"
 "Language-Team: Sinhala <sinhala@linux.lk>\n"
 "MIME-Version: 1.0\n"
@@ -162,3 +162,24 @@ msgstr "K උල්කා ක්‍රීඩාව ක්‍රීඩාකි�
 #: toplevel.cpp:660
 msgid "Paused"
 msgstr "තාවකාලිකව ක්‍රීඩාකිරීම අත්හිටුචා තිබේ."
+
+msgid "Name"
+msgstr "නම"
+
+msgid "Rank"
+msgstr "දක්ෂතාව"
+
+msgid "&Game"
+msgstr "ක්‍රීඩාව"
+
+msgid "Pa&use"
+msgstr "ක්‍රීඩාකිරීම අත්හිටුවීම"
+
+msgid "&Report Bug..."
+msgstr "දොසක් දැන්වීම"
+
+msgid "What's &This?"
+msgstr "මෙය කුමක්ද ?"
+
+msgid "Show &Highscores"
+msgstr "වැඩිම ළකුණු ප්‍රමාණයන්"

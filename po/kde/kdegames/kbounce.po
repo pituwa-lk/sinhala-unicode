@@ -1,0 +1,132 @@
+# KBounce.
+# Stefan Schimanski <schimmi@kde.org>, 2000.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: KBounce\n"
+"POT-Creation-Date: 2004-10-12 01:17+0200\n"
+"PO-Revision-Date: 2004-10-14 20:42+0600\n"
+"Last-Translator: Prabath Ranasinghe <praveena_js@bonbon.net>\n"
+"Language-Team: Sinhala <Lsinhala@lug.lk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+
+#: _translatorinfo.cpp:1
+msgid ""
+"_: NAME OF TRANSLATORS\n"
+"Prabath Ranasinghe"
+msgstr ""
+
+#: _translatorinfo.cpp:3
+msgid ""
+"_: EMAIL OF TRANSLATORS\n"
+"praveena_js@bonbon.net"
+msgstr ""
+
+#: kbounce.cpp:62
+msgid "Level:"
+msgstr "තත්වය:"
+
+#: kbounce.cpp:67
+msgid "Score:"
+msgstr "ළකුණු ප්‍රමාණය:"
+
+#: kbounce.cpp:74
+msgid "Filled area:"
+msgstr "සම්පූර්ණ කළ ප්‍රමාණය:"
+
+#: kbounce.cpp:79
+msgid "Lives:"
+msgstr "වාරයන‌් ප්‍රමාණය:"
+
+#: kbounce.cpp:84
+msgid "Time:"
+msgstr "කාලය:"
+
+#: kbounce.cpp:101
+msgid "Press %1 to start a game!"
+msgstr "ක්‍රීඩාව ආරම්භකිරීම සදහා %1 ඔබන්න."
+
+#: kbounce.cpp:133
+msgid "&Select Background Folder..."
+msgstr "පසුබිම් ගොනු ස්ථානය තෝරන්න..."
+
+#: kbounce.cpp:136
+msgid "Show &Backgrounds"
+msgstr "පසුබිම් පෙන්වන්න"
+
+#: kbounce.cpp:138
+msgid "Hide &Backgrounds"
+msgstr "පසුබිම් නොපෙන්වන්න"
+
+#: kbounce.cpp:142
+msgid "&Play Sounds"
+msgstr "ශබ්ද වාදනය කරන්න"
+
+#: kbounce.cpp:178
+msgid "Do you really want to close the running game?"
+msgstr "ඔබට මෙම ක්‍රීඩාවෙන් ඉවත්වීමට සැබවින්ම වුවමනාද?"
+
+#: kbounce.cpp:198
+msgid "Game paused."
+msgstr "තාවකාලිකව ක්‍රීඩාකිරීම අත්හිටුචා තිබේ."
+
+#: kbounce.cpp:229
+#, c-format
+msgid "Game Over! Score: %1"
+msgstr "තරගය නිමාවිය! ඔබගේ ළකුණු ප්‍රමාණය: %1"
+
+#: kbounce.cpp:230
+msgid "Game over. Press <Space> for a new game"
+msgstr "තරගය නිමාවිය! ක්‍රීඩාව නැවත ආරම්භකිරීමට හිස්තැන් තබන යතුර ඔබන්න."
+
+#: kbounce.cpp:250
+msgid "Select Background Image Folder"
+msgstr "පසුබිම් රූපය පිහිටි ස්ථානය තෝරන්න."
+
+#: kbounce.cpp:270
+msgid "You may now turn on background images."
+msgstr "දැන් ඔබට පසුබිම් රූප භාවිතා කළ හැක."
+
+#: kbounce.cpp:326
+msgid "Game suspended"
+msgstr "ක්‍රීඩාකිරීම තාවකාලිකව අත්හිටුචා තිබේ."
+
+#: kbounce.cpp:445
+#, c-format
+msgid "You have successfully cleared more than 75% of the board.\n"
+msgstr "ඔබ පුවරුවේ 75%කට වඩා සාර්ථකව සම්පූර්ණ කර තිබේ.\n"
+
+#: kbounce.cpp:446
+msgid "%1 points: 15 points per remaining life\n"
+msgstr "ඉතිරි වාරයන් සදහා ළකුණු ප්‍රමාණය (ළකුණු 15 බැගින්):\n"
+
+#: kbounce.cpp:447
+msgid "%1 points: Bonus\n"
+msgstr "අමතර ළකුණු ප්‍රමාණය:\n"
+
+#: kbounce.cpp:448
+msgid "%1 points: Total score for this level\n"
+msgstr "මෙම තත්වයේදී ලැබුණු සම්පූර්ණ ළකුණු ප්‍රමාණය:\n"
+
+#: kbounce.cpp:449
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "ඔබට %1 වන තත්වයේදී භාවිතා කළ හැක්කේ වාරයන් %2 ක් පමණි."
+
+#: main.cpp:29
+msgid "KDE Bounce Ball Game"
+msgstr "KDE පන්දු පැද්දීමේ ක්‍රීඩාව"
+
+#: main.cpp:34
+msgid "KBounce"
+msgstr "කේබවුන්ස්"
+
+#: main.cpp:38
+msgid "Original author"
+msgstr "පළමු නිපයුම්කරුවා"
+
+#: main.cpp:40
+msgid "Contributions"
+msgstr "ආධාර"

@@ -3,15 +3,26 @@ Using Fonts in X-Window System
 By Anuradha Ratnaweera
 
 Copy all your fonts to a custom location, normally
-/usr/local/share/fonts.  They have to be added to
-two different font systems.
+/usr/local/share/fonts.
+
+    mkdir -p /usr/local/share/fonts
+    cp *.otf /usr/local/share/fonts/
+
+X Window System uses two different font systems and the
+fonts have to be added to both of them.
 
 XFT
 ---
 
 This is the new system
 
-* If you have /etc/fonts/local.conf, add the line
+* If you have /etc/fonts/font.conf, check if the line
+
+    <dir>/usr/local/share/fonts</dir>
+
+  exits in the file.  If so, you are done. 
+
+  Otherwise, if you have /etc/fonts/local.conf, add the line
 
     <dir>/usr/local/share/fonts</dir>
 
@@ -38,7 +49,7 @@ X core
 
     cd /usr/local/share/fonts/
     /usr/bin/X11/mkfontscale
-    /usr/bin/X11/mkfontsdir
+    /usr/bin/X11/mkfontdir
 
   (If you are running and old XFree86 version, mkfontscale may
   not be available.  Just grab the mkfontscale.c file from
@@ -46,7 +57,7 @@ X core
   files may not be recognized by old XFree86 systems.)
 
 * If you are using a font server, add /usr/local/share/fonts to
-  "catalogue" variable, and restart font server.
+  "catalogue" variable in /etc/X11/fs/config, and restart font server.
 
     /etc/init.d/xfs restart
 
@@ -54,8 +65,17 @@ X core
 
     FontPath  "/usr/local/fonts"
 
-  to the "Files" section of /etc/X11/XF86Config or /etc/X11/XF86Config-4
-  and restart X.
+  to the "Files" section in /etc/X11/xorg.conf (if you are using a
+  X server from x.org), or /etc/X11/XF86Config or /etc/X11/XF86Config-4
+  (if you are using a xfree86 X server).
+
+  Also make sure that the line
+
+    Load      "freetype"
+
+  is there in the "Module" section.  If not add the line.
+
+  Now restart X.
 
 * See if the font is available by running
 

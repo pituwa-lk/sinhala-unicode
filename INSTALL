@@ -7,7 +7,8 @@
 2. (Optional) Open /etc/locale.alias and make sure si and
    si_LK entries are in alphabetically correct place.
 
-3. Install the LKLUG OTF font in fonts/
+3. Install the font lklug.otf.  See fonts/README.fonts for
+   step by step instructions.
 
 4. Go to po/ directory and run si.sh
 
@@ -15,7 +16,15 @@
    ./si.sh
 
 5. Recompile pango to your system using patches in
-   rendering/pango.
+   rendering/pango.  Creating DEB and RPM packages are
+   explained in doc/README.deb and doc/README.rpm.
 
-6. Install gtk keyboard method in keyboard/gtk-im/
+6. Install gtk keyboard method in keyboard/gtk-im/.
+
+   cd keyboard/gtk-im/
+   ./autogen.sh
+   ./configure
+   make
+   su -c make install
+   make clean
 

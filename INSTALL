@@ -10,7 +10,8 @@
 3. Install the font lklug.otf.  See fonts/README.fonts for
    step by step instructions.
 
-4. Go to po/ directory and run si.sh
+4. Go to po/ directory and run si.sh (this needs German
+   language support to be already installed).
 
    cd po/
    ./si.sh

@@ -1,0 +1,176 @@
+diff -ru pango-1.6.0.sinhala1/modules/indic/indic-ot.c pango-1.6.0.sinhala2/modules/indic/indic-ot.c
+--- pango-1.6.0.sinhala1/modules/indic/indic-ot.c	2004-12-19 17:40:28.000000000 +1100
++++ pango-1.6.0.sinhala2/modules/indic/indic-ot.c	2004-12-20 03:23:26.892188992 +1100
+@@ -29,7 +29,7 @@
+     gunichar fMabove;
+     gunichar fMpost;
+     gunichar fLengthMark;
+-    gunichar fVirama; // to handle virama in sinhala split matras
++    gunichar fAlLakuna; // to handle Al-Lakuna in sinhala split matras
+     glong    fMatraIndex;
+     gulong   fMatraTags;
+     gboolean fMatraWordStart;
+@@ -51,7 +51,7 @@
+     output->fOutIndex    = 0;
+     output->fMatraTags   = 0;
+ 
+-    output->fMpre = output->fMbelow = output->fMabove = output->fMpost = output->fLengthMark = output->fVirama = 0;
++    output->fMpre = output->fMbelow = output->fMabove = output->fMpost = output->fLengthMark = output->fAlLakuna = 0;
+ 
+     output->fMPreOutIndex = -1;
+     output->fMPreFixups = mpreFixups;
+@@ -70,14 +70,14 @@
+         output->fMpost = matra;
+     } else if (IS_LENGTH_MARK(matraClass)) {
+         output->fLengthMark = matra;
+-    } else if(IS_VIRAMA(matraClass)) {
+-        output->fVirama = matra;
++    } else if (IS_AL_LAKUNA(matraClass)) {
++        output->fAlLakuna = matra;
+     }
+ }
+ 
+ static void initMatra(Output *output, guint32 matraIndex, gulong matraTags, gboolean wordStart)
+ {
+-    output->fMpre = output->fMbelow = output->fMabove = output->fMpost = output->fLengthMark = output->fVirama = 0;
++    output->fMpre = output->fMbelow = output->fMabove = output->fMpost = output->fLengthMark = output->fAlLakuna = 0;
+     output->fMPreOutIndex = -1;
+     output->fMatraIndex = matraIndex;
+     output->fMatraTags = matraTags;
+@@ -125,11 +125,11 @@
+     output->fOutIndex += 1;
+ }
+ 
+-//To handle virama in sinhala split matra
+-static void writeVirama(Output *output)
++//To handle Al-Lakuna in sinhala split matra
++static void writeAlLakuna(Output *output)
+ {
+-  if(output->fVirama != 0){
+-    writeChar(output, output->fVirama, output->fMatraIndex, output->fMatraTags);
++  if (output->fAlLakuna != 0) {
++    writeChar(output, output->fAlLakuna, output->fMatraIndex, output->fMatraTags);
+   }
+ }
+ 
+@@ -230,6 +230,7 @@
+         case CC_MODIFYING_MARK_POST:
+         case CC_NUKTA:
+         case CC_VIRAMA:
++        case CC_AL_LAKUNA:
+             writeChar(&output, C_DOTTED_CIRCLE, prev, blwf_p);
+             writeChar(&output, chars[prev], prev, blwf_p);
+             break;
+@@ -241,7 +242,7 @@
+             writeMabove(&output);
+             writeMpost(&output);
+             writeLengthMark(&output);
+-	    writeVirama(&output);
++            writeAlLakuna(&output);
+             break;
+ 
+         case CC_CONSONANT:
+@@ -426,7 +427,7 @@
+ 	    }
+ 
+ 	    writeLengthMark(&output);
+-	    writeVirama(&output);
++	    writeAlLakuna(&output);
+ 
+ 	    /* write reph */
+ 	    if ((class_table->scriptFlags & SF_REPH_AFTER_BELOW) == 0) {
+diff -ru pango-1.6.0.sinhala1/modules/indic/indic-ot-class-tables.c pango-1.6.0.sinhala2/modules/indic/indic-ot-class-tables.c
+--- pango-1.6.0.sinhala1/modules/indic/indic-ot-class-tables.c	2004-12-19 17:40:28.000000000 +1100
++++ pango-1.6.0.sinhala2/modules/indic/indic-ot-class-tables.c	2004-12-19 06:36:22.000000000 +1100
+@@ -40,6 +40,7 @@
+     _dr = _dv | CF_MATRA_POST,
+     _lm = _dv | CF_LENGTH_MARK,
+     _vr = CC_VIRAMA,
++    _al = CC_AL_LAKUNA,
+ 
+     /*
+      * Split matras
+@@ -198,7 +199,7 @@
+     _iv, _iv, _iv, _iv, _iv, _iv, _iv, _xx, _xx, _xx, _ct, _ct, _ct, _ct, _ct, _ct, /* 0D90 - 0D9F */
+     _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, /* 0DA0 - 0DAF */
+     _ct, _ct, _xx, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _xx, _ct, _xx, _xx, /* 0DB0 - 0DBF */
+-    _ct, _ct, _ct, _ct, _ct, _ct, _ct, _xx, _xx, _xx, _vr, _xx, _xx, _xx, _xx, _dr, /* 0DC0 - 0DCF */
++    _ct, _ct, _ct, _ct, _ct, _ct, _ct, _xx, _xx, _xx, _al, _xx, _xx, _xx, _xx, _dr, /* 0DC0 - 0DCF */
+     _dr, _dr, _da, _da, _db, _xx, _db, _xx, _dr, _dl, _s1, _dl, _s2, _s3, _s4, _dr, /* 0DD0 - 0DDF */
+     _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, /* 0DE0 - 0DEF */
+     _xx, _xx, _dr, _dr, _xx                                                         /* 0DF0 - 0DF4 */
+@@ -306,7 +307,14 @@
+ {
+   IndicOTCharClass char_class = indic_ot_get_char_class(class_table, ch);
+ 
+-  return IS_VIRAMA(char_class);
++  return (IS_VIRAMA(char_class) || IS_AL_LAKUNA(char_class));
++}
++
++gboolean indic_ot_is_al_lakuna(const IndicOTClassTable *class_table, gunichar ch)
++{
++  IndicOTCharClass char_class = indic_ot_get_char_class(class_table, ch);
++
++  return IS_AL_LAKUNA(char_class);
+ }
+ 
+ gboolean indic_ot_is_nukta(const IndicOTClassTable *class_table, gunichar ch)
+@@ -412,16 +420,17 @@
+ 
+ static const gint8 stateTable[][CC_COUNT] =
+ {
+-/*   xx  ma  mp  iv  ct  cn  nu  dv  vr  zw */
+-    { 1,  1,  1,  5,  3,  2,  1,  1,  1,  1},
+-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+-    {-1,  6,  1, -1, -1, -1, -1,  5,  4, -1},
+-    {-1,  6,  1, -1, -1, -1,  2,  5,  4, -1},
+-    {-1, -1, -1, -1,  3,  2, -1, -1, -1,  8},
+-    {-1,  6,  1, -1, -1, -1, -1,  5, -1, -1},
+-    {-1,  7,  1, -1, -1, -1, -1, -1, -1, -1},
+-    {-1, -1,  1, -1, -1, -1, -1, -1, -1, -1},
+-    {-1, -1, -1, -1,  3,  2, -1, -1, -1, -1}
++/*   xx  ma  mp  iv  ct  cn  nu  dv  vr  zw  al */
++    { 1,  1,  1,  5,  3,  2,  1,  1,  1,  1,  1},
++    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
++    {-1,  6,  1, -1, -1, -1, -1,  5,  4, -1, -1},
++    {-1,  6,  1, -1, -1, -1,  2,  5,  4, -1,  9},
++    {-1, -1, -1, -1,  3,  2, -1, -1, -1,  8, -1},
++    {-1,  6,  1, -1, -1, -1, -1,  5, -1, -1, -1},
++    {-1,  7,  1, -1, -1, -1, -1, -1, -1, -1, -1},
++    {-1, -1,  1, -1, -1, -1, -1, -1, -1, -1, -1},
++    {-1, -1, -1, -1,  3,  2, -1, -1, -1, -1, -1},
++    {-1, -1, -1, -1, -1, -1, -1, -1, -1,  8, -1}
+ 
+ };
+ 
+diff -ru pango-1.6.0.sinhala1/modules/indic/indic-ot.h pango-1.6.0.sinhala2/modules/indic/indic-ot.h
+--- pango-1.6.0.sinhala1/modules/indic/indic-ot.h	2004-12-19 17:40:28.000000000 +1100
++++ pango-1.6.0.sinhala2/modules/indic/indic-ot.h	2004-12-19 06:33:38.000000000 +1100
+@@ -47,7 +47,8 @@
+   CC_DEPENDENT_VOWEL      = 7,
+   CC_VIRAMA               = 8,
+   CC_ZERO_WIDTH_MARK      = 9,
+-  CC_COUNT                = 10
++  CC_AL_LAKUNA            = 10,
++  CC_COUNT                = 11
+ } IndicOTCharClassValues;
+ 
+ /*
+@@ -153,6 +154,8 @@
+ 
+ #define IS_VIRAMA(charClass) ((charClass & CF_CLASS_MASK) == CC_VIRAMA)
+ 
++#define IS_AL_LAKUNA(charClass) ((charClass & CF_CLASS_MASK) == CC_AL_LAKUNA)
++
+ #define IS_VATTU(charClass) ((charClass & CF_VATTU) != 0)
+ 
+ #define IS_MATRA(charClass) ((charClass & CF_CLASS_MASK) == CC_DEPENDENT_VOWEL)
+@@ -208,6 +211,7 @@
+ gboolean indic_ot_is_consonant(const IndicOTClassTable *class_table, gunichar ch);
+ gboolean indic_ot_is_reph(const IndicOTClassTable *class_table, gunichar ch);
+ gboolean indic_ot_is_virama(const IndicOTClassTable *class_table, gunichar ch);
++gboolean indic_ot_is_al_lakuna(const IndicOTClassTable *class_table, gunichar ch);
+ gboolean indic_ot_is_nukta(const IndicOTClassTable *class_table, gunichar ch);
+ gboolean indic_ot_is_vattu(const IndicOTClassTable *class_table, gunichar ch);
+ gboolean indic_ot_is_matra(const IndicOTClassTable *class_table, gunichar ch);
+

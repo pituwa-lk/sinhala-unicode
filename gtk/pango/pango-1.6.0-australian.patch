@@ -174,3 +174,4 @@ diff -ru pango-1.6.0.sinhala1/modules/indic/indic-ot.h pango-1.6.0.sinhala2/modu
  gboolean indic_ot_is_vattu(const IndicOTClassTable *class_table, gunichar ch);
  gboolean indic_ot_is_matra(const IndicOTClassTable *class_table, gunichar ch);
 
+

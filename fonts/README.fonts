@@ -16,7 +16,7 @@ XFT
 
 This is the new system
 
-* If you have /etc/fonts/font.conf, check if the line
+* If you have /etc/fonts/fonts.conf, check if the line
 
     <dir>/usr/local/share/fonts</dir>
 

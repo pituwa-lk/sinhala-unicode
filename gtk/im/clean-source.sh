@@ -27,7 +27,7 @@ echo done.
 echo -n Removing unnecessary files...
 rm -rf aclocal.m4 autom*.cache config.h config.h.in config.log \
 	config.status configure depcomp install-sh missing \
-	config.guess config.sub ltmain.sh \
+	config.guess config.sub ltmain.sh .libs \
 	mkinstalldirs stamp-h* gtk-im-sinhala*.tar.gz *~
 rm -f `find -name 'Makefile'`
 rm -f `find -name 'Makefile.in'`

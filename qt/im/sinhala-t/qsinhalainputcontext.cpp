@@ -172,8 +172,6 @@ bool QSinhalaTInputContext::filterEvent(const QEvent *event)
 	int cursor;
 	bool hasSurrounding = getSurrounding(&text, &cursor);
 
-	if (hasSurrounding) qDebug("%s %d\n", text.ascii(), cursor);
-
 	int c = findConsonentByKey(key);
 
 	if (c >= 0) {

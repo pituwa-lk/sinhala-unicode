@@ -35,7 +35,7 @@ Fedora Core 2.
 - Go to the SPECS directory and build the RPM.
 
   cd /usr/src/redhat/SPECS/
-  rpm-build -bb pango.spec
+  rpmbuild -bb pango.spec
 
   This will build the new RPM in /usr/src/redhat/RPMS/i386/.
 

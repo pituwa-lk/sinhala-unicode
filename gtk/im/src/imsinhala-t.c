@@ -1,5 +1,5 @@
 /*
- * Anuradha Ratnaweera (anuadha@gnu.org)
+ * Anuradha Ratnaweera (anuradha at gnu org)
  *
  * Copyright (C) 2004 by Anuradha Ratnaweera
  *

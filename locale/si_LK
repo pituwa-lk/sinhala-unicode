@@ -1,8 +1,8 @@
 escape_char  /
 comment_char %
 % Sinhala language locale for Sri Lanka.
-% Contributed by Anuradha Ratnaweera <anuradha@gnu.org>
-% and Himira Ratnatilake <himira@linux.lk>
+% Contributed by Anuradha Ratnaweera <anuradha at gnu org>
+% and Himira Ratnatilake <himira at linux lk>
 
 LC_IDENTIFICATION
 title      "Sinhala language locale for Sri Lanka"

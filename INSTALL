@@ -15,7 +15,12 @@
    cd po/
    ./si.sh
 
-5. Recompile pango to your system using patches in
+5. If your Pango version is older than 1.8.0, upgrade to
+   1.8.0 or higher
+
+   OR
+
+   recompile pango for your system using patches in
    gtk/pango.  Creating DEB and RPM packages are
    explained in doc/README.deb and doc/README.rpm.
 

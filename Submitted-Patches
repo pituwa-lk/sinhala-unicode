@@ -28,6 +28,10 @@ KDE
 Pending
 -------
 
+Evolution (bug report only)
+- Adding surrounding text to the composer
+  http://bugzilla.ximian.com/show_bug.cgi?id=70248
+
 GLIBC
 - Adding si_LK locale
   http://sources.redhat.com/bugzilla/show_bug.cgi?id=367

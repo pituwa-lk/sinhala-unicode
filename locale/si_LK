@@ -70,7 +70,7 @@ LC_NUMERIC
 %
 decimal_point          "<U002E>"
 thousands_sep          "<U002C>"
-grouping               3;2
+grouping               3
 %
 END LC_NUMERIC
 
@@ -129,15 +129,16 @@ am_pm       "<U0DB4><U0DD9><U002E><U0DC0><U002E>";"<U0DB4><U002E><U0DC0><U002E>"
 d_t_fmt     "<U0025><U0059><U0020><U0025><U0042><U0020><U0025><U0065><U0020><U0DC0><U0DD0><U0DB1><U0DD2><U0020><U0025><U0041><U0020><U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
 %
 % Appropriate date representation 
-% %A %d %B %Y
+% %Y %B %e %A
 d_fmt "<U0025><U0059><U0020><U0025><U0042><U0020><U0025><U0065><U0020><U0DC0><U0DD0><U0DB1><U0DD2><U0020><U0025><U0041>"
 %
 % Appropriate time representation 
-% %I:%M:%S  %Z
-t_fmt       "<U0025><U0049><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0020><U0025><U005A>"
+% %H:%M:%S %Z
+t_fmt       "<U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
 %
 % Appropriate 12 h time representation
-t_fmt_ampm  "<U0025><U0070><U0020><U0025><U0049><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0020><U0025><U005A>"
+% %p %H:%M:%S %Z
+t_fmt_ampm  "<U0025><U0070><U0020><U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
 %
 END LC_TIME
 

@@ -10,8 +10,8 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/inputmethods.pro qt-x1
  inputmethod:SUBDIRS += xim
 diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp
 --- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp	1970-01-01 05:30:00.000000000 +0530
-+++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp	2004-09-22 01:34:42.000000000 +0600
-@@ -0,0 +1,363 @@
++++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp	2004-10-06 12:54:37.433045192 +0600
+@@ -0,0 +1,360 @@
 +/****************************************************************************
 +** $Id$
 +**
@@ -186,6 +186,8 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +	int cursor;
 +	bool hasSurrounding = getSurrounding(&text, &cursor);
 +
++	if (hasSurrounding) qDebug("%s %d\n", text.ascii(), cursor);
++
 +	int c = findConsonentByKey(key);
 +
 +	if (c >= 0) {
@@ -203,12 +205,12 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +					return TRUE;
 +				}
 +				if ((key == 'H') && (consonents[l1].mahaprana)) {
-+					deleteSurrounding(1, 0);
++					deleteSurrounding(-1, 1);
 +					commitChar(lsbToUnicode(consonents[l1].mahaprana));
 +					return TRUE;
 +				}
 +				if ((key == 'G') && (consonents[l1].mahaprana)) {
-+					deleteSurrounding(1, 0);
++					deleteSurrounding(-1, 1);
 +					commitChar(lsbToUnicode(consonents[l1].mahaprana));
 +					return TRUE;
 +				}
@@ -242,12 +244,12 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +				return TRUE;
 +			}
 +			else if (c1 == vowels[c].single0) {
-+				deleteSurrounding(1, 0);
++				deleteSurrounding(-1, 1);
 +				commitChar(lsbToUnicode(vowels[c].double0));
 +				return TRUE;
 +			}
 +			else if (c1 == vowels[c].single1) {
-+				deleteSurrounding(1, 0);
++				deleteSurrounding(-1, 1);
 +				commitChar(lsbToUnicode(vowels[c].double1));
 +				return TRUE;
 +			}
@@ -332,37 +334,32 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +
 +int QSinhalaTInputContext::findConsonentByKey(int k)
 +{
-+	int i = 0;
-+
-+	while (consonents[i].character) {
-+		if (consonents[i].key == k) return i;
-+		i++;
-+	}
++	int i = -1;
++	while (consonents[++i].character)
++		if (consonents[i].key == k)
++			return i;
 +	return -1;
 +}
 +
 +int QSinhalaTInputContext::findConsonent(int c)
 +{
-+	int i = 0;
++	int i = -1;
 +
-+	while (consonents[i].character) {
++	while (consonents[++i].character)
 +		if ((consonents[i].character == c)
-+			|| (consonents[i].mahaprana == c)
-+			|| (consonents[i].sagngnaka == c))
-+				return i;
-+		i++;
-+	}
++				|| (consonents[i].mahaprana == c)
++				|| (consonents[i].sagngnaka == c))
++			return i;
 +	return -1;
 +}
 +
 +int QSinhalaTInputContext::findVowelByKey(int k)
 +{
-+	int i = 0;
++	int i = -1;
 +
-+	while (vowels[i].single0) {
-+		if (vowels[i].key == k) return i;
-+		i++;
-+	}
++	while (vowels[++i].single0)
++		if (vowels[i].key == k)
++			return i;
 +	return -1;
 +}
 +
@@ -377,7 +374,7 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +
 diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.h qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.h
 --- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.h	1970-01-01 05:30:00.000000000 +0530
-+++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.h	2004-09-22 00:56:32.000000000 +0600
++++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.h	2004-10-06 12:54:40.930513496 +0600
 @@ -0,0 +1,98 @@
 +/****************************************************************************
 +** $Id$
@@ -479,7 +476,7 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +#endif // QSINHALATINPUT_CONTEXT_H
 diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.cpp qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.cpp
 --- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.cpp	1970-01-01 05:30:00.000000000 +0530
-+++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.cpp	2004-09-17 18:21:52.000000000 +0600
++++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.cpp	2004-10-06 12:54:37.433045192 +0600
 @@ -0,0 +1,86 @@
 +/****************************************************************************
 +** $Id$
@@ -569,7 +566,7 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +#endif
 diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.h qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.h
 --- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.h	1970-01-01 05:30:00.000000000 +0530
-+++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.h	2004-09-17 18:22:15.000000000 +0600
++++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontextplugin.h	2004-10-06 12:54:40.930513496 +0600
 @@ -0,0 +1,63 @@
 +/****************************************************************************
 +** $Id$

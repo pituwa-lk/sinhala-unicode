@@ -1,6 +1,10 @@
 Accepted 
 --------
 
+GTK
+- Pango rendering patch
+  http://bugzilla.gnome.org/show_bug.cgi?id=153517
+
 QT
 - Script engine bug with halant grouping
   Issue #57856
@@ -35,9 +39,5 @@ Evolution (bug report only)
 GLIBC
 - Adding si_LK locale
   http://sources.redhat.com/bugzilla/show_bug.cgi?id=367
-
-GNOME
-- Pango rendering patch
-  http://bugzilla.gnome.org/show_bug.cgi?id=153517
 
 

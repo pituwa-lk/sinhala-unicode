@@ -6,7 +6,7 @@ comment_char %
 
 LC_IDENTIFICATION
 title      "Sinhala language locale for Sri Lanka"
-source     "Lanka Linux User Group (LKLUG) www.linux.lk, www.lug.lk"
+source     "Lanka Linux User Group (LKLUG) www.lug.lk, sinhala.linux.lk"
 address    ""
 contact    ""
 email      "bug-glibc@gnu.org"
@@ -14,8 +14,8 @@ tel        ""
 fax        ""
 language   "Sinhala"
 territory  "Sri Lanka"
-revision   "0.52"
-date       "2004.03.31"
+revision   "0.7"
+date       "2004.09.03"
 %
 category  "i18n:2002";LC_IDENTIFICATION
 category  "i18n:2002";LC_CTYPE

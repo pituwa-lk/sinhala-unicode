@@ -2,7 +2,7 @@ Accepted
 --------
 
 GTK
-- Pango rendering patch
+- Pango rendering patch to add Sinhala
   http://bugzilla.gnome.org/show_bug.cgi?id=153517
 
 QT
@@ -40,4 +40,7 @@ GLIBC
 - Adding si_LK locale
   http://sources.redhat.com/bugzilla/show_bug.cgi?id=367
 
+GTK
+- Fix for Australian Problem in Pango
+  http://bugzilla.gnome.org/show_bug.cgi?id=161981
 

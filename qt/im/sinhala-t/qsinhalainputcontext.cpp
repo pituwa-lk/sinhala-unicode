@@ -320,37 +320,32 @@ int QSinhalaTInputContext::isConsonent(int c)
 
 int QSinhalaTInputContext::findConsonentByKey(int k)
 {
-	int i = 0;
-
-	while (consonents[i].character) {
-		if (consonents[i].key == k) return i;
-		i++;
-	}
+	int i = -1;
+	while (consonents[++i].character)
+		if (consonents[i].key == k)
+		    return i;
 	return -1;
 }
 
 int QSinhalaTInputContext::findConsonent(int c)
 {
-	int i = 0;
+	int i = -1;
 
-	while (consonents[i].character) {
+	while (consonents[++i].character)
 		if ((consonents[i].character == c)
 			|| (consonents[i].mahaprana == c)
 			|| (consonents[i].sagngnaka == c))
-				return i;
-		i++;
-	}
+		    return i;
 	return -1;
 }
 
 int QSinhalaTInputContext::findVowelByKey(int k)
 {
-	int i = 0;
+	int i = -1;
 
-	while (vowels[i].single0) {
-		if (vowels[i].key == k) return i;
-		i++;
-	}
+	while (vowels[++i].single0)
+		if (vowels[i].key == k)
+		    return i;
 	return -1;
 }
 

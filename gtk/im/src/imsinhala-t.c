@@ -167,12 +167,10 @@ is_consonent(int c)
 int
 find_consonent_by_key(int k)
 {
-	int i = 0;
-
-	while (consonents[i].character) {
-		if (consonents[i].key == k) return i;
-		i++;
-	}
+	int i = -1;
+	while (consonents[++i].character)
+		if (consonents[i].key == k)
+		    return i;
 	return -1;
 }
 
@@ -182,15 +180,12 @@ find_consonent_by_key(int k)
 int
 find_consonent(int c)
 {
-	int i = 0;
-
-	while (consonents[i].character) {
+	int i = -1;
+	while (consonents[++i].character)
 		if ((consonents[i].character == c)
-			|| (consonents[i].mahaprana == c)
-			|| (consonents[i].sagngnaka == c))
-				return i;
-		i++;
-	}
+				|| (consonents[i].mahaprana == c)
+				|| (consonents[i].sagngnaka == c))
+			return i;
 	return -1;
 }
 
@@ -200,12 +195,10 @@ find_consonent(int c)
 int
 find_vowel_by_key(int k)
 {
-	int i = 0;
-
-	while (vowels[i].single0) {
-		if (vowels[i].key == k) return i;
-		i++;
-	}
+	int i = -1;
+	while (vowels[++i].single0)
+		if (vowels[i].key == k)
+			return i;
 	return -1;
 }
 

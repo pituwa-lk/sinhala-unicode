@@ -124,13 +124,13 @@ mon         "<U0DA2><U0DB1><U0DC0><U0DCF><U0DBB><U0DD2>";/
 % Equivalent of AM PM 
 am_pm       "<U0DB4><U0DD9><U002E><U0DC0><U002E>";"<U0DB4><U002E><U0DC0><U002E>"
 %
-% Appropriate date and time representation 
-% %Y %B %e %A %H:%M:%S %Z
-d_t_fmt     "<U0025><U0059><U0020><U0025><U0042><U0020><U0025><U0065><U0020><U0DC0><U0DD0><U0DB1><U0DD2><U0020><U0025><U0041><U0020><U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
+% Appropriate date and time representation (use the same as ISO)
+% %Y-%m-%d %H:%M:%S %Z
+d_t_fmt     "<U0025><U0059><U002D><U0025><U006D><U002D><U0025><U0064><U0020><U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
 %
-% Appropriate date representation 
-% %Y %B %e %A
-d_fmt "<U0025><U0059><U0020><U0025><U0042><U0020><U0025><U0065><U0020><U0DC0><U0DD0><U0DB1><U0DD2><U0020><U0025><U0041>"
+% Appropriate date representation (use the same as ISO)
+% %Y-%m-%d
+d_fmt "<U0025><U0059><U002D><U0025><U006D><U002D><U0025><U0064>"
 %
 % Appropriate time representation 
 % %H:%M:%S %Z
@@ -139,6 +139,10 @@ t_fmt       "<U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U00
 % Appropriate 12 h time representation
 % %p %I:%M:%S %Z
 t_fmt_ampm  "<U0025><U0070><U0020><U0025><U0049><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U005A>"
+%
+% Appropriate date and time (date(1))
+% %Y %B %e %A %H:%M:%S %Z
+date_fmt     "<U0025><U0059><U0020><U0025><U0042><U0020><U0025><U0065><U0020><U0DC0><U0DD0><U0DB1><U0DD2><U0020><U0025><U0041><U0020><U0025><U0048><U003A><U0025><U004D><U003A><U0025><U0053><U0020><U0025><U007A>"
 %
 END LC_TIME
 

@@ -1,0 +1,19 @@
+name_english Sinhala
+name_native සිංහල
+lang si
+data-file u-sinh.cset
+data-file u-sinh.cmap
+author:
+  name Anuradha Ratnaweera
+  name_native අනුරාධ රත්නවීර
+  email anuradha at linux lk
+copyright GPL
+version 0.60-0
+source-version 0.60-0
+complete unknown
+accurate unknown
+url http://sinhala.linux.lk
+alias si sinhala
+dict:
+  name si
+  add si

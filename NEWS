@@ -1,0 +1,8 @@
+Release Notes for 0.2
+---------------------
+Version 0.2 adds a keyboard driver for QT and fixes a critical bug, and it is fairly stable.  It also has many improvements to the GTK input method including the use of <F12> to switch to Latin temporally.
+
+An Aspell dictionary for Sinhala has also been added.  The word list (si.wl) included in this release is small, but a large one is expected.
+
+Although QT is fixed, not all the KDE applications work out of the box.  Most of the small entries in dialog boxes are working, but big widgets such as text editors need more fixes.
+

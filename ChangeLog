@@ -1,0 +1,19 @@
+
+Changes in Version 0.2
+----------------------
+New stuff:
+- Spell checker (aspell-si)
+- QT input method
+- A utility to format Sinhala poems in HTML (kavi)
+- Sample poems
+
+Improvements/fixes:
+- GLIBC locale improvements
+- X11 patch ported to x.org 6.8.0
+- F12 used to switch to/from Latin
+- Yansaya working 
+- Documentation fixes
+- Bendi akuru and other small goodies in the font
+- More versions of Pango patch
+- QT scripting engine fix for hal akuru
+

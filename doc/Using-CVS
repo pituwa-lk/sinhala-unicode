@@ -1,0 +1,51 @@
+Using LKLUG CVS
+---------------
+
+Using PServer
+-------------
+
+o Yet to come ...
+
+Using SSH
+---------
+
+o Set CVS_RSH to ssh
+
+  On bash/sh
+
+    export CVS_RSH=ssh
+
+  On csh
+
+    setenv CVS_RSH ssh
+
+o Checkout the source
+
+    cvs -d :ext:cvs.linux.lk:/cvs checkout sinhala
+
+o Do the changes
+
+o If you don't have write access, do a
+
+    cvs diff -u [file]
+
+  and send the output.  If you have write access
+
+    cvs commit
+
+o To add new text files:
+
+    cvs add [file ...]
+	cvs commit
+
+o To add new binary files (images, etc)
+
+    cvs add -kb [file ...]
+	cvs commit
+
+o To remove files:
+
+    rm [file ...]
+	cvs remove [file ...]
+	cvs commit
+

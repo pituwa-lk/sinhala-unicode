@@ -19,7 +19,9 @@
 
 TRANSLATION_FILE=si.dat
 
-PREFIX=/usr
+for PREFIX in /usr /usr/kde/[34]*
+do
+
 LOCALE_DIR=$PREFIX/share/locale
 TMPDIR=/tmp
 WORKING_DIR=$TMPDIR/si.tmp
@@ -95,4 +97,6 @@ find -name '*.mo' | cpio -pm $LOCALE_DIR/$OUR_LC
 
 cd -
 rm -rf $WORKING_DIR
+
+done
 

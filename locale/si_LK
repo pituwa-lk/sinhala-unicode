@@ -176,12 +176,12 @@ END LC_PAPER
 LC_NAME
 % This is the ISO_IEC TR14652 Locale definition for the LC_NAME category
 %
-name_fmt    "<U0025><U0070><U0025><U0074><U0025><U0066><U0025><U0074><U0025><U0067>"
+name_fmt    "<U0025><U0067><U0025><U0074><U0025><U006D><U0025><U0074><U0025><U0066><U0025><U0074><U0025><U0073>"
 name_gen    ""
-name_mr     "<U004D><U0072><U002E>"
-name_mrs    "<U004D><U0072><U0073><U002E>"
-name_miss   "<U004D><U0069><U0073><U0073><U002E>"
-name_ms     "<U004D><U0073><U002E>"
+name_mr     "<U0DB8><U0DBA><U0DFC>"
+name_mrs    "<U0DB8><U0DD2><U0DBA>"
+name_miss   "<U0DB8><U0DD2><U0DBA>"
+name_ms     "<U0DB8><U0DD2><U0DBA>"
 
 END LC_NAME
 

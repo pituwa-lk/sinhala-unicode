@@ -1,9 +1,12 @@
 
 HTML = \
+	aganthuka-sathkaraya.html \
 	ashtaka.html \
+	denipitiye-nugaruka.html \
 	guththila.html \
 	kotmale.html \
-	salalihini.html
+	salalihini.html \
+	veli-thalapa.html
 
 KAVI= ../../utils/kavi/kavi
 
@@ -17,5 +20,6 @@ kavi: $(KAVI)
 
 clean:
 	make -C ../../utils/kavi clean
-	rm -f *.html *~
+	find . -name '*.html' -exec rm -f {} \;
+	find . -name '*~' -exec rm -f {} \;
 

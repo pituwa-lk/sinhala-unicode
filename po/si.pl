@@ -64,6 +64,13 @@ foreach (@files) {
 	chomp;
 	open(PO0, $_);
 	open(PO, ">$_.new");
+	print PO "msgid \"\"\n";
+	print PO "msgstr \"\"\n";
+	print PO "\"MIME-Version: 1.0\\n\"\n";
+	print PO "\"Content-Type: text/plain; charset=UTF-8\\n\"\n";
+	print PO "\"Content-Transfer-Encoding: 8bit\\n\"\n";
+	print PO "\n";
+
 	while (<PO0>) {
 		if (/^\s*msgid\s+/) {
 			my @id = ();

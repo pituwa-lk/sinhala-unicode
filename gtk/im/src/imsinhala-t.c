@@ -236,7 +236,7 @@ create_unicode_character_from_lsb(int lsb)
 		u[3] = 0;
 	}
 	else {
-		strcpy(u, "");
+		u[0] = 0;
 	}
 
 	return u;

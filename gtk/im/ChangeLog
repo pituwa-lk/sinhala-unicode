@@ -1,9 +1,11 @@
 Version 0.2
 -----------
 - Use the word `Transliterated' instead of `phonetic'.
-- <F12> to change the language
+- F12 to swich to Latin input and back.
 - Hal kireema is added only if there is a consonent before,
   Bud found the bug (or is it `Bug found the Bud'? ;-))
+- Yansaya sends ZWJ (removed workaround).
+- W generates hal-kireema for bandi (with ZWJ).
 
 Version 0.1
 -----------

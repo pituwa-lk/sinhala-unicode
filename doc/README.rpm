@@ -1,0 +1,41 @@
+Creating patched RPM packages from source RPMs
+----------------------------------------------
+- by Anuradha Ratnaweera
+
+Let's get to an example: Creating a patched Pango RPM for
+Fedora Core 2.
+
+- Get the SRPM from a RedHat mirror, say
+
+  http://mirrors.kernel.org/fedora/core/2/SRPMS/
+
+- Install the SRPM
+
+  rpm -i pango-1.4.0-2.src.rpm
+
+  This will install the relevant files into /usr/src/redhat/
+  or /usr/src/rpm/.
+
+- Unpack the source
+
+  cd /usr/src/redhat/SOURCES/
+  tar -xzvf pango-1.4.0.tar.gz
+
+- Go to this directory and apply the patch
+
+  cd pango-1.4.0/
+  patch -p1 --dry-run < /foo/bar/pango-1.4.0-1.patch
+  patch -p1 < /foo/bar/pango-1.4.0-1.patch
+  cd ..
+
+- Create the tarball anew with the patched sources
+
+  tar -cvzf pango-1.4.0.tar.gz pango-1.4.0/
+
+- Go to the SPECS directory and build the RPM.
+
+  cd /usr/src/redhat/SPECS/
+  rpm-build -bb pango-1.4.0*spec
+
+This will build the new RPM in /usr/src/redhat/RPMS/i386/.
+

@@ -15,27 +15,32 @@ So please don't try this unless you know what you are doing!!!
 
 - Apply the qt-im patch (this is -p0 patch):
 
-  zcat /home/anuradha/qt-x11-immodule-unified-qt3.3.3-20040910.diff.gz | patch -p0
+  zcat qt-x11-immodule-unified-qt3.3.3-20040910.diff.gz | patch -p0
 
 - Apply the surrounding text support patch:
 
-  patch -p1 < qt-3.3.3-im-surround.patch:
+  patch -p1 < qt-3.3.3-im-surround.patch
 
 - Apply the Sinhala im patch:
 
   patch -p1 < qt-3.3.3-im-sinhala.patch
 
-- Make sure qt is configured with the options -inputmethod and 
-  -inputmethod-ext.
+- Apply the script engine fix patch.  It is in qt/ directory:
+
+  patch -p1 < qt-3.3.3-script-engine-sinhala-1.patch
+
+- Make sure qt is configured with the options -inputmethod
+  and -inputmethod-ext.
   
-  Gentoo users can do this by setting immqt USE variable,
-  and this will automatically apply the qt-im patch.
+  Gentoo users can do this by setting immqt USE variable.
+  This will automatically apply the qt-im patch, so they have
+  to bypass the first patch.
 
   Debian users can get the source with `apt-get source',
   apply the patches, and edit debian/rules file to add
   configure options.
 
-  RPM users can apply the patch and recreate the tarball
-  (read ../../doc/README.rpm) after applying the patches, and
-  edit the spec file to add the configure options.
+  RPM users can apply the patch and recreate the tarball (read
+  doc/README.rpm) after applying the patches, and edit the spec
+  file to add the configure options.
 

@@ -47,7 +47,7 @@ diff -Nrua pango-1.4.1/modules/indic/indic-ot-class-tables.c pango-1.4.1.new/mod
 +
 +static IndicOTCharClass sinhCharClasses[] =
 +{
-+    _xx, _xx, _ma, _mp, _xx, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, /* 0D80 - 0D8F */
++    _xx, _xx, _mp, _mp, _xx, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, /* 0D80 - 0D8F */
 +    _iv, _iv, _iv, _iv, _iv, _iv, _iv, _xx, _xx, _xx, _ct, _ct, _ct, _ct, _ct, _ct, /* 0D90 - 0D9F */
 +    _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, /* 0DA0 - 0DAF */
 +    _ct, _ct, _xx, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _xx, _ct, _xx, _xx, /* 0DB0 - 0DBF */

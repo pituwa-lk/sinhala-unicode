@@ -19,9 +19,9 @@
    gtk/pango.  Creating DEB and RPM packages are
    explained in doc/README.deb and doc/README.rpm.
 
-6. Install gtk keyboard method in gtk/im/.  Running
-   autogen.sh (step 2) is not necessary if the `configure'
-   script is already there.
+6. Install gtk keyboard method in gtk/im/.  Running autogen.sh
+   (step 2) is not necessary if the `configure' script is
+   already there.
 
    cd gtk/im/
    ./autogen.sh
@@ -29,4 +29,9 @@
    make
    su -c make install
    make clean
+
+7. Recompile qt after installing patches in qt/im/.  Read
+   qt/im/README for more details.  Warning!!!  This breaks
+   binary compatibility of qt, so all the dependent packages
+   such as KDE needs compiling. :-(
 

@@ -33,7 +33,7 @@ diff -rua xc.old/nls/locale.alias xc/nls/locale.alias
  Portuguese_Portugal.1252:			pt_PT.iso8859-1
  Romanian_Romania.1250:				ro_RO.iso8859-2
  Russian_Russia.1251:				ru_RU.iso8859-5
-+Sinhala_Sri Lanka.1115:				si_LK.UTF-8
++Sinhala_Sri Lanka.1115:			si_LK.UTF-8
  Slovak_Slovakia.1250:				sk_SK.iso8859-2
  Slovene_Slovenia.1250:				sl_SI.iso8859-2
  Albanian_Albania.1250:				sq_AL.iso8859-2

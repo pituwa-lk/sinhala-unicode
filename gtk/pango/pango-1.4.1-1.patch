@@ -64,7 +64,7 @@ diff -Nrua pango-1.4.1/modules/indic/indic-ot-class-tables.c pango-1.4.1.new/mod
  
  static const IndicOTSplitMatra mlymSplitTable[] = {{0x0D46, 0x0D3E}, {0x0D47, 0x0D3E}, {0x0D46, 0x0D57}};
  
-+static const IndicOTSplitMatra sinhSplitTable[] = {{0x0DD9, 0x0DCA}, {0x0DD9, 0x0DCF}, {0x0DD9, 0x0DCF,0x0DCA}, {0x0DD9, 0x0DF3} };
++static const IndicOTSplitMatra sinhSplitTable[] = {{0x0DD9, 0x0DCA}, {0x0DD9, 0x0DCF}, {0x0DD9, 0x0DCF,0x0DCA}, {0x0DD9, 0x0DDF} };
 +
  /*
   * Script Flags

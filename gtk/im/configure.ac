@@ -17,7 +17,7 @@ dnl Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 dnl
 
 AC_INIT()
-AM_INIT_AUTOMAKE(gtk-im-sinhala, 0.1.0)
+AM_INIT_AUTOMAKE(gtk-im-sinhala, 0.2.0)
 
 AC_PROG_CC
 AC_PROG_LIBTOOL

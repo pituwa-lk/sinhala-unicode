@@ -4,6 +4,8 @@ Accepted
 GTK
 - Pango rendering patch to add Sinhala
   http://bugzilla.gnome.org/show_bug.cgi?id=153517
+- Fix to avoid creating implicit conjuncts
+  http://bugzilla.gnome.org/show_bug.cgi?id=161981
 
 QT
 - Script engine bug with halant grouping

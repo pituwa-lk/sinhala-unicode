@@ -10,8 +10,8 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/inputmethods.pro qt-x1
  inputmethod:SUBDIRS += xim
 diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp
 --- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp	1970-01-01 05:30:00.000000000 +0530
-+++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp	2004-10-06 12:54:37.433045192 +0600
-@@ -0,0 +1,360 @@
++++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/qsinhalainputcontext.cpp	2004-10-06 16:23:47.870088752 +0600
+@@ -0,0 +1,358 @@
 +/****************************************************************************
 +** $Id$
 +**
@@ -185,8 +185,6 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +	QString text;
 +	int cursor;
 +	bool hasSurrounding = getSurrounding(&text, &cursor);
-+
-+	if (hasSurrounding) qDebug("%s %d\n", text.ascii(), cursor);
 +
 +	int c = findConsonentByKey(key);
 +
@@ -633,7 +631,30 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +#endif
 diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/sinhala-t.pro qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala-t.pro
 --- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/sinhala-t.pro	1970-01-01 05:30:00.000000000 +0530
-+++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala-t.pro	2004-09-17 18:22:17.000000000 +0600
++++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala-t.pro	2004-10-06 16:26:06.025086000 +0600
+@@ -0,0 +1,19 @@
++
++TEMPLATE = lib
++TARGET = qsinhala-t
++VERSION = 0.2
++DISTFILES += ChangeLog
++
++INCLUDEPATH += .
++CONFIG      += qt warn_on debug plugin thread
++target.path += $$plugins.path/inputmethods
++INSTALLS    += target
++
++# Input
++
++HEADERS += qsinhalainputcontext.h \
++           qsinhalainputcontextplugin.h
++
++SOURCES += qsinhalainputcontext.cpp \
++           qsinhalainputcontextplugin.cpp
++
+diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/sinhala.pro qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala.pro
+--- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/sinhala.pro	1970-01-01 05:30:00.000000000 +0530
++++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala.pro	2004-09-17 18:22:17.000000000 +0600
 @@ -0,0 +1,14 @@
 +TEMPLATE = lib
 +TARGET = qsinhala-t

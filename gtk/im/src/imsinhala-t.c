@@ -56,6 +56,8 @@ static GType type_sinhala = 0;
 static sinhala_input = 1;
 static shift_r = 0;
 static shift_l = 0;
+static ctrl_r = 0;
+static ctrl_l = 0;
 
 struct {
 	unsigned char character;
@@ -264,24 +266,30 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 	gchar *text;
 	gint cursor, has_surrounding;
 
+	if (event->keyval == 0) return FALSE;
+
 	if (event->type == GDK_KEY_RELEASE) {
 		if (event->keyval == GDK_Shift_L) shift_l = 0;
 		if (event->keyval == GDK_Shift_R) shift_r = 0;
+		if (event->keyval == GDK_Control_L) ctrl_l = 0;
+		if (event->keyval == GDK_Control_R) ctrl_r = 0;
 		return FALSE;
 	}
-
-	if (event->state & (gtk_accelerator_get_default_mod_mask() & ~GDK_SHIFT_MASK))
-		return FALSE;
-
-	if (event->keyval == 0) return FALSE;
 
 	if (event->keyval == GDK_Shift_L) {
 		shift_l = 1;
 		return FALSE;
 	}
-
 	if (event->keyval == GDK_Shift_R) {
 		shift_r = 1;
+		return FALSE;
+	}
+	if (event->keyval == GDK_Control_L) {
+		ctrl_l = 1;
+		return FALSE;
+	}
+	if (event->keyval == GDK_Control_R) {
+		ctrl_r = 1;
 		return FALSE;
 	}
 
@@ -290,10 +298,13 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 		return TRUE;
 	}
 
-	if (event->keyval == GDK_Alt_R) {
+	if ((event->keyval == GDK_space) && (ctrl_l || ctrl_r)) {
 		sinhala_input = !sinhala_input;
 		return TRUE;
 	}
+
+	if (event->state & (gtk_accelerator_get_default_mod_mask() & ~GDK_SHIFT_MASK))
+		return FALSE;
 
 	if (!sinhala_input && (event->keyval < 128)) {
 		u = malloc(2);

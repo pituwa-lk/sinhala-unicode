@@ -18,5 +18,3 @@ diff -rua kdebase-3.3.0.orig/l10n/lk/entry.desktop kdebase-3.3.0/l10n/lk/entry.d
  #DecimalSymbol=,
  #ThousandsSeparator=
  CurrencySymbol=SLRs
-Only in kdebase-3.3.0.orig/l10n/lk: entry.desktop.0
-Only in kdebase-3.3.0.orig/l10n/lk: entry.desktop~

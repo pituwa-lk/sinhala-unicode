@@ -16,14 +16,14 @@
    ./si.sh
 
 5. Recompile pango to your system using patches in
-   rendering/pango.  Creating DEB and RPM packages are
+   gtk/pango.  Creating DEB and RPM packages are
    explained in doc/README.deb and doc/README.rpm.
 
-6. Install gtk keyboard method in keyboard/gtk-im/.  Running
+6. Install gtk keyboard method in gtk/im/.  Running
    autogen.sh (step 2) is not necessary if the `configure'
    script is already there.
 
-   cd keyboard/gtk-im/
+   cd gtk/im/
    ./autogen.sh
    ./configure
    make

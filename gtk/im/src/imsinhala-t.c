@@ -53,6 +53,8 @@
 
 static GType type_sinhala = 0;
 
+static sinhala_input = 1;
+
 struct {
 	unsigned char character;
 	unsigned char mahaprana;
@@ -274,22 +276,25 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 		return FALSE;
 
 	if (event->keyval) {
-		has_surroundings = gtk_im_context_get_surrounding(context, &text, &cursor);
+		if (event->keyval == GDK_F12) {
+			sinhala_input = !sinhala_input;
+			return TRUE;
+		}
+		if (!sinhala_input && (event->keyval < 128)) {
+			u = malloc(2);
+			u[0] = event->keyval;
+			u[1] = 0;
 
-		if ((event->keyval == GDK_w) && has_surroundings && (cursor >= 3)) {
-			c1 = get_known_lsb_character(text + cursor - 3);
-			if (c1 && is_consonent(c1)) {
-				u = create_unicode_character_from_lsb(0xca);
-				g_signal_emit_by_name (context, "commit", u);
-				free(u);
-				if (has_surroundings) free(text);
-				return TRUE;
-			}
+			g_signal_emit_by_name (context, "commit", u);
+
+			free(u);
+			return TRUE;
 		}
 
+		has_surroundings = gtk_im_context_get_surrounding(context, &text, &cursor);
 		c = find_consonent_by_key(event->keyval);
-		if (c >= 0) {
-			/* a consonent is pressed. */
+
+		if (c >= 0) { /* a consonent is pressed. */
 
 			/* do modifiers first. */
 			if (has_surroundings && (cursor >= 3)) {
@@ -297,7 +302,27 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 				l1 = find_consonent(c1);
 				/* do modifiers only if there is a valid character before */
 				if (l1 >= 0) {
-					if (event->keyval == GDK_H) {
+					if (event->keyval == GDK_w) {
+						u = create_unicode_character_from_lsb(0xca);
+						g_signal_emit_by_name (context, "commit", u);
+						free(u);
+						free(text);
+						return TRUE;
+					}
+					else if (event->keyval == GDK_W) {
+						/* bandi hal kireema */
+						u = malloc(7);
+						u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
+						u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
+						u[6] = 0;
+
+       					g_signal_emit_by_name (context, "commit", u);
+
+						free(u);
+						free(text);
+						return TRUE;
+					}
+					else if (event->keyval == GDK_H) {
 						if (consonents[l1].mahaprana) {
 							gtk_im_context_delete_surrounding(context, -1, 1);
 							u = create_unicode_character_from_lsb(consonents[l1].mahaprana);
@@ -320,20 +345,11 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 					else if (event->keyval == GDK_R) {
 						/* rakaraanshaya */
 						u = malloc(10);
-
-						u[0] = 0xe0;
-						u[1] = 0xb7;
-						u[2] = 0x8a;
-
-						u[3] = 0xe2;
-						u[4] = 0x80;
-						u[5] = 0x8d;
-
-						u[6] = 0xe0;
-						u[7] = 0xb6;
-						u[8] = 0xbb;
-
+						u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
+						u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
+						u[6] = 0xe0; u[7] = 0xb6; u[8] = 0xbb;
 						u[9] = 0;
+
        					g_signal_emit_by_name (context, "commit", u);
 
 						free(u);
@@ -342,17 +358,12 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 					}
 					else if (event->keyval == GDK_Y) {
 						/* yansaya */
-						u = malloc(7);
+						u = malloc(10);
+						u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
+						u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
+						u[6] = 0xe0; u[7] = 0xb6; u[8] = 0xba;
+						u[9] = 0;
 
-						u[0] = 0xe0;
-						u[1] = 0xb7;
-						u[2] = 0x8a;
-
-						u[3] = 0xe0;
-						u[4] = 0xb6;
-						u[5] = 0xba;
-
-						u[6] = 0;
        					g_signal_emit_by_name (context, "commit", u);
 
 						free(u);

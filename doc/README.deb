@@ -1,0 +1,53 @@
+Creating patched DEB packages
+-----------------------------
+- by Anuradha Ratnaweera
+
+* Make sure you have a deb-src files in
+  /etc/apt/sources.list
+
+  For example, if you are running Debian Sarge (e.g.:
+  Knoppix) this should be:
+
+  deb-src http://http.us.debian.org/debian/ testing main non-free contrib
+
+* Now run
+
+    apt-get update
+
+* Get pango source:
+
+    apt-get update
+    cd /usr/local/src/
+    apt-get source pango1.0
+
+* Go to the pango source directory and unpack the source
+
+    cd pango1.0-1.2.5/upstream/tarballs/
+    tar -xzvf 000_pango-1.2.5.tar.gz
+
+* Apply the sinhala patch to the source
+
+    cd pango-1.2.5/
+    patch -p1 < /wherever/is/pango-x.y.z-sinhala.patch
+
+* Recreate the tarball with the patched source
+
+    cd ..
+    tar -czvf 000_pango-1.2.5.tar.gz pango-1.2.5/
+
+* Build the binary deb package
+
+   cd ../..
+   dpkg-buildpackage -b
+
+  If the build fails, read the last error message and
+  installing missing packages such as libgtk2.0-dev should
+  fix the problem.
+  
+  Deb packages are created in /usr/local/src/.
+
+* Install the deb packages
+
+    cd ..
+    dpkg -i *pango*deb
+

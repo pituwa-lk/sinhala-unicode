@@ -1,0 +1,104 @@
+
+Debian
+------
+
+* If you are running woody, add ONE of the following lines to
+  /etc/apt/sources.list
+
+    deb http://mirror.raw.no/ gnome2.2/
+    deb http://ftp.acc.umu.se/mirror/mirrors.evilgeniuses.org.uk/debian/backports/woody gnome2.2/
+
+  and run
+
+    apt-get update
+    apt-get dist-upgrade
+
+  to get gnome 2.2. Sarge and sid users don't have to do this step.
+
+* Add the line
+
+    deb-src http://http.us.debian.org/debian/ unstable main non-free contrib
+
+  to /etc/apt/sources.list, update source and get pango sources
+
+    apt-get update
+    cd /usr/local/src/
+    apt-get source pango1.0
+
+* Go to the pango source directory and unpack the source
+
+    cd pango1.0-1.2.5/upstream/tarballs/
+    tar -xzvf 000_pango-1.2.5.tar.gz
+
+* Apply the sinhala patch to the source
+
+    cd pango-1.2.5/
+    patch -p1 < /wherever/is/pango-1.2.5-sinhala.patch
+
+* Recreate the tarball with the patched source
+
+    cd ..
+    tar -czvf 000_pango-1.2.5.tar.gz pango-1.2.5/
+
+* Build the binary deb package
+
+   cd ../..
+   dpkg-buildpackage -b
+
+  If the build fails, read the last error message and installing missing packages
+  such as libgtk2.0-dev should fix the problem.
+  
+  Deb packages are created in /usr/local/src/.
+
+* Install the deb packages
+
+    cd ..
+    dpkg -i *pango*deb
+
+
+RedHat
+------
+
+(WARNING: File names may be slightly different)
+
+* Get the pango source rpm for your distribution and install it (me and Ruwan
+  found one from one of the `rpm find' sites).
+
+    rpm -i pango-1.2.5.src.rpm
+
+  This will install the source tarball to /usr/src/redhat/SOURCES/
+  and spec file to /usr/src/redhat/SPECS/
+
+* Untar the SOURCE tree. 
+
+    cd /usr/src/redhat/SOURCES/
+    tar -xzvf pango-1.2.5.tar.gz
+
+* Apply the patch
+
+    cd pango-1.2.5/
+    patch -p1 < /wherever/is/pango-1.2.5-sinhala.patch
+
+* Recreate the tarball with the patched source
+
+    cd ..
+    tar -czvf pango-1.2.5.tar.gz pango-1.2.5/
+
+* On newer RH systems, install rpmbuild package and
+  build the binary RPM
+
+   cd /usr/src/redhat/SPECS/
+   rpmbuild -bb pango-1.2.5.spec
+
+  On older RH systems, use rpm command itself instead of rpmbuild.
+
+  If the build fails, read the last error message and installing missing packages
+  such gtk-devel (?) should fix it.
+  
+  RPM packages are created in /usr/src/redhat/RPMS/.
+
+* Install the RPM packages:
+
+    cd /usr/src/redhat/RPMS/i386/
+    rpm -Uvh *pango*rpm
+

@@ -290,7 +290,7 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 		return TRUE;
 	}
 
-	if (event->keyval == GDK_z) {
+	if (event->keyval == GDK_F12) {
 		sinhala_input = !sinhala_input;
 		return TRUE;
 	}

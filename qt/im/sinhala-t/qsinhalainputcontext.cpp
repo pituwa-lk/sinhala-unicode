@@ -94,8 +94,6 @@ struct {
 	{0x9b, 0x9b, 0x00, 'K'},
 	{0xbd, 0x00, 0x00, 'l'},
 	{0xc5, 0x00, 0x00, 'L'},
-	{0x8f, 0x00, 0x00, 'z'},
-	{0x90, 0x00, 0x00, 'Z'},
 	{0x82, 0x00, 0x00, 'x'},
 	{0x9e, 0x00, 0x00, 'X'},
 	{0xa0, 0xa1, 0x00, 'c'},
@@ -128,6 +126,7 @@ struct {
 	{0x96, 0x00, 0xde, 0xdf, 'O'},
 	{0x8b, 0x8c, 0xd4, 0xd6, 'u'},
 	{0x8d, 0x8e, 0xd8, 0xf2, 'U'},
+	{0x8f, 0x90, 0x8f, 0x90, 'Z'},
 	{0, 0, 0, 0, 0}
 };
 
@@ -153,16 +152,17 @@ bool QSinhalaTInputContext::filterEvent(const QEvent *event)
 	if (isIgnoreKeys(keyval))
 		return FALSE;
 
-	if (keyval == Qt::Key_F12) {
-		sinhalaInput = !sinhalaInput;
-		return TRUE;
-	}
-
 	QString keytext = keyevent->text();
 	if (keytext.length() < 1)
 		return FALSE;
 
 	int key = keytext[0].unicode();
+
+	if (key == 'z') {
+		sinhalaInput = !sinhalaInput;
+		return TRUE;
+	}
+
 	if (!sinhalaInput && (keyval < 128)) {
 		commitChar(key);
 		return TRUE;

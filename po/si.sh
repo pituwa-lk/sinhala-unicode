@@ -18,21 +18,21 @@
 #
 
 TRANSLATION_FILE=si.po
+TMPDIR=/tmp
+BASE_LC=de
+OUR_LC=si
+FILELIST=filelist
 
 for PREFIX in /usr /usr/kde/[34]*
 do
 
 LOCALE_DIR=$PREFIX/share/locale
-TMPDIR=/tmp
 WORKING_DIR=$TMPDIR/si.tmp
-BASE_LC=de
-OUR_LC=si
-FILELIST=filelist
 
 if [ ! -f $TRANSLATION_FILE ]
 then
 	echo "Can't open translation file $TRANSLATION_FILE"
-	exit 1
+	continue 1
 fi
 echo "Using translation file $TRANSLATION_FILE"
 
@@ -40,7 +40,7 @@ echo "Using translation file $TRANSLATION_FILE"
 if [ ! -d $LOCALE_DIR ]
 then
 	echo "Locale directory not found"
-	exit 2
+	continue 2
 fi
 echo "Locales found in $LOCALE_DIR"
 
@@ -48,7 +48,7 @@ echo "Locales found in $LOCALE_DIR"
 if [ ! -d $LOCALE_DIR/$BASE_LC ]
 then
 	echo "Base locale not found"
-	exit 3
+	continue 3
 fi
 echo "Using $BASE_LC in $LOCALE_DIR/$BASE_LC as base locale"
 
@@ -57,7 +57,7 @@ rm -rf $WORKING_DIR
 if ! mkdir -p $WORKING_DIR
 then
 	echo "Can't create tempory directory $WORKING_DIR"
-	exit 4
+	continue 4
 fi
 echo "Created $WORKING_DIR"
 cp $TRANSLATION_FILE $WORKING_DIR

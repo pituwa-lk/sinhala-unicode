@@ -259,12 +259,6 @@ sinhala_phonetic_get_preedit_string(GtkIMContext *context,
 {
 }
 
-void
-delete_previous_character(GtkIMContext *context)
-{
-	gtk_im_context_delete_surrounding(context, -1, 1);
-}
-
 static gboolean
 sinhala_phonetic_filter_keypress(GtkIMContext *context,
                         GdkEventKey  *event)
@@ -294,7 +288,7 @@ sinhala_phonetic_filter_keypress(GtkIMContext *context,
 				if (l1 >= 0) {
 					if (event->keyval == GDK_H) {
 						if (consonents[l1].mahaprana) {
-							delete_previous_character(context);
+							gtk_im_context_delete_surrounding(context, -1, 1);
 							u = create_unicode_character_from_lsb(consonents[l1].mahaprana);
           					g_signal_emit_by_name (context, "commit", u);
 							free(u);
@@ -304,7 +298,7 @@ sinhala_phonetic_filter_keypress(GtkIMContext *context,
 					}
 					else if (event->keyval == GDK_G) {
 						if (consonents[l1].sagngnaka) {
-							delete_previous_character(context);
+							gtk_im_context_delete_surrounding(context, -1, 1);
 							u = create_unicode_character_from_lsb(consonents[l1].sagngnaka);
           					g_signal_emit_by_name (context, "commit", u);
 							free(u);
@@ -377,11 +371,11 @@ sinhala_phonetic_filter_keypress(GtkIMContext *context,
 					u = create_unicode_character_from_lsb(vowels[c].single1);
 				}
 				else if (c1 == vowels[c].single0) {
-					delete_previous_character(context);
+					gtk_im_context_delete_surrounding(context, -1, 1);
 					u = create_unicode_character_from_lsb(vowels[c].double0);
 				}
 				else if (c1 == vowels[c].single1) {
-					delete_previous_character(context);
+					gtk_im_context_delete_surrounding(context, -1, 1);
 					u = create_unicode_character_from_lsb(vowels[c].double1);
 				}
 			}

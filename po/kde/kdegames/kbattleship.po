@@ -1,0 +1,660 @@
+# KBattleShip.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: KBattleShip\n"
+"POT-Creation-Date: 2004-10-12 01:17+0200\n"
+"PO-Revision-Date: 2004-12-05 11:41-0500\n"
+"Last-Translator: Prabath Ranasinghe <prabathbr@gmail.com>\n"
+"Language-Team: LKLUG <sinhala@linux.lk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: _translatorinfo.cpp:1
+msgid ""
+"_: NAME OF TRANSLATORS\n"
+"Your names"
+msgstr "Prabath Ranasinghe"
+
+#: _translatorinfo.cpp:3
+msgid ""
+"_: EMAIL OF TRANSLATORS\n"
+"Your emails"
+msgstr "prabathbr@gmail.com"
+
+#: kbattleship.cpp:53
+msgid "You don't have KBattleship pictures installed. The game cannot run without them!"
+msgstr "ඔබ මෙම ක්‍රීඩාව සදහා අවැසි පින්තූර පිහිටුවා නැති නිසා මෙය ක්‍රීඩා කිරීමට නොහැක."
+
+#: kbattleship.cpp:95
+#: kbattleship.cpp:1162
+msgid "     Player 1: %1     "
+msgstr "පළමු ක්‍රීඩකයා : %1"
+
+#: kbattleship.cpp:96
+#: kbattleship.cpp:1168
+msgid "     Player 2: %1     "
+msgstr "දෙවන ක්‍රීඩකයා : %1"
+
+#: kbattleship.cpp:97
+#: kbattleship.cpp:439
+#: kbattleship.cpp:711
+#: kbattleship.cpp:820
+#: kbattleship.cpp:1180
+#: kbattleship.cpp:1194
+msgid "Ready"
+msgstr "සූදානම්වන්න !"
+
+#: kbattleship.cpp:104
+msgid "&Connect to Server..."
+msgstr "&සර්වරයකට සම්බන්ධවන්න"
+
+#: kbattleship.cpp:105
+msgid "&Start Server..."
+msgstr "&සර්වරයක් ආරම්භ කරන්න"
+
+#: kbattleship.cpp:106
+msgid "S&ingle Player..."
+msgstr "ක්‍රීඩකයෙකු පමණක් ක්‍රීඩා කිරීම"
+
+#: kbattleship.cpp:109
+msgid "&Enemy Info"
+msgstr "සතුරා පිළිබද තොරතුරු"
+
+#: kbattleship.cpp:111
+msgid "&Play Sounds"
+msgstr "හඩ වාදනය කරන්න"
+
+#: kbattleship.cpp:112
+msgid "&Show Grid"
+msgstr "කොටු දැල පෙන්වන්න"
+
+#: kbattleship.cpp:113
+msgid "Hide Grid"
+msgstr "කොටු දැල නොපෙන්වන්න"
+
+#: kbattleship.cpp:163
+#, c-format
+msgid "KBattleship %1"
+msgstr "කේ. ප්‍රහාරක යාත්‍රා ක්‍රීඩාව %1"
+
+#: kbattleship.cpp:196
+msgid "Sending Message..."
+msgstr "පණිවිඩයක් යැවීම ..."
+
+#: kbattleship.cpp:320
+#: kbattleship.cpp:1191
+#: kbattleship.cpp:1273
+msgid "S&ingle Player"
+msgstr "ක්‍රීඩකයෙකු පමණක් ක්‍රීඩා කිරීම"
+
+#: kbattleship.cpp:323
+#: kbattleship.cpp:415
+msgid "You won the game :)"
+msgstr "ඔබ මෙම ක්‍රීඩාව ජයග්‍රහණය කරන ලදි :) සුභ පැතුම් !"
+
+#: kbattleship.cpp:326
+#: kbattleship.cpp:745
+#: kbattleship.cpp:1280
+msgid "Do you want to restart the game?"
+msgstr "ඔබට මෙම ක්‍රීඩාව නැවත ආරම්භ කිරීමට අවැසිද ?"
+
+#: kbattleship.cpp:410
+msgid "Waiting for enemy to shoot.."
+msgstr "සතුරාගේ ප්‍රහාරයක් බලාපොරොත්තූවන්න ..."
+
+#: kbattleship.cpp:428
+#: kbattleship.cpp:434
+msgid "Enemy disconnected."
+msgstr "සතුරා සමග පැවති සබදතාව බිදවැටිණි."
+
+#: kbattleship.cpp:443
+msgid "&Connect to server"
+msgstr "&සර්වරයකට සම්බන්ධවන්න"
+
+#: kbattleship.cpp:444
+msgid "&Start server"
+msgstr "&සර්වරයක් ආරම්භ කරන්න"
+
+#: kbattleship.cpp:445
+msgid "S&ingle game"
+msgstr "ක්‍රීඩකයෙකු පමණක් ක්‍රීඩා කිරීම"
+
+#: kbattleship.cpp:566
+msgid "Waiting for computer player to start the match..."
+msgstr ""
+
+#: kbattleship.cpp:576
+#: konnectionhandling.cpp:112
+#: konnectionhandling.cpp:136
+msgid "Waiting for other player to place their ships..."
+msgstr ""
+
+#: kbattleship.cpp:578
+msgid "Waiting for other player to start the match..."
+msgstr ""
+
+#. i18n: file dialogs/highscoreDlg.ui line 171
+#: kbattleship.cpp:648
+#: kbattleship.cpp:679
+#: rc.cpp:67
+#: rc.cpp:326
+#, no-c-format
+msgid "Shots"
+msgstr "ප්‍රහාර"
+
+#. i18n: file dialogs/highscoreDlg.ui line 198
+#: kbattleship.cpp:649
+#: kbattleship.cpp:680
+#: rc.cpp:70
+#: rc.cpp:332
+#, no-c-format
+msgid "Hits"
+msgstr "පහර වැදීම්"
+
+#. i18n: file dialogs/highscoreDlg.ui line 225
+#: kbattleship.cpp:650
+#: kbattleship.cpp:681
+#: rc.cpp:73
+#: rc.cpp:338
+#, no-c-format
+msgid "Water"
+msgstr "ජලයට ප්‍රහාර පතිතවීම්"
+
+#: kbattleship.cpp:704
+msgid "Loading Connect-Server dialog..."
+msgstr ""
+
+#: kbattleship.cpp:725
+msgid "The client is asking to restart the game. Do you accept?"
+msgstr ""
+
+#: kbattleship.cpp:731
+#: kbattleship.cpp:751
+#: kbattleship.cpp:1240
+#: konnectionhandling.cpp:118
+#: konnectionhandling.cpp:171
+msgid "Please place your ships. Use the \"Shift\" key to place the ships vertically."
+msgstr ""
+
+#: kbattleship.cpp:771
+msgid "Do you want to ask the server restarting the game?"
+msgstr ""
+
+#: kbattleship.cpp:777
+msgid "Waiting for an answer..."
+msgstr "පිළිතුරක් බලාපොරොත්තු වෙමි ..."
+
+#: kbattleship.cpp:813
+msgid "Loading Start-Server dialog..."
+msgstr ""
+
+#: kbattleship.cpp:853
+msgid "&Stop server"
+msgstr "සර්වරය &නවත්වන්න"
+
+#: kbattleship.cpp:856
+msgid "Waiting for a player..."
+msgstr "ක්‍රීඩකයෙකු සම්බන්ධවීම බලාපොරොත්තු වෙමි ..."
+
+#: kbattleship.cpp:1077
+msgid "Dis&connect from server"
+msgstr "සර්වර&ය සමග පැවති සබදතා බිදවැටිණි."
+
+#: kbattleship.cpp:1176
+msgid "Start Game"
+msgstr "ක්‍රීඩාව ආරම්භ කරන්න"
+
+#. i18n: file dialogs/connectDlg.ui line 85
+#: kbattleship.cpp:1176
+#: rc.cpp:28
+#: rc.cpp:298
+#, no-c-format
+msgid "Nick name:"
+msgstr "හැදින්වීමේ නම:"
+
+#: kbattleship.cpp:1210
+msgid "&Stop game"
+msgstr "ක්‍රිඩාව අත්හිටුවන්න"
+
+#: kbattleship.cpp:1213
+msgid "Waiting for the AI player to place the ships..."
+msgstr ""
+
+#: kbattleship.cpp:1264
+#: konnectionhandling.cpp:124
+#: konnectionhandling.cpp:192
+msgid "Enemy has shot. Shoot now."
+msgstr "ඔබ දැන් පහර දෙන්න."
+
+#: kbattleship.cpp:1276
+msgid "You lost the game. :("
+msgstr "ඔබ මෙම ක්‍රීඩාවෙන් පරාජය විය. :("
+
+#: kbattleshipserver.cpp:45
+msgid ""
+"Failed to bind to local port \"%1\"\n"
+"\n"
+"Please check if another KBattleship server instance\n"
+"is running or another application uses this port."
+msgstr ""
+
+#: kbattleshipserver.cpp:75
+msgid "The connection broke down!"
+msgstr "සබදතාව බිදවාටිණි!"
+
+#: kmessage.cpp:28
+msgid "KBattleship"
+msgstr "කේ. ප්‍රහාරක යාත්‍රා ක්‍රීඩාව"
+
+#: kmessage.cpp:30
+msgid "The KDE Battleship clone"
+msgstr ""
+
+#: konnectionhandling.cpp:74
+msgid "Connection to client lost. Aborting the game."
+msgstr ""
+
+#: konnectionhandling.cpp:97
+msgid "Connection dropped by enemy. The client's protocol implementation (%1) is not compatible with our (%2) version."
+msgstr ""
+
+#: konnectionhandling.cpp:142
+#: konnectionhandling.cpp:203
+msgid "You lost the game :("
+msgstr "ඔබ මෙම ක්‍රීඩාවෙන් පරාජය විය. :("
+
+#: konnectionhandling.cpp:162
+msgid "Connection to client dropped. The client's protocol implementation (%1) is not compatible with our (%2) version."
+msgstr ""
+
+#: konnectionhandling.cpp:170
+msgid "We have a player. Let's start..."
+msgstr "ක්‍රීඩකයෙකු සම්බන්ධවී ඇත.ක්‍රීඩාව ආරම්භකරන්න."
+
+#: konnectionhandling.cpp:180
+msgid "You can shoot now."
+msgstr "ඔබට දැන් පහර දීමට හැක."
+
+#: konnectionhandling.cpp:223
+msgid "Connection refused by other host."
+msgstr ""
+
+#: konnectionhandling.cpp:227
+msgid "Couldn't lookup host."
+msgstr ""
+
+#: konnectionhandling.cpp:231
+msgid "Couldn't connect to server."
+msgstr "සර්වරයට සම්බන්ධ විය නොහැක."
+
+#: konnectionhandling.cpp:235
+#, c-format
+msgid "Unknown error; No: %1"
+msgstr "නොදන්නා දෝශයක් (අංක %1) උදාවී ඇත."
+
+#: konnectionhandling.cpp:244
+msgid "Connection to server lost. Aborting the game."
+msgstr "සර්වරය සමග පැවති සම්බන්ධතාව බිදවැටිණි. ක්‍රීඩාව අත්හිටුවමි."
+
+#: kshiplist.cpp:122
+msgid "You cannot place the ship here."
+msgstr "ඔබට මෙම ස්ථානයේ යාත්‍රාවක් ස්ථාන ගත කළ නොහැකිය."
+
+#: main.cpp:30
+msgid "Project Founder, GUI Handling, Client/Server"
+msgstr ""
+
+#: main.cpp:31
+msgid "Dialog Stuff, Client/Server"
+msgstr ""
+
+#: main.cpp:32
+msgid "Computer Player"
+msgstr "පරිගනකය"
+
+#: main.cpp:33
+msgid "Icon"
+msgstr "මූර්තිය"
+
+#: main.cpp:34
+msgid "Sounds"
+msgstr "හඩ"
+
+#: main.cpp:35
+msgid "GFX"
+msgstr ""
+
+#: main.cpp:36
+msgid "Non-Latin1 Support"
+msgstr ""
+
+#: main.cpp:37
+msgid "Various improvements"
+msgstr "නොයෙක් වැඩිදියුණු කිරීම්"
+
+#: main.cpp:38
+msgid "Various improvements and bugfixes"
+msgstr "නොයෙක් වැඩිදියුණු කිරීම් සහ දෝශ නිවැරදි කිරීම්"
+
+#. i18n: file dialogs/chatDlg.ui line 20
+#: rc.cpp:9
+#, no-c-format
+msgid "Chat Widget"
+msgstr ""
+
+#. i18n: file dialogs/chatDlg.ui line 54
+#: rc.cpp:12
+#, no-c-format
+msgid "Enter a message here"
+msgstr "පණිවිඩය මෙම ස්ථානයේ සදහන‌් කරන්න"
+
+#. i18n: file dialogs/chatDlg.ui line 65
+#: rc.cpp:15
+#, no-c-format
+msgid "Send"
+msgstr "යවන්න"
+
+#. i18n: file dialogs/chatDlg.ui line 73
+#: rc.cpp:18
+#, no-c-format
+msgid "Press here to send the message"
+msgstr "පණිවිඩය යැවීම සදහා මෙතැන ඔබන්න"
+
+#. i18n: file dialogs/chatDlg.ui line 103
+#: rc.cpp:22
+#, no-c-format
+msgid "Chat dialog:"
+msgstr ""
+
+#. i18n: file dialogs/connectDlg.ui line 28
+#: rc.cpp:25
+#, no-c-format
+msgid "Connect to Server"
+msgstr "සර්වරයකට සම්බන්ධවන්න."
+
+#. i18n: file dialogs/connectDlg.ui line 106
+#: rc.cpp:31
+#, no-c-format
+msgid "Server:"
+msgstr "සර්වරය:"
+
+#. i18n: file dialogs/connectDlg.ui line 138
+#: rc.cpp:34
+#: rc.cpp:301
+#, no-c-format
+msgid "Enter a name that identifies you in the game"
+msgstr "ක්‍රීඩාවේදී ඔබට භාවිතා කළ යුතු නම ඇතුළත්කරන්න"
+
+#. i18n: file dialogs/connectDlg.ui line 181
+#: rc.cpp:37
+#: rc.cpp:292
+#, no-c-format
+msgid "Port:"
+msgstr "සන්නිවේදන පිවිසුම් මාර්ගය:"
+
+#. i18n: file dialogs/connectDlg.ui line 202
+#: rc.cpp:40
+#, no-c-format
+msgid "Choose a port to connect to"
+msgstr "සම්බන්ධවීමට අවැසි පිවිසුම් මාර්ගය තෝරන්න"
+
+#. i18n: file dialogs/connectDlg.ui line 247
+#: rc.cpp:43
+#, no-c-format
+msgid "&Connect"
+msgstr "සම්&බන්ධවන්න"
+
+#. i18n: file dialogs/connectDlg.ui line 262
+#: rc.cpp:46
+#, no-c-format
+msgid "Press here to connect to a server"
+msgstr ""
+
+#. i18n: file dialogs/connectDlg.ui line 270
+#: rc.cpp:49
+#: rc.cpp:310
+#, no-c-format
+msgid "C&ancel"
+msgstr ""
+
+#. i18n: file dialogs/connectDlg.ui line 273
+#: rc.cpp:52
+#: rc.cpp:314
+#, no-c-format
+msgid "Press here to return to the game"
+msgstr ""
+
+#. i18n: file dialogs/highscoreDlg.ui line 90
+#: rc.cpp:58
+#, no-c-format
+msgid "Rank"
+msgstr ""
+
+#. i18n: file dialogs/highscoreDlg.ui line 117
+#: rc.cpp:61
+#, no-c-format
+msgid "Name"
+msgstr ""
+
+#. i18n: file dialogs/highscoreDlg.ui line 144
+#: rc.cpp:64
+#, no-c-format
+msgid "Score"
+msgstr ""
+
+#. i18n: file dialogs/highscoreDlg.ui line 309
+#: rc.cpp:76
+#: rc.cpp:79
+#: rc.cpp:82
+#: rc.cpp:85
+#: rc.cpp:88
+#: rc.cpp:97
+#: rc.cpp:100
+#: rc.cpp:103
+#: rc.cpp:106
+#: rc.cpp:109
+#: rc.cpp:112
+#: rc.cpp:118
+#: rc.cpp:121
+#: rc.cpp:124
+#: rc.cpp:127
+#: rc.cpp:130
+#: rc.cpp:133
+#: rc.cpp:142
+#: rc.cpp:145
+#: rc.cpp:151
+#: rc.cpp:154
+#: rc.cpp:157
+#: rc.cpp:163
+#: rc.cpp:172
+#: rc.cpp:175
+#: rc.cpp:181
+#: rc.cpp:184
+#: rc.cpp:196
+#: rc.cpp:199
+#: rc.cpp:202
+#: rc.cpp:205
+#: rc.cpp:220
+#: rc.cpp:223
+#: rc.cpp:226
+#: rc.cpp:238
+#: rc.cpp:241
+#: rc.cpp:244
+#: rc.cpp:247
+#: rc.cpp:250
+#: rc.cpp:253
+#: rc.cpp:329
+#, no-c-format
+msgid "Shows all shots"
+msgstr ""
+
+#. i18n: file dialogs/highscoreDlg.ui line 428
+#: rc.cpp:91
+#, no-c-format
+msgid "#8"
+msgstr "අංක 8"
+
+#. i18n: file dialogs/highscoreDlg.ui line 439
+#: rc.cpp:94
+#, no-c-format
+msgid "#2"
+msgstr "අංක 2"
+
+#. i18n: file dialogs/highscoreDlg.ui line 612
+#: rc.cpp:115
+#, no-c-format
+msgid "#6"
+msgstr "අංක 6"
+
+#. i18n: file dialogs/highscoreDlg.ui line 785
+#: rc.cpp:136
+#, no-c-format
+msgid "#10"
+msgstr "අංක 10"
+
+#. i18n: file dialogs/highscoreDlg.ui line 796
+#: rc.cpp:139
+#, no-c-format
+msgid "#7"
+msgstr "අංක 7"
+
+#. i18n: file dialogs/highscoreDlg.ui line 861
+#: rc.cpp:148
+#, no-c-format
+msgid "#4"
+msgstr "අංක 4"
+
+#. i18n: file dialogs/highscoreDlg.ui line 953
+#: rc.cpp:160
+#: rc.cpp:166
+#: rc.cpp:178
+#: rc.cpp:187
+#: rc.cpp:208
+#: rc.cpp:214
+#: rc.cpp:217
+#: rc.cpp:229
+#: rc.cpp:232
+#: rc.cpp:235
+#, no-c-format
+msgid "-"
+msgstr "-"
+
+#. i18n: file dialogs/highscoreDlg.ui line 1016
+#: rc.cpp:169
+#, no-c-format
+msgid "#5"
+msgstr "අංක 5"
+
+#. i18n: file dialogs/highscoreDlg.ui line 1171
+#: rc.cpp:190
+#, no-c-format
+msgid "#9"
+msgstr "අංක 9"
+
+#. i18n: file dialogs/highscoreDlg.ui line 1182
+#: rc.cpp:193
+#, no-c-format
+msgid "#3"
+msgstr "අංක 3"
+
+#. i18n: file dialogs/highscoreDlg.ui line 1319
+#: rc.cpp:211
+#, no-c-format
+msgid "#1"
+msgstr "අංක 1"
+
+#. i18n: file dialogs/infoDlg.ui line 16
+#: rc.cpp:259
+#, no-c-format
+msgid "Enemy Client Information"
+msgstr ""
+
+#. i18n: file dialogs/infoDlg.ui line 72
+#: rc.cpp:262
+#, no-c-format
+msgid "Client identifier:"
+msgstr ""
+
+#. i18n: file dialogs/infoDlg.ui line 91
+#: rc.cpp:265
+#, no-c-format
+msgid "Client information:"
+msgstr ""
+
+#. i18n: file dialogs/infoDlg.ui line 107
+#: rc.cpp:268
+#, no-c-format
+msgid "CV"
+msgstr ""
+
+#. i18n: file dialogs/infoDlg.ui line 120
+#: rc.cpp:271
+#, no-c-format
+msgid "Client version:"
+msgstr ""
+
+#. i18n: file dialogs/infoDlg.ui line 133
+#: rc.cpp:274
+#, no-c-format
+msgid "Protocol version:"
+msgstr ""
+
+#. i18n: file dialogs/infoDlg.ui line 149
+#: rc.cpp:277
+#, no-c-format
+msgid "PV"
+msgstr ""
+
+#. i18n: file dialogs/infoDlg.ui line 165
+#: rc.cpp:280
+#: rc.cpp:283
+#, no-c-format
+msgid "CI"
+msgstr ""
+
+#. i18n: file dialogs/serverDlg.ui line 28
+#: rc.cpp:289
+#, no-c-format
+msgid "Start Server"
+msgstr "සර්වරයක් ආරම්භ කරන්න"
+
+#. i18n: file dialogs/serverDlg.ui line 92
+#: rc.cpp:295
+#, no-c-format
+msgid "Choose a port where the server listens on"
+msgstr ""
+
+#. i18n: file dialogs/serverDlg.ui line 180
+#: rc.cpp:307
+#, no-c-format
+msgid "Press here to start the server"
+msgstr ""
+
+#. i18n: file dialogs/statDlg.ui line 99
+#: rc.cpp:317
+#: rc.cpp:323
+#, no-c-format
+msgid "0"
+msgstr "0"
+
+#. i18n: file dialogs/statDlg.ui line 117
+#: rc.cpp:320
+#, no-c-format
+msgid ":"
+msgstr ":"
+
+#. i18n: file dialogs/statDlg.ui line 409
+#: rc.cpp:335
+#, no-c-format
+msgid "Shows all hit ships"
+msgstr ""
+
+#. i18n: file dialogs/statDlg.ui line 513
+#: rc.cpp:341
+#, no-c-format
+msgid "Shows all water shots"
+msgstr ""
+

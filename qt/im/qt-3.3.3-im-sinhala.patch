@@ -631,9 +631,9 @@ diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/qsinhalainpu
 +};
 +
 +#endif
-diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/sinhala.pro qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala.pro
---- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/sinhala.pro	1970-01-01 05:30:00.000000000 +0530
-+++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala.pro	2004-09-17 18:22:17.000000000 +0600
+diff -Nrua qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/sinhala-t.pro qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala-t.pro
+--- qt-x11-free-3.3.3.old/plugins/src/inputmethods/sinhala-t/sinhala-t.pro	1970-01-01 05:30:00.000000000 +0530
++++ qt-x11-free-3.3.3/plugins/src/inputmethods/sinhala-t/sinhala-t.pro	2004-09-17 18:22:17.000000000 +0600
 @@ -0,0 +1,14 @@
 +TEMPLATE = lib
 +TARGET = qsinhala-t

@@ -3,8 +3,13 @@ Using Fonts in X-Window System
 By Anuradha Ratnaweera
 
 Copy all your fonts to a custom location, normally
-/usr/local/share/fonts.  They have to be added to
-two different font systems.
+/usr/local/share/fonts.
+
+    mkdir -p /usr/local/share/fonts
+    cp *.otf /usr/local/share/fonts/
+
+X Window System uses two different font systems and the
+fonts have to be added to both of them.
 
 XFT
 ---
@@ -52,7 +57,7 @@ X core
   files may not be recognized by old XFree86 systems.)
 
 * If you are using a font server, add /usr/local/share/fonts to
-  "catalogue" variable, and restart font server.
+  "catalogue" variable in /etc/X11/fs/config, and restart font server.
 
     /etc/init.d/xfs restart
 
@@ -60,7 +65,9 @@ X core
 
     FontPath  "/usr/local/fonts"
 
-  to the "Files" section of /etc/X11/XF86Config or /etc/X11/XF86Config-4.
+  to the "Files" section in /etc/X11/xorg.conf (if you are using a
+  X server from x.org), or /etc/X11/XF86Config or /etc/X11/XF86Config-4
+  (if you are using a xfree86 X server).
 
   Also make sure that the line
 

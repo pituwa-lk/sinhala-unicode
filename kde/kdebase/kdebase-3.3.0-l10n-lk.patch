@@ -1,0 +1,22 @@
+diff -rua kdebase-3.3.0.orig/l10n/lk/entry.desktop kdebase-3.3.0/l10n/lk/entry.desktop
+--- kdebase-3.3.0.orig/l10n/lk/entry.desktop	2004-10-06 12:13:48.854285744 +0600
++++ kdebase-3.3.0/l10n/lk/entry.desktop	2004-10-06 12:14:43.258015120 +0600
+@@ -19,7 +19,6 @@
+ Name[mn]=Шириланк
+ Name[pa]=ਸ੍ਰੀਲੰਕਾ
+ Name[ru]=Шри-Ланка
+-Name[si]=ශ්‍රී ලංකාව
+ Name[sl]=Šri Lanka
+ Name[sr]=Шри Ланка
+ Name[sr@Latn]=Šri Lanka
+@@ -32,7 +31,7 @@
+ Name[zh_CN]=斯里兰卡
+ Name[zh_TW]=斯里蘭卡
+ Region=southasia
+-Languages=si,ta,en_GB,en_US
++Languages=ta,en_GB
+ #DecimalSymbol=,
+ #ThousandsSeparator=
+ CurrencySymbol=SLRs
+Only in kdebase-3.3.0.orig/l10n/lk: entry.desktop.0
+Only in kdebase-3.3.0.orig/l10n/lk: entry.desktop~

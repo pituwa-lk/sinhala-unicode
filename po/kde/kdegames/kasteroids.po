@@ -1,94 +1,164 @@
+# KAsteroids 2.3 .
+# Martin R. Jones <mjones@kde.org>, 1997.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: kasteroids\n"
 "POT-Creation-Date: 2004-10-12 01:17+0200\n"
-"PO-Revision-Date: 2004-10-13 20:10+600\n"
+"PO-Revision-Date: 2004-10-13 20:10+0600\n"
 "Last-Translator: Prabath Ranasinghe <praveena_js@bonbon.net>\n"
 "Language-Team: Sinhala <sinhala@linux.lk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: UTF-8\n"
 
-msgid " ships."
-msgstr "යානා ගණන"
+#: _translatorinfo.cpp:1
+msgid ""
+"_: NAME OF TRANSLATORS\n"
+"Prabath Ranasinghe"
+msgstr ""
 
-msgid "Brake"
-msgstr "තිරිංග"
+#: _translatorinfo.cpp:3
+msgid ""
+"_: EMAIL OF TRANSLATORS\n"
+"praveena_js@bonbon.net"
+msgstr ""
 
-msgid "Fuel"
-msgstr "ඉන්ධන"
-
-msgid "Game Over!"
-msgstr "තරගය නිමාවිය!"
-
-msgid "General"
-msgstr "පොදු කරුණු"
-
-msgid "KAsteroids"
-msgstr "K උල්කා"
-
-msgid "KAsteroids is paused."
-msgstr "K උල්කා ක්‍රීඩාව ක්‍රීඩාකිරීම තාවකාලිකව අත්හිටුචා තිබේ."
-
+#: main.cpp:22
 msgid "KDE Space Game"
 msgstr "KDE අවකාශ ක්‍රීඩාව"
 
-msgid "Launch"
-msgstr "ගුවන්ගත කිරීම"
+#: main.cpp:26
+msgid "KAsteroids"
+msgstr "K උල්කා"
 
-msgid "Level"
-msgstr "තත්වය"
+#. i18n: file kasteroids.kcfg line 7
+#: rc.cpp:3 rc.cpp:6
+#, no-c-format
+msgid "Whether power upgrades can be shot."
+msgstr "බලයේ වැඩි දියුණු කිරීම් මගින් පහර දිය හැක."
 
-msgid "Paused"
-msgstr "තාවකාලිකව ක්‍රීඩාකිරීම අත්හිටුචා තිබේ."
-
-msgid "Player can destroy Powerups"
-msgstr "ක්‍රීඩකයාට බලයේ වැඩි දියුණු කිරීම් විනාශ කළ කැක"
-
-msgid "Press %1 to launch."
-msgstr "යානාව ගුවන්ගත කිරීමට %1 ඔබන්න!!!"
-
-msgid "Rotate Left"
-msgstr "වමට කැරකවීම"
-
-msgid "Rotate Right"
-msgstr "දකුණට කැරකවීම"
-
-msgid "Score"
-msgstr "ලකුණු"
-
-msgid "Shield"
-msgstr "ආවරණ ශක්තිය"
-
-msgid "Ship Destroyed. Press %1 to launch."
-msgstr "යානාව විනාශ විය,නැවත නව යානාවක් ගුවන්ගත කිරීමට %1 ඔබන්න!"
-
-msgid "Ships"
-msgstr "යානා ගණන"
-
-msgid "Shoot"
-msgstr "පහර දීම"
-
-msgid "Show highscores on Game Over"
-msgstr "ක්‍රීඩාව අවසානයේදී වැඩිm ළකුණු ප්‍රමාණයන් දර්ශනය කරන්න"
-
-msgid "Sound to play when a rock gets destroyed."
-msgstr "උල්කාවක් විනාශ වූ බව ශබ්දයකින් දන්වන්න"
-
-msgid "Sound to play when a ship gets destroyed."
-msgstr "යානාවක් විනාශ වූ බව ශබ්දයකින් දන්වන්න"
-
-msgid "Start new game with"
-msgstr "නැවත ක්‍රීඩාව ආරම්භකිරීම"
-
+#. i18n: file kasteroids.kcfg line 15
+#: rc.cpp:9
+#, no-c-format
 msgid "The number of ships per game."
 msgstr "ක්‍රීඩාව සදහා නියමිත යානා ගණන"
 
+#. i18n: file kasteroids.kcfg line 21
+#: rc.cpp:12
+#, no-c-format
+msgid "Whether to play sounds."
+msgstr "ශබ්ද වාදනය කිරීමට ඇවැසිද ?"
+
+#. i18n: file kasteroids.kcfg line 25
+#: rc.cpp:15
+#, no-c-format
+msgid "Sound to play when a ship gets destroyed."
+msgstr "යානාවක් විනාශ වූ බව ශබ්දයකින් දන්වන්න"
+
+#. i18n: file kasteroids.kcfg line 29
+#: rc.cpp:18
+#, no-c-format
+msgid "Sound to play when a rock gets destroyed."
+msgstr "උල්කාවක් විනාශ වූ බව ශබ්දයකින් දන්වන්න"
+
+#: toplevel.cpp:102
+msgid "Score"
+msgstr "ලකුණු"
+
+#: toplevel.cpp:116
+msgid "Level"
+msgstr "තත්වය"
+
+#: toplevel.cpp:130
+msgid "Ships"
+msgstr "යානා ගණන"
+
+#: toplevel.cpp:232
+msgid "Fuel"
+msgstr "ඉන්ධන"
+
+#: toplevel.cpp:293
 msgid "Thrust"
 msgstr "බලය"
 
-msgid "Whether power upgrades can be shot."
-msgstr "බලය වැඩි දියුණු කිරීම් මගින් පහර දිය හැක."
+#: toplevel.cpp:294
+msgid "Rotate Left"
+msgstr "වමට කැරකවීම"
 
-msgid "Whether to play sounds."
-msgstr "ශබ්ද වාදනය කිරීමට ඇවැසිද?"
+#: toplevel.cpp:295
+msgid "Rotate Right"
+msgstr "දකුණට කැරකවීම"
+
+#: toplevel.cpp:296
+msgid "Shoot"
+msgstr "පහර දීම"
+
+#: toplevel.cpp:298
+msgid "Brake"
+msgstr "තිරිංග"
+
+#: toplevel.cpp:299
+msgid "Shield"
+msgstr "ආවරණ ශක්තිය"
+
+#: toplevel.cpp:300
+msgid "Launch"
+msgstr "ගුවන්ගත කිරීම"
+
+#: toplevel.cpp:486 toplevel.cpp:579
+msgid "Press %1 to launch."
+msgstr "යානාව ගුවන්ගත කිරීමට %1 ඔබන්න!!!"
+
+#: toplevel.cpp:511
+msgid "Ship Destroyed. Press %1 to launch."
+msgstr "යානාව විනාශ විය,නැවත නව යානාවක් ගුවන්ගත කිරීමට %1 ඔබන්න!"
+
+#: toplevel.cpp:517
+msgid "Game Over!"
+msgstr "තරගය නිමාවිය! නැවත උත්සාහ කරන්න"
+
+#: toplevel.cpp:596
+msgid "Start new game with"
+msgstr "නව ක්‍රීඩාව ආරම්භකිරීම:"
+
+#: toplevel.cpp:599
+msgid " ships."
+msgstr "යානා ගණන"
+
+#: toplevel.cpp:606
+msgid "Show highscores on Game Over"
+msgstr "ක්‍රීඩාව අවසානයෙහිදී වැඩිම ළකුණු ප්‍රමාණයන් දර්ශනය කරන්න"
+
+#: toplevel.cpp:607
+msgid "Player can destroy Powerups"
+msgstr "ක්‍රීඩකයාට බලයෙහි වැඩි දියුණු කිරීම් විනාශ කළ කැක"
+
+#: toplevel.cpp:615
+msgid "General"
+msgstr "පොදු කරුණු"
+
+#: toplevel.cpp:635
+msgid ""
+"Game Over\n"
+"\n"
+"Shots fired:\t%1\n"
+"  Hit:\t%2\n"
+"  Missed:\t%3\n"
+"Hit ratio:\t%4 %\t\t"
+msgstr ""
+"ක්‍රීඩාව අවසානයි.\n"
+"\n"
+"පහර දීම් ගණන:\t%1\n"
+"  වැදුනු පහරවල් ගණන:\t%2\n"
+"  නොවැදුනු පහරවල් ගණන:\t%3\n"
+"පහර වැදීමේ හැකියාව:\t%4 %\t\t"
+
+#: toplevel.cpp:659
+msgid "KAsteroids is paused"
+msgstr "K උල්කා ක්‍රීඩාව ක්‍රීඩාකිරීම තාවකාලිකව අත්හිටුචා තිබේ."
+
+#: toplevel.cpp:660
+msgid "Paused"
+msgstr "තාවකාලිකව ක්‍රීඩාකිරීම අත්හිටුචා තිබේ."

@@ -1,0 +1,50 @@
+diff -rua xc.old/nls/compose.dir xc/nls/compose.dir
+--- xc.old/nls/compose.dir	2004-09-09 10:58:48.818049792 +0600
++++ xc/nls/compose.dir	2004-09-09 10:56:44.757909800 +0600
+@@ -331,6 +331,7 @@
+ en_US.UTF-8/Compose:		ro_RO.UTF-8
+ en_US.UTF-8/Compose:		ru_RU.UTF-8
+ en_US.UTF-8/Compose:		ru_UA.UTF-8
++en_US.UTF-8/Compose:		si_LK.UTF-8
+ en_US.UTF-8/Compose:		sk_SK.UTF-8
+ en_US.UTF-8/Compose:		sl_SI.UTF-8
+ en_US.UTF-8/Compose:		sq_AL.UTF-8
+diff -rua xc.old/nls/locale.alias xc/nls/locale.alias
+--- xc.old/nls/locale.alias	2004-09-09 11:03:02.651461248 +0600
++++ xc/nls/locale.alias	2004-09-09 11:10:04.212374248 +0600
+@@ -708,6 +708,8 @@
+ sh_SP:						sh_YU.ISO8859-2
+ sh_YU:						sh_YU.ISO8859-2
+ sh_YU.utf8:					sh_YU.UTF-8
++si:						si_LK.UTF-8
++si_LK:						si_LK.UTF-8
+ sk:						sk_SK.ISO8859-2
+ sk_SK:						sk_SK.ISO8859-2
+ sk_SK.iso88592:					sk_SK.ISO8859-2
+@@ -911,6 +913,7 @@
+ rumanian:					ro_RO.ISO8859-2
+ russian:					ru_RU.ISO8859-5
+ serbocroatian:					sh_YU.ISO8859-2
++sinhala:					si_LK.UTF-8
+ slovak:						sk_SK.ISO8859-2
+ slovene:					sl_SI.ISO8859-2
+ slovenian:					sl_SI.ISO8859-2
+@@ -1016,6 +1019,7 @@
+ Portuguese_Portugal.1252:			pt_PT.iso8859-1
+ Romanian_Romania.1250:				ro_RO.iso8859-2
+ Russian_Russia.1251:				ru_RU.iso8859-5
++Sinhala_Sri Lanka.1115:				si_LK.UTF-8
+ Slovak_Slovakia.1250:				sk_SK.iso8859-2
+ Slovene_Slovenia.1250:				sl_SI.iso8859-2
+ Albanian_Albania.1250:				sq_AL.iso8859-2
+diff -rua xc.old/nls/locale.dir xc/nls/locale.dir
+--- xc.old/nls/locale.dir	2004-09-09 11:03:10.388285072 +0600
++++ xc/nls/locale.dir	2004-09-09 11:03:25.408001728 +0600
+@@ -362,6 +362,7 @@
+ en_US.UTF-8/XLC_LOCALE:			ru_UA.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			se_NO.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			sh_YU.UTF-8
++en_US.UTF-8/XLC_LOCALE:			si_LK.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			sk_SK.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			sl_SI.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			sq_AL.UTF-8

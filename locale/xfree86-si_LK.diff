@@ -1,0 +1,50 @@
+diff -Nrua locale.old/compose.dir locale/compose.dir
+--- locale.old/compose.dir	2004-09-01 10:33:43.084176776 +0600
++++ locale/compose.dir	2004-09-01 10:33:01.903437200 +0600
+@@ -374,6 +374,7 @@
+ en_US.UTF-8/Compose	ru_RU.UTF-8
+ en_US.UTF-8/Compose	ru_UA.UTF-8
+ en_US.UTF-8/Compose	se_NO.UTF-8
++en_US.UTF-8/Compose	si_LK.UTF-8
+ en_US.UTF-8/Compose	sk_SK.UTF-8
+ en_US.UTF-8/Compose	sl_SI.UTF-8
+ en_US.UTF-8/Compose	sq_AL.UTF-8
+@@ -776,6 +777,7 @@
+ en_US.UTF-8/Compose:	ru_RU.UTF-8
+ en_US.UTF-8/Compose:	ru_UA.UTF-8
+ en_US.UTF-8/Compose:	se_NO.UTF-8
++en_US.UTF-8/Compose:	si_LK.UTF-8
+ en_US.UTF-8/Compose:	sk_SK.UTF-8
+ en_US.UTF-8/Compose:	sl_SI.UTF-8
+ en_US.UTF-8/Compose:	sq_AL.UTF-8
+diff -Nrua locale.old/locale.alias locale/locale.alias
+--- locale.old/locale.alias	2004-09-01 10:33:20.353632344 +0600
++++ locale/locale.alias	2004-09-01 10:33:01.905436896 +0600
+@@ -515,6 +515,8 @@
+ sh_HR.ISO-8859-2					sh_HR.ISO8859-2
+ sh_YU						sh_YU.ISO8859-2
+ sh_SP						sh_YU.ISO8859-2
++si						si_LK.UTF-8
++si_LK					si_LK.UTF-8
+ sk						sk_SK.ISO8859-2
+ sk_SK						sk_SK.ISO8859-2
+ sk_SK.ISO-8859-2					sk_SK.ISO8859-2
+diff -Nrua locale.old/locale.dir locale/locale.dir
+--- locale.old/locale.dir	2004-09-01 10:33:33.666608464 +0600
++++ locale/locale.dir	2004-09-01 10:33:01.907436592 +0600
+@@ -393,6 +393,7 @@
+ en_US.UTF-8/XLC_LOCALE	ru_RU.UTF-8
+ en_US.UTF-8/XLC_LOCALE	ru_UA.UTF-8
+ en_US.UTF-8/XLC_LOCALE	se_NO.UTF-8
++en_US.UTF-8/XLC_LOCALE	si_LK.UTF-8
+ en_US.UTF-8/XLC_LOCALE	sk_SK.UTF-8
+ en_US.UTF-8/XLC_LOCALE	sl_SI.UTF-8
+ en_US.UTF-8/XLC_LOCALE	sq_AL.UTF-8
+@@ -814,6 +815,7 @@
+ en_US.UTF-8/XLC_LOCALE:	ru_RU.UTF-8
+ en_US.UTF-8/XLC_LOCALE:	ru_UA.UTF-8
+ en_US.UTF-8/XLC_LOCALE:	se_NO.UTF-8
++en_US.UTF-8/XLC_LOCALE:	si_LK.UTF-8
+ en_US.UTF-8/XLC_LOCALE:	sk_SK.UTF-8
+ en_US.UTF-8/XLC_LOCALE:	sl_SI.UTF-8
+ en_US.UTF-8/XLC_LOCALE:	sq_AL.UTF-8

@@ -1,0 +1,261 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: KSnakes\n"
+"POT-Creation-Date: 2004-10-12 01:17+0200\n"
+"PO-Revision-Date: 2004-10-18 19:40+0600\n"
+"Last-Translator: Prabath Ranasinghe <praveena_js@bonbon.net>\n"
+"Language-Team: Sinhala <sinhala@linux.lk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: _translatorinfo.cpp:1
+msgid ""
+"_: NAME OF TRANSLATORS\n"
+"Prabath Ranasinghe"
+msgstr ""
+
+#: _translatorinfo.cpp:3
+msgid ""
+"_: EMAIL OF TRANSLATORS\n"
+"praveena_js@bonbon.net"
+msgstr ""
+
+#: game.cpp:54
+msgid "Score: 0"
+msgstr "ළකුණු: 0"
+
+#: game.cpp:55
+msgid "Lives: 0"
+msgstr "වාරයන්: 0"
+
+#: game.cpp:85
+#, c-format
+msgid "Score: %1"
+msgstr "ළකුණු: %1"
+
+#: game.cpp:89
+#, c-format
+msgid "Lives: %1"
+msgstr "වාරයන්: %1"
+
+#: game.cpp:110
+msgid "Move Up"
+msgstr "උඩට චලනය කරන්න"
+
+#: game.cpp:111
+msgid "Move Down"
+msgstr "පහළට චලනය කරන්න"
+
+#: game.cpp:112
+msgid "Move Right"
+msgstr "දකුණට චලනය කරන්න"
+
+#: game.cpp:113
+msgid "Move Left"
+msgstr "වමට චලනය කරන්න"
+
+#: game.cpp:145
+msgid "General"
+msgstr "පොදු"
+
+#: game.cpp:153
+msgid "none"
+msgstr "නොමැත"
+
+#: game.cpp:169
+msgid "First Level"
+msgstr "පළමු අදියර"
+
+#: main.cpp:26
+msgid "KDE Snake Race Game"
+msgstr "KDE උරග තරගය"
+
+#: main.cpp:30
+msgid "KSnakeRace"
+msgstr "K උරග තරගය"
+
+#: main.cpp:32
+msgid "(c) 1997-2000, Your Friendly KSnake Developers"
+msgstr "(c) 1997-2000, ඔබේ මිතුරු K උරග නිෂ්පාදන කණ්ඩායම"
+
+#: main.cpp:36
+msgid "AI stuff"
+msgstr "කෘත්‍රිම බුද්ධි ක්‍රමය"
+
+#: main.cpp:37
+msgid "Improvements"
+msgstr "වැඩිදියුණුකිරීම්"
+
+#: pixServer.cpp:178
+msgid "error loading %1, aborting\n"
+msgstr "දෝශයක් හේතුවෙන් %1 ක්‍රියාත්මක නොවුණි\n"
+
+#: rattler.cpp:308
+msgid ""
+"Game Paused\n"
+" Press %1 to resume\n"
+msgstr ""
+"ක්‍රීඩාව තාවකාලිකව අත්හිටුවා ඇත.\n"
+" නැවත ආරම්භ කිරීමට %1 ඔබන්න.\n"
+
+#: rattler.cpp:385
+msgid ""
+"A game is already started.\n"
+"Start a new one?\n"
+msgstr ""
+"ක්‍රීඩාව වරක් ආරම්භකර ඇත.\n"
+"නැවත ආරම්භ කළ යුතුද?\n"
+msgstr ""
+
+#: rattler.cpp:386
+msgid "Snake Race"
+msgstr "උරග ක්‍රීඩාව"
+
+#. i18n: file appearance.ui line 24
+#: rc.cpp:3
+#, no-c-format
+msgid "Background"
+msgstr "පසුබිම"
+
+#. i18n: file appearance.ui line 48
+#: rc.cpp:7
+#, no-c-format
+msgid "Color:"
+msgstr "වර්ණය:"
+
+#. i18n: file appearance.ui line 59
+#: rc.cpp:10
+#, no-c-format
+msgid "Image:"
+msgstr "චිත්‍රය:"
+
+#. i18n: file general.ui line 24
+#: rc.cpp:13
+#, no-c-format
+msgid "Speed"
+msgstr "වේගය"
+
+#. i18n: file general.ui line 52
+#: rc.cpp:16
+#, no-c-format
+msgid "Slow"
+msgstr "සෙමින්"
+
+#. i18n: file general.ui line 60
+#: rc.cpp:19
+#, no-c-format
+msgid "Fast"
+msgstr "වේගවත්ව"
+
+#. i18n: file general.ui line 73
+#: rc.cpp:22
+#, no-c-format
+msgid "Snakes"
+msgstr "සර්පයින්"
+
+#. i18n: file general.ui line 84
+#: rc.cpp:25
+#, no-c-format
+msgid "Snake behavior:"
+msgstr "සර්පයින්ගේ හැසිරීම:"
+
+#. i18n: file general.ui line 90
+#: rc.cpp:28
+#, no-c-format
+msgid "Random"
+msgstr "අක්‍රමවත් ලෙස"
+
+#. i18n: file general.ui line 95
+#: rc.cpp:31
+#, no-c-format
+msgid "Eater"
+msgstr "අහාරයට ගන්නා"
+
+#. i18n: file general.ui line 100
+#: rc.cpp:34 rc.cpp:52
+#, no-c-format
+msgid "Killer"
+msgstr "විනාශ කරන්නා"
+
+#. i18n: file general.ui line 120
+#: rc.cpp:37
+#, no-c-format
+msgid "Number of snakes:"
+msgstr "සර්පයින් ගණන:"
+
+#. i18n: file general.ui line 130
+#: rc.cpp:40
+#, no-c-format
+msgid "Balls"
+msgstr "පන්දු"
+
+#. i18n: file general.ui line 141
+#: rc.cpp:43
+#, no-c-format
+msgid "Number of balls:"
+msgstr "පන්දු ප්‍රමාණය:"
+
+#. i18n: file general.ui line 155
+#: rc.cpp:46
+#, no-c-format
+msgid "Dumb"
+msgstr "නිශ්ශබ්දබව"
+
+#. i18n: file general.ui line 160
+#: rc.cpp:49
+#, no-c-format
+msgid "Average"
+msgstr "මැදි අගය"
+
+#. i18n: file general.ui line 177
+#: rc.cpp:55
+#, no-c-format
+msgid "Ball behavior:"
+msgstr "පන්දුවල හැසිරීම:"
+
+#. i18n: file ksnake.kcfg line 10
+#: rc.cpp:58
+#, no-c-format
+msgid "The background color of the game."
+msgstr "ක්‍රීඩාව සදහා පසුබිම් වර්ණය"
+
+#. i18n: file ksnake.kcfg line 17
+#: rc.cpp:61
+#, no-c-format
+msgid "Background Image"
+msgstr "පසුබිම් චිත්‍රය"
+
+#. i18n: file ksnake.kcfg line 22
+#: rc.cpp:64
+#, no-c-format
+msgid "Snake speed"
+msgstr "සර්පයන්ගේ චලන වේගය"
+
+#. i18n: file ksnake.kcfg line 26
+#: rc.cpp:67
+#, no-c-format
+msgid "Number of Snakes in the game"
+msgstr "ක්‍රීඩාව සදහා ඇවැසි සර්පයින් ගණන"
+
+#. i18n: file ksnake.kcfg line 30
+#: rc.cpp:70
+#, no-c-format
+msgid "Snake Behavior"
+msgstr "සර්පයින්ගේ හැසිරීම"
+
+#. i18n: file ksnake.kcfg line 35
+#: rc.cpp:73
+#, no-c-format
+msgid "Number of Balls in the game"
+msgstr "ක්‍රීඩාව සදහා ඇවැසි පන්දු ගණන"
+
+#. i18n: file ksnake.kcfg line 39
+#: rc.cpp:76
+#, no-c-format
+msgid "Ball Behavior"
+msgstr "පන්දුවල හැසිරීම"
+
+#: startroom.cpp:55
+msgid "First level:"
+msgstr "පළමු අදියර"

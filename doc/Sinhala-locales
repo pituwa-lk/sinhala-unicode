@@ -60,7 +60,7 @@ X windows
 
     en_US.UTF-8/XLC_LOCALE:  si_LK.UTF-8
 
-  to alphabatically suitable locations in compose.dir file.  Notice that
+  to alphabatically suitable locations in locale.dir file.  Notice that
   the lines with colons are in a seperate part of the file than the ones
   without colons.
 

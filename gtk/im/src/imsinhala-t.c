@@ -275,159 +275,161 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 	if (event->state & (gtk_accelerator_get_default_mod_mask() & ~GDK_SHIFT_MASK))
 		return FALSE;
 
-	if (event->keyval) {
-		if (event->keyval == GDK_F12) {
-			sinhala_input = !sinhala_input;
-			return TRUE;
-		}
-		if (!sinhala_input && (event->keyval < 128)) {
-			u = malloc(2);
-			u[0] = event->keyval;
-			u[1] = 0;
+	if (event->keyval == 0)
+		return FALSE;
 
-			g_signal_emit_by_name (context, "commit", u);
+	if (event->keyval == GDK_F12) {
+		sinhala_input = !sinhala_input;
+		return TRUE;
+	}
 
-			free(u);
-			return TRUE;
-		}
+	if (!sinhala_input && (event->keyval < 128)) {
+		u = malloc(2);
+		u[0] = event->keyval;
+		u[1] = 0;
 
-		has_surroundings = gtk_im_context_get_surrounding(context, &text, &cursor);
-		c = find_consonent_by_key(event->keyval);
+		g_signal_emit_by_name (context, "commit", u);
 
-		if (c >= 0) { /* a consonent is pressed. */
+		free(u);
+		return TRUE;
+	}
 
-			/* do modifiers first. */
-			if (has_surroundings && (cursor >= 3)) {
-				c1 = get_known_lsb_character(text + cursor - 3);
-				l1 = find_consonent(c1);
-				/* do modifiers only if there is a valid character before */
-				if (l1 >= 0) {
-					if (event->keyval == GDK_w) {
-						u = create_unicode_character_from_lsb(0xca);
+	has_surroundings = gtk_im_context_get_surrounding(context, &text, &cursor);
+	c = find_consonent_by_key(event->keyval);
+
+	if (c >= 0) { /* a consonent is pressed. */
+
+		/* do modifiers first. */
+		if (has_surroundings && (cursor >= 3)) {
+			c1 = get_known_lsb_character(text + cursor - 3);
+			l1 = find_consonent(c1);
+			/* do modifiers only if there is a valid character before */
+			if (l1 >= 0) {
+				if (event->keyval == GDK_w) {
+					u = create_unicode_character_from_lsb(0xca);
+					g_signal_emit_by_name (context, "commit", u);
+					free(u);
+					free(text);
+					return TRUE;
+				}
+				else if (event->keyval == GDK_W) {
+					/* bandi hal kireema */
+					u = malloc(7);
+					u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
+					u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
+					u[6] = 0;
+
+					g_signal_emit_by_name (context, "commit", u);
+
+					free(u);
+					free(text);
+					return TRUE;
+				}
+				else if (event->keyval == GDK_H) {
+					if (consonents[l1].mahaprana) {
+						gtk_im_context_delete_surrounding(context, -1, 1);
+						u = create_unicode_character_from_lsb(consonents[l1].mahaprana);
 						g_signal_emit_by_name (context, "commit", u);
 						free(u);
 						free(text);
 						return TRUE;
 					}
-					else if (event->keyval == GDK_W) {
-						/* bandi hal kireema */
-						u = malloc(7);
-						u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
-						u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
-						u[6] = 0;
-
-       					g_signal_emit_by_name (context, "commit", u);
-
+				}
+				else if (event->keyval == GDK_G) {
+					if (consonents[l1].sagngnaka) {
+						gtk_im_context_delete_surrounding(context, -1, 1);
+						u = create_unicode_character_from_lsb(consonents[l1].sagngnaka);
+						g_signal_emit_by_name (context, "commit", u);
 						free(u);
 						free(text);
 						return TRUE;
 					}
-					else if (event->keyval == GDK_H) {
-						if (consonents[l1].mahaprana) {
-							gtk_im_context_delete_surrounding(context, -1, 1);
-							u = create_unicode_character_from_lsb(consonents[l1].mahaprana);
-          					g_signal_emit_by_name (context, "commit", u);
-							free(u);
-							free(text);
-							return TRUE;
-						}
-					}
-					else if (event->keyval == GDK_G) {
-						if (consonents[l1].sagngnaka) {
-							gtk_im_context_delete_surrounding(context, -1, 1);
-							u = create_unicode_character_from_lsb(consonents[l1].sagngnaka);
-          					g_signal_emit_by_name (context, "commit", u);
-							free(u);
-							free(text);
-							return TRUE;
-						}
-					}
-					else if (event->keyval == GDK_R) {
-						/* rakaraanshaya */
-						u = malloc(10);
-						u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
-						u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
-						u[6] = 0xe0; u[7] = 0xb6; u[8] = 0xbb;
-						u[9] = 0;
+				}
+				else if (event->keyval == GDK_R) {
+					/* rakaraanshaya */
+					u = malloc(10);
+					u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
+					u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
+					u[6] = 0xe0; u[7] = 0xb6; u[8] = 0xbb;
+					u[9] = 0;
 
-       					g_signal_emit_by_name (context, "commit", u);
+					g_signal_emit_by_name (context, "commit", u);
 
-						free(u);
-						free(text);
-						return TRUE;
-					}
-					else if (event->keyval == GDK_Y) {
-						/* yansaya */
-						u = malloc(10);
-						u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
-						u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
-						u[6] = 0xe0; u[7] = 0xb6; u[8] = 0xba;
-						u[9] = 0;
+					free(u);
+					free(text);
+					return TRUE;
+				}
+				else if (event->keyval == GDK_Y) {
+					/* yansaya */
+					u = malloc(10);
+					u[0] = 0xe0; u[1] = 0xb7; u[2] = 0x8a;
+					u[3] = 0xe2; u[4] = 0x80; u[5] = 0x8d;
+					u[6] = 0xe0; u[7] = 0xb6; u[8] = 0xba;
+					u[9] = 0;
 
-       					g_signal_emit_by_name (context, "commit", u);
+					g_signal_emit_by_name (context, "commit", u);
 
-						free(u);
-						free(text);
-						return TRUE;
-					}
+					free(u);
+					free(text);
+					return TRUE;
 				}
 			}
-
-			u = create_unicode_character_from_lsb(consonents[c].character);
-          	g_signal_emit_by_name (context, "commit", u);
-			free(u);
-			if (has_surroundings) free(text);
-			return TRUE;
-			/* end of consonent handling. */
 		}
 
-		c = find_vowel_by_key(event->keyval);
-		if (c >= 0) {
-			/* a vowel is pressed. */
-
-			/* look for a previous character first. */
-			u = NULL;
-			if (has_surroundings && (cursor >= 3)) {
-				c1 = get_known_lsb_character(text + cursor - 3);
-				if (is_consonent(c1)) {
-					u = create_unicode_character_from_lsb(vowels[c].single1);
-				}
-				else if (c1 == vowels[c].single0) {
-					gtk_im_context_delete_surrounding(context, -1, 1);
-					u = create_unicode_character_from_lsb(vowels[c].double0);
-				}
-				else if (c1 == vowels[c].single1) {
-					gtk_im_context_delete_surrounding(context, -1, 1);
-					u = create_unicode_character_from_lsb(vowels[c].double1);
-				}
-			}
-
-			if (u == NULL)
-				u = create_unicode_character_from_lsb(vowels[c].single0);
-
-			g_signal_emit_by_name (context, "commit", u);
-
-			free(u);
-			if (has_surroundings) free(text);
-			return TRUE;
-			/* end of vowel handling. */
-		}
-		if (event->keyval < 128) {
-			u = malloc(2);
-			u[0] = event->keyval;
-			u[1] = 0;
-			g_signal_emit_by_name (context, "commit", u);
-			free(u);
-			if (has_surroundings) free(text);
-			return TRUE;
-		}
-		if (event->keyval == GDK_BackSpace) {
-		    gtk_im_context_delete_surrounding(context, -1, 1);
-		    if (has_surroundings) free(text);
-		    return TRUE;
-		}
+		u = create_unicode_character_from_lsb(consonents[c].character);
+         	g_signal_emit_by_name (context, "commit", u);
+		free(u);
 		if (has_surroundings) free(text);
+		return TRUE;
+		/* end of consonent handling. */
 	}
+
+	c = find_vowel_by_key(event->keyval);
+	if (c >= 0) {
+		/* a vowel is pressed. */
+
+		/* look for a previous character first. */
+		u = NULL;
+		if (has_surroundings && (cursor >= 3)) {
+			c1 = get_known_lsb_character(text + cursor - 3);
+			if (is_consonent(c1)) {
+				u = create_unicode_character_from_lsb(vowels[c].single1);
+			}
+			else if (c1 == vowels[c].single0) {
+				gtk_im_context_delete_surrounding(context, -1, 1);
+				u = create_unicode_character_from_lsb(vowels[c].double0);
+			}
+			else if (c1 == vowels[c].single1) {
+				gtk_im_context_delete_surrounding(context, -1, 1);
+				u = create_unicode_character_from_lsb(vowels[c].double1);
+			}
+		}
+
+		if (u == NULL)
+			u = create_unicode_character_from_lsb(vowels[c].single0);
+
+		g_signal_emit_by_name (context, "commit", u);
+
+		free(u);
+		if (has_surroundings) free(text);
+		return TRUE;
+		/* end of vowel handling. */
+	}
+	if (event->keyval < 128) {
+		u = malloc(2);
+		u[0] = event->keyval;
+		u[1] = 0;
+		g_signal_emit_by_name (context, "commit", u);
+		free(u);
+		if (has_surroundings) free(text);
+		return TRUE;
+	}
+	if (event->keyval == GDK_BackSpace) {
+	    gtk_im_context_delete_surrounding(context, -1, 1);
+	    if (has_surroundings) free(text);
+	    return TRUE;
+	}
+	if (has_surroundings) free(text);
 
 	return FALSE;
 }

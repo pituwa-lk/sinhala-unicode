@@ -1,8 +1,41 @@
 Release Notes for 0.2
----------------------
-Version 0.2 adds a keyboard driver for QT and fixes a critical bug, and it is fairly stable.  It also has many improvements to the GTK input method including the use of <F12> to switch to Latin temporally.
+=====================
 
-An Aspell dictionary for Sinhala has also been added.  The word list (si.wl) included in this release is small, but a large one is expected.
+GTK/GNOME
+---------
 
-Although QT is fixed, not all the KDE applications work out of the box.  Most of the small entries in dialog boxes are working, but big widgets such as text editors need more fixes.
+GTK keyboard input was improved substantially in terms of
+usability, the most visible being the use of <F12> to switch
+temporally to Latin input.  Pango patch was not changed, but was
+ported to more versions.  GTK/GNOME rendering and keyboard input
+can be considered fairly stable now.
+
+QT/KDE
+------
+
+QT has a critical bug which prevented rendering certain
+combinations of characters (e.g.: kanthoruwa) wrong.  A patch is
+included in 0.2 which fixes this in the QT script engine.  It
+also has a patch to add surround text support to QT, and a
+Sinhala keyboard input module, which works very similar to the
+GTK input module.
+
+These three changes to QT makes its Sinhala support almost
+perfect.  The bad news is that they break binary compatibility,
+so one has to recompile all the applications that depend on QT,
+and certain KDE applications don't work out of the box, although
+QT has been fixed.
+
+Spell Checking
+--------------
+
+An Aspell dictionary for Sinhala has been added.  The word list
+(si.wl) included in this release is small, but a large one is
+expected soon.
+
+Samples
+-------
+
+A small utility (kavi) is included to format Sinhala poetry, and
+the release comes with few samples.
 

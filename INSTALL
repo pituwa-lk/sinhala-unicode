@@ -29,6 +29,9 @@
    (step 2) is not necessary if the `configure' script is
    already there.
 
+   Also make sure you have the libtoolize command which comes
+   with the libtool package.
+
    cd gtk/im/
    ./autogen.sh
    ./configure

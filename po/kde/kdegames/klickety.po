@@ -1,0 +1,47 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Klickety\n"
+"POT-Creation-Date: 2004-10-12 01:17+0200\n"
+"PO-Revision-Date: 2004-10-14 19:56+0600\n"
+"Last-Translator: Prabath Ranasinghe <praveena_js@bonbon.net>\n"
+"Language-Team: Sinhala (සිංහල) <sinhala@linux.lk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: piece.cpp:20
+msgid "Color #%1:"
+msgstr "වර්ණය #%1:"
+
+#: field.cpp:17
+msgid "Remaining blocks"
+msgstr "ඉතිරි කොටස් ගණන"
+
+#: field.cpp:20
+msgid ""
+"<qt>Display the number of remaining blocks.<br/>It turns <font "
+"color=\"blue\">blue</font> if it is a highscore and <font "
+"color=\"red\">red</font> if it is the best local score.</qt>"
+msgstr ""
+"<qt>ඉතිරි කොටස් ගණන පෙන්වන්නේ,<br/>It turns <font "
+"color=\"blue\">blue</font> එය විශාලතම ලකුණු ගණන වූවිට සහ <font "
+"color=\"red\">red</font> එය මෙම පරිගණකයේ සටහන් වී ඇති වැඩිම ලකුණු ගණන වූ විට වේ.</qt>"
+
+#: field.cpp:29
+msgid "Elapsed time"
+msgstr "ගතවුණු කාලය"
+
+#: main.cpp:16
+msgid "Klickety"
+msgstr "කේලික්කෙටි ක්‍රීඩාව"
+
+#: main.cpp:17
+msgid "Klickety is an adaptation of the \"clickomania\" game"
+msgstr "මෙම ක්‍රීඩාව ක්ලිකෝමේනියා ක්‍රීඩාව ඇසුරින් නිපදවන ලදි."
+
+#: main.cpp:19
+msgid "Removed blocks"
+msgstr "ඉවත් කළ කොටස් ගණන"
+
+#: main.cpp:45
+msgid "Icons"
+msgstr "මූර්ති"

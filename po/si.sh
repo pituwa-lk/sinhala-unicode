@@ -17,7 +17,7 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #
 
-TRANSLATION_FILE=si.dat
+TRANSLATION_FILE=si.po
 
 for PREFIX in /usr /usr/kde/[34]*
 do
@@ -80,7 +80,7 @@ do
 	echo "done"
 done
 
-./si.pl < si.dat
+./si.pl < $TRANSLATION_FILE
 
 find -name '*.po' -exec mv -f {}.new {} \;
 

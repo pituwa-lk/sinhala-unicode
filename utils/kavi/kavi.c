@@ -1,3 +1,25 @@
+/*
+ * Anuradha Ratnaweera (anuradha at gnu org)
+ *
+ * Copyright (C) 2004 by Anuradha Ratnaweera
+ *
+ * Sinhala poetry formatter.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2.1 of the License, or
+ * (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
 #include <stdio.h>
 #include <string.h>
 
@@ -29,6 +51,7 @@ int main()
 	char buffer[4096];
 	int tabs[64];
 	int in_verse = 0;
+	int n = 0;
 
 	init();
 
@@ -53,11 +76,15 @@ int main()
 					buffer[i] = 0;
 					tabs[++t] = i + 1;
 				}
-			if (!in_verse)
+			if (!in_verse) {
+				n++;
 				printf("\t\t\t\t<table width=\"100%%\">\n");
-			in_verse = 1;
+				printf("\t\t\t\t\t<tr><td align=\"left\">%2d.</td>", n);
+				in_verse = 1;
+			}
+			else
+				printf("\t\t\t\t\t<tr><td>&nbsp;</td>");
 
-			printf("\t\t\t\t\t<tr>");
 			for (i = 0; i < t; i++)
 				printf("<td align=\"left\">%s</td>", buffer + tabs[i]);
 			printf("<td width=\"100%%\" align=\"");

@@ -1,14 +1,18 @@
-----------------
---- Accepted ---
-----------------
+Accepted 
+--------
+
+X.Org
+- Adding si_LK locale
+  http://freedesktop.org/bugzilla/show_bug.cgi?id=1544
+  http://freedesktop.org/bugzilla/show_bug.cgi?id=1274
 
 XFree86
 - Adding si_LK locale
   http://bugs.xfree86.org/show_bug.cgi?id=1465
 
----------------
---- Pending ---
----------------
+
+Pending
+-------
 
 GLIBC
 - Adding si_LK locale
@@ -26,8 +30,4 @@ QT
 - Script engine bug with halant grouping
   Issue #57856 (couldn't find a public link)
 
-X.Org
-- Adding si_LK locale
-  http://freedesktop.org/bugzilla/show_bug.cgi?id=1544
-  http://freedesktop.org/bugzilla/show_bug.cgi?id=1274
 

@@ -1,6 +1,11 @@
 Accepted 
 --------
 
+QT
+- Script engine bug with halant grouping
+  Issue #57856
+  http://www.lug.lk/lurker/thread/20041110.042559.1c41c2ae.si.html
+
 X.Org
 - Adding si_LK locale
   http://freedesktop.org/bugzilla/show_bug.cgi?id=1544
@@ -9,6 +14,15 @@ X.Org
 XFree86
 - Adding si_LK locale
   http://bugs.xfree86.org/show_bug.cgi?id=1465
+
+
+Rejected
+--------
+
+KDE
+- Adding si, en_US and country name in Sinhala to LK
+  http://bugs.kde.org/show_bug.cgi?id=90835
+  Changes have to come through an official translation team
 
 
 Pending
@@ -21,13 +35,5 @@ GLIBC
 GNOME
 - Pango rendering patch
   http://bugzilla.gnome.org/show_bug.cgi?id=153517
-
-KDE
-- Adding si, en_US and country name in Sinhala to LK
-  http://bugs.kde.org/show_bug.cgi?id=90835
-
-QT
-- Script engine bug with halant grouping
-  Issue #57856 (couldn't find a public link)
 
 

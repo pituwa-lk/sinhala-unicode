@@ -383,7 +383,7 @@ sinhala_phonetic_filter_keypress(GtkIMContext *context,
 			if (u == NULL)
 				u = create_unicode_character_from_lsb(vowels[c].single0);
 
-          	g_signal_emit_by_name (context, "commit", u);
+			g_signal_emit_by_name (context, "commit", u);
 
 			free(u);
 			if (has_surroundings) free(text);
@@ -394,10 +394,15 @@ sinhala_phonetic_filter_keypress(GtkIMContext *context,
 			u = malloc(2);
 			u[0] = event->keyval;
 			u[1] = 0;
-          	g_signal_emit_by_name (context, "commit", u);
+			g_signal_emit_by_name (context, "commit", u);
 			free(u);
 			if (has_surroundings) free(text);
 			return TRUE;
+		}
+		if (event->keyval == GDK_BackSpace) {
+		    gtk_im_context_delete_surrounding(context, -1, 1);
+		    if (has_surroundings) free(text);
+		    return TRUE;
 		}
 		if (has_surroundings) free(text);
 	}

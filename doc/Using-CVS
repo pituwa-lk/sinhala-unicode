@@ -36,16 +36,16 @@ o If you don't have write access, do a
 o To add new text files:
 
     cvs add [file ...]
-	cvs commit
+    cvs commit
 
 o To add new binary files (images, etc)
 
     cvs add -kb [file ...]
-	cvs commit
+    cvs commit
 
 o To remove files:
 
     rm [file ...]
-	cvs remove [file ...]
-	cvs commit
+    cvs remove [file ...]
+    cvs commit
 

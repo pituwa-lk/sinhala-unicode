@@ -15,7 +15,7 @@
    ./si.sh
 
 5. Recompile pango to your system using patches in
-   rendering/pagno.
+   rendering/pango.
 
 6. Install gtk keyboard method in keyboard/gtk-im/
 

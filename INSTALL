@@ -1,0 +1,21 @@
+
+1. Go to locale and run install.sh
+
+   cd locale
+   ./install.sh
+
+2. (Optional) Open /etc/locale.alias and make sure si and
+   si_LK entries are in alphabetically correct place.
+
+3. Install the LKLUG OTF font in fonts/
+
+4. Go to po/ directory and run si.sh
+
+   cd po/
+   ./si.sh
+
+5. Recompile pango to your system using patches in
+   rendering/pagno.
+
+6. Install gtk keyboard method in keyboard/gtk-im/
+

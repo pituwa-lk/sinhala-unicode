@@ -1,3 +1,6 @@
+Using Fonts in X-Window System
+------------------------------
+By Anuradha Ratnaweera
 
 Copy all your fonts to a custom location, normally
 /usr/local/share/fonts.  They have to be added to
@@ -12,7 +15,7 @@ This is the new system
 
     <dir>/usr/local/share/fonts</dir>
 
-  If local.conf is not there, add this line to /etc/fonts/fonts.conf.
+  If local.conf is not there, add it to /etc/fonts/fonts.conf.
 
 * See if the font is in X by running
 
@@ -47,7 +50,7 @@ X core
 
     /etc/init.d/xfs restart
 
-* If you are not using a font server, add the line
+* If you are NOT using a font server, add the line
 
     FontPath  "/usr/local/fonts"
 

@@ -1,0 +1,219 @@
+diff -urN pango-1.2.5.old/modules/indic/indic-ft2.c pango-1.2.5/modules/indic/indic-ft2.c
+--- pango-1.2.5.old/modules/indic/indic-ft2.c	2003-08-08 23:05:01.000000000 +0600
++++ pango-1.2.5/modules/indic/indic-ft2.c	2003-09-19 14:51:41.000000000 +0600
+@@ -62,6 +62,7 @@
+ #define OT_TAG_telu FT_MAKE_TAG('t','e','l','u')
+ #define OT_TAG_knda FT_MAKE_TAG('k','n','d','a')
+ #define OT_TAG_mlym FT_MAKE_TAG('m','l','y','m')
++#define OT_TAG_sinh FT_MAKE_TAG('s','i','n','h')
+ 
+ static PangoEngineRange deva_ranges[] = {
+   INDIC_SCRIPT_RANGE(deva), /* Devanagari */
+@@ -99,10 +100,16 @@
+   INDIC_SCRIPT_RANGE(mlym), /* Malayalam */
+ };
+ 
++static PangoEngineRange sinh_ranges[] = {
++  INDIC_SCRIPT_RANGE(sinh), /* Sinhala */
++};
++
++
+ static PangoEngineInfo script_engines[] = {
+   INDIC_ENGINE_INFO(deva), INDIC_ENGINE_INFO(beng), INDIC_ENGINE_INFO(guru),
+   INDIC_ENGINE_INFO(gujr), INDIC_ENGINE_INFO(orya), INDIC_ENGINE_INFO(taml),
+-  INDIC_ENGINE_INFO(telu), INDIC_ENGINE_INFO(knda), INDIC_ENGINE_INFO(mlym)
++  INDIC_ENGINE_INFO(telu), INDIC_ENGINE_INFO(knda), INDIC_ENGINE_INFO(mlym),
++  INDIC_ENGINE_INFO(sinh)
+ };
+ 
+ /*
+@@ -116,7 +123,8 @@
+ static PangoIndicInfo indic_info[] = {
+   PANGO_INDIC_INFO(deva), PANGO_INDIC_INFO(beng), PANGO_INDIC_INFO(guru),
+   PANGO_INDIC_INFO(gujr), PANGO_INDIC_INFO(orya), PANGO_INDIC_INFO(taml),
+-  PANGO_INDIC_INFO(telu), PANGO_INDIC_INFO(knda), PANGO_INDIC_INFO(mlym)
++  PANGO_INDIC_INFO(telu), PANGO_INDIC_INFO(knda), PANGO_INDIC_INFO(mlym),
++  PANGO_INDIC_INFO(sinh)
+ };
+ 
+ static void
+diff -urN pango-1.2.5.old/modules/indic/indic-ot.c pango-1.2.5/modules/indic/indic-ot.c
+--- pango-1.2.5.old/modules/indic/indic-ot.c	2003-08-08 23:05:01.000000000 +0600
++++ pango-1.2.5/modules/indic/indic-ot.c	2003-10-01 20:40:33.000000000 +0600
+@@ -29,6 +29,7 @@
+     gunichar fMabove;
+     gunichar fMpost;
+     gunichar fLengthMark;
++    gunichar fVirama;
+     glong    fMatraIndex;
+     gulong   fMatraTags;
+     glong    fMPreOutIndex;
+@@ -49,7 +50,7 @@
+     output->fOutIndex    = 0;
+     output->fMatraTags   = 0;
+ 
+-    output->fMpre = output->fMbelow = output->fMabove = output->fMpost = output->fLengthMark = 0;
++    output->fMpre = output->fMbelow = output->fMabove = output->fMpost = output->fLengthMark = output->fVirama = 0;
+ 
+     output->fMPreOutIndex = -1;
+     output->fMPreFixups = mpreFixups;
+@@ -68,6 +69,8 @@
+         output->fMpost = matra;
+     } else if (IS_LENGTH_MARK(matraClass)) {
+         output->fLengthMark = matra;
++    } else if (IS_VIRAMA(matraClass)) {
++   	 output->fVirama = matra;
+     }
+ }
+ 
+@@ -75,7 +78,7 @@
+ {
+     IndicOTCharClass matraClass = indic_ot_get_char_class(classTable, matra);
+ 
+-    output->fMpre = output->fMbelow = output->fMabove = output->fMpost = output->fLengthMark = 0;
++    output->fMpre = output->fMbelow = output->fMabove = output->fMpost = output->fLengthMark = output->fVirama = 0;
+     output->fMPreOutIndex = -1;
+     output->fMatraIndex = matraIndex;
+     output->fMatraTags = matraTags;
+@@ -150,6 +153,13 @@
+     }
+ }
+ 
++static void writeVirama(Output *output)
++{
++    if (output->fVirama != 0) {
++        writeChar(output, output->fVirama, output->fMatraIndex, output->fMatraTags);
++    }
++}
++
+ static glong getOutputIndex(Output *output)
+ {
+     return output->fOutIndex;
+@@ -211,6 +221,7 @@
+             writeMabove(&output);
+             writeMpost(&output);
+             writeLengthMark(&output);
++            writeVirama(&output);
+             break;
+ 
+         case CC_CONSONANT:
+@@ -393,6 +404,7 @@
+ 	    }
+ 
+ 	    writeLengthMark(&output);
++            writeVirama(&output);
+ 
+ 	    /* write reph */
+ 	    if ((class_table->scriptFlags & SF_REPH_AFTER_BELOW) == 0) {
+diff -urN pango-1.2.5.old/modules/indic/indic-ot-class-tables.c pango-1.2.5/modules/indic/indic-ot-class-tables.c
+--- pango-1.2.5.old/modules/indic/indic-ot-class-tables.c	2002-08-29 04:27:02.000000000 +0600
++++ pango-1.2.5/modules/indic/indic-ot-class-tables.c	2003-10-01 20:15:56.000000000 +0600
+@@ -180,6 +180,20 @@
+     _iv, _iv, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx  /* 0D60 - 0D6F */
+ };
+ 
++
++static IndicOTCharClass sinhCharClasses[] =
++{
++    _xx, _xx, _ma, _mp, _xx, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, /* 0D80 - 0D8F */
++    _iv, _iv, _iv, _iv, _iv, _iv, _iv, _xx, _xx, _xx, _ct, _ct, _ct, _ct, _ct, _ct, /* 0D90 - 0D9F */
++    _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, /* 0DA0 - 0DAF */
++    _ct, _ct, _xx, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _xx, _ct, _xx, _xx, /* 0DB0 - 0DBF */
++    _ct, _ct, _ct, _ct, _ct, _ct, _ct, _xx, _xx, _xx, _vr, _xx, _xx, _xx, _xx, _dr, /* 0DC0 - 0DCF */
++    _dr, _dr, _da, _da, _db, _xx, _db, _xx, _dr, _dl, _s1, _dl, _s2, _s3, _s4, _dr, /* 0DD0 - 0DDF */
++    _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, /* 0DE0 - 0DEF */
++    _xx, _xx, _dr, _dr, _xx                                                         /* 0DF0 - 0DF4 */
++};
++
++
+ /*
+  * Split matra tables
+  */
+@@ -196,6 +210,8 @@
+ 
+ static const IndicOTSplitMatra mlymSplitTable[] = {{0x0D46, 0x0D3E}, {0x0D47, 0x0D3E}, {0x0D46, 0x0D57}};
+ 
++static const IndicOTSplitMatra sinhSplitTable[] = {{0x0DD9, 0x0DCA}, {0x0DD9, 0x0DCF}, {0x0DD9, 0x0DCF,0x0DCA}, {0x0DD9, 0x0DF3} };
++
+ /*
+  * Script Flags
+  */
+@@ -214,6 +230,7 @@
+ #define TELU_SCRIPT_FLAGS (SF_MATRAS_AFTER_BASE | 3)
+ #define KNDA_SCRIPT_FLAGS (SF_MATRAS_AFTER_BASE | 3)
+ #define MLYM_SCRIPT_FLAGS (SF_NO_POST_BASE_LIMIT)
++#define SINH_SCRIPT_FLAGS (SF_MPRE_FIXUP | SF_NO_POST_BASE_LIMIT)
+ 
+ /*
+  * Indic Class Tables
+@@ -236,6 +253,8 @@
+ 
+ IndicOTClassTable mlym_class_table = {0x0D00, 0x0D6F, 3, MLYM_SCRIPT_FLAGS, mlymCharClasses, mlymSplitTable};
+ 
++IndicOTClassTable sinh_class_table = {0x0D80, 0x0DF4, 3, SINH_SCRIPT_FLAGS, sinhCharClasses, sinhSplitTable};
++
+ const IndicOTSplitMatra *indic_ot_get_split_matra(const IndicOTClassTable *class_table, IndicOTCharClass char_class)
+ {
+     gint32 index = (char_class & CF_INDEX_MASK) >> CF_INDEX_SHIFT;
+diff -urN pango-1.2.5.old/modules/indic/indic-ot.h pango-1.2.5/modules/indic/indic-ot.h
+--- pango-1.2.5.old/modules/indic/indic-ot.h	2003-08-08 23:05:01.000000000 +0600
++++ pango-1.2.5/modules/indic/indic-ot.h	2003-09-19 14:51:41.000000000 +0600
+@@ -158,7 +158,9 @@
+ 
+ #define SCRIPT_RANGE_mlym 0x0D00, 0x0D6F
+ 
+-/*
++#define SCRIPT_RANGE_sinh 0x0D80, 0x0DF4
++
++ /*
+  * Macros to test the charClass flags for various things.
+  */
+ #define IS_VM_ABOVE(charClass) ((charClass & CF_CLASS_MASK) == CC_MODIFYING_MARK_ABOVE)
+@@ -217,6 +219,7 @@
+ extern IndicOTClassTable telu_class_table;
+ extern IndicOTClassTable knda_class_table;
+ extern IndicOTClassTable mlym_class_table;
++extern IndicOTClassTable sinh_class_table;
+ 
+ const IndicOTSplitMatra *indic_ot_get_split_matra(const IndicOTClassTable *class_table, IndicOTCharClass char_class);
+ 
+diff -urN pango-1.2.5.old/modules/indic/indic-xft.c pango-1.2.5/modules/indic/indic-xft.c
+--- pango-1.2.5.old/modules/indic/indic-xft.c	2003-08-08 23:05:01.000000000 +0600
++++ pango-1.2.5/modules/indic/indic-xft.c	2003-09-19 14:51:41.000000000 +0600
+@@ -61,6 +61,7 @@
+ #define OT_TAG_telu FT_MAKE_TAG('t','e','l','u')
+ #define OT_TAG_knda FT_MAKE_TAG('k','n','d','a')
+ #define OT_TAG_mlym FT_MAKE_TAG('m','l','y','m')
++#define OT_TAG_sinh FT_MAKE_TAG('s','i','n','h')
+ 
+ static PangoEngineRange deva_ranges[] = {
+   INDIC_SCRIPT_RANGE(deva), /* Devanagari */
+@@ -98,10 +99,17 @@
+   INDIC_SCRIPT_RANGE(mlym), /* Malayalam */
+ };
+ 
++static PangoEngineRange sinh_ranges[] = {
++  INDIC_SCRIPT_RANGE(sinh), /* Sinhala */
++};
++
++
++
+ static PangoEngineInfo script_engines[] = {
+   INDIC_ENGINE_INFO(deva), INDIC_ENGINE_INFO(beng), INDIC_ENGINE_INFO(guru),
+   INDIC_ENGINE_INFO(gujr), INDIC_ENGINE_INFO(orya), INDIC_ENGINE_INFO(taml),
+-  INDIC_ENGINE_INFO(telu), INDIC_ENGINE_INFO(knda), INDIC_ENGINE_INFO(mlym)
++  INDIC_ENGINE_INFO(telu), INDIC_ENGINE_INFO(knda), INDIC_ENGINE_INFO(mlym),
++  INDIC_ENGINE_INFO(sinh)
+ };
+ 
+ /*
+@@ -115,7 +123,8 @@
+ static PangoIndicInfo indic_info[] = {
+   PANGO_INDIC_INFO(deva), PANGO_INDIC_INFO(beng), PANGO_INDIC_INFO(guru),
+   PANGO_INDIC_INFO(gujr), PANGO_INDIC_INFO(orya), PANGO_INDIC_INFO(taml),
+-  PANGO_INDIC_INFO(telu), PANGO_INDIC_INFO(knda), PANGO_INDIC_INFO(mlym)
++  PANGO_INDIC_INFO(telu), PANGO_INDIC_INFO(knda), PANGO_INDIC_INFO(mlym),
++  PANGO_INDIC_INFO(sinh)
+ };
+ 
+ static void

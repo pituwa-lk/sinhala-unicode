@@ -1,0 +1,5 @@
+Version 0.1
+-----------
+- Initial `packaged' release
+- Phonetic keymap working
+- Not a part of gtk-im-extra anymore

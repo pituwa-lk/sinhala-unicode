@@ -11,7 +11,13 @@ XFT
 
 This is the new system
 
-* If you have /etc/fonts/local.conf, add the line
+* If you have /etc/fonts/font.conf, check if the line
+
+    <dir>/usr/local/share/fonts</dir>
+
+  exits in the file.  If so, you are done. 
+
+  Otherwise, if you have /etc/fonts/local.conf, add the line
 
     <dir>/usr/local/share/fonts</dir>
 
@@ -38,7 +44,7 @@ X core
 
     cd /usr/local/share/fonts/
     /usr/bin/X11/mkfontscale
-    /usr/bin/X11/mkfontsdir
+    /usr/bin/X11/mkfontdir
 
   (If you are running and old XFree86 version, mkfontscale may
   not be available.  Just grab the mkfontscale.c file from
@@ -54,8 +60,15 @@ X core
 
     FontPath  "/usr/local/fonts"
 
-  to the "Files" section of /etc/X11/XF86Config or /etc/X11/XF86Config-4
-  and restart X.
+  to the "Files" section of /etc/X11/XF86Config or /etc/X11/XF86Config-4.
+
+  Also make sure that the line
+
+    Load      "freetype"
+
+  is there in the "Module" section.  If not add the line.
+
+  Now restart X.
 
 * See if the font is available by running
 

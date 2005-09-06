@@ -443,11 +443,11 @@ sinhala_transliterated_filter_keypress(GtkIMContext *context,
 		if (has_surrounding) free(text);
 		return TRUE;
 	}
-	if (event->keyval == GDK_BackSpace) {
+/*	if (event->keyval == GDK_BackSpace) {
 	    gtk_im_context_delete_surrounding(context, -1, 1);
 	    if (has_surrounding) free(text);
 	    return TRUE;
-	}
+	} */
 	if (has_surrounding) free(text);
 
 	return FALSE;

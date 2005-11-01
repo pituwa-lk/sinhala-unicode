@@ -1,11 +1,19 @@
 Accepted 
 --------
 
+GLIBC
+- Adding si_LK locale
+  http://sources.redhat.com/bugzilla/show_bug.cgi?id=367
+
 GTK
 - Pango rendering patch to add Sinhala
   http://bugzilla.gnome.org/show_bug.cgi?id=153517
 - Fix to avoid creating implicit conjuncts
   http://bugzilla.gnome.org/show_bug.cgi?id=161981
+
+OpenOffice
+- Adding si_LK locale
+  http://www.openoffice.org/issues/show_bug.cgi?id=51358
 
 QT
 - Script engine bug with halant grouping
@@ -39,8 +47,8 @@ Evolution (bug report only)
   http://bugzilla.ximian.com/show_bug.cgi?id=70248
 
 GLIBC
-- Adding si_LK locale
-  http://sources.redhat.com/bugzilla/show_bug.cgi?id=367
+- Fixing a typo in SUPPORTED file
+  http://sources.redhat.com/bugzilla/show_bug.cgi?id=1773
 
 GTK
 - Fix for Australian Problem in Pango

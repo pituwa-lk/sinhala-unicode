@@ -6,7 +6,8 @@ HTML = \
 	guththila.html \
 	kotmale.html \
 	salalihini.html \
-	veli-thalapa.html
+	veli-thalapa.html \
+	example.html
 
 KAVI= ../../utils/kavi/kavi
 

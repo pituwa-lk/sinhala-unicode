@@ -32,5 +32,6 @@ rm -rf aclocal.m4 autom*.cache config.h config.h.in config.log \
 rm -f `find -name 'Makefile'`
 rm -f `find -name 'Makefile.in'`
 rm -rf `find -name '.deps'`
+rm -rf `find -name '.libs'`
 echo done.
 

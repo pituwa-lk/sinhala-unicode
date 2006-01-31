@@ -3,6 +3,7 @@ Section: sinhala
 Priority: optional
 Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
 Build-Depends: debhelper (>> 3.0.0)
+Standards-Version: 3.6.2
 
 Package: sinhala-font-lklug
 Architecture: all

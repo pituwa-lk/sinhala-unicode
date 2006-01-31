@@ -1,4 +1,4 @@
-AC_INIT(scim-sinhala, 0.1.0, sinhala@linux.lk)
+AC_INIT(scim-sinhala-trans, 0.2.0, sinhala@linux.lk)
 AC_CONFIG_SRCDIR([configure.ac])
 
 # Save this value here, since automake will set cflags and cxxflags later
@@ -89,6 +89,7 @@ AC_CONFIG_FILES([
 Makefile
 src/Makefile
 data/Makefile
+debian/Makefile
 ])
 
 AC_OUTPUT

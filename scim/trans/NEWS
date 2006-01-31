@@ -1,0 +1,8 @@
+Overview of Changes from scim-sinhala-0.1.0 to scim-sinhala-0.2.0
+=================================================================
+* Changed the im-engine not to use surrounding text support.
+* Major code cleanup.
+
+=================================================================
+* Fix a clash bug on exiting scim-setup.
+* Fix a bug that the icon file name was wrong (not scim-canna).

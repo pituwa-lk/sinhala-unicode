@@ -92,7 +92,8 @@ protected:
 
 private:
     bool sinhalaInput;
-
+	bool shift_pressed;
+	bool ctrl_pressed;
 };
 
 #endif // QSINHALATINPUT_CONTEXT_H

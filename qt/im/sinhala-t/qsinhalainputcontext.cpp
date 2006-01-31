@@ -135,6 +135,8 @@ QSinhalaTInputContext::QSinhalaTInputContext()
 	: QInputContext()
 {
 	sinhalaInput = TRUE;
+	shift_pressed = FALSE;
+	ctrl_pressed = FALSE;
 }
 
 QSinhalaTInputContext::~QSinhalaTInputContext()
@@ -143,25 +145,42 @@ QSinhalaTInputContext::~QSinhalaTInputContext()
 
 bool QSinhalaTInputContext::filterEvent(const QEvent *event)
 {
+	if (event->type() == QEvent::KeyRelease) {
+		QKeyEvent *keyevent = (QKeyEvent *)event;
+		int keyval = keyevent->key();
+		if (keyval == Qt::Key_Shift) shift_pressed = FALSE;
+		if (keyval == Qt::Key_Control) ctrl_pressed = FALSE;
+		return FALSE;
+	}
+
 	if (event->type() != QEvent::KeyPress)
 		return FALSE;
 
 	QKeyEvent *keyevent = (QKeyEvent *)event;
-
 	int keyval = keyevent->key();
-	if (isIgnoreKeys(keyval))
+
+	if (keyval == Qt::Key_Shift) {
+		shift_pressed = TRUE;
 		return FALSE;
-
-	QString keytext = keyevent->text();
-	if (keytext.length() < 1)
+	}
+	if (keyval == Qt::Key_Control) {
+		ctrl_pressed = TRUE;
 		return FALSE;
-
-	int key = keytext[0].unicode();
-
-	if (key == 'z') {
+	}
+	if ((keyval == Qt::Key_Space) && shift_pressed) {
+		// FIXME: add non breaking space
+		return TRUE;
+	}
+	if ((keyval == Qt::Key_Space) && ctrl_pressed) {
 		sinhalaInput = !sinhalaInput;
 		return TRUE;
 	}
+
+	if (isIgnoreKeys(keyval)) return FALSE;
+
+	QString keytext = keyevent->text();
+	if (keytext.length() < 1) return FALSE;
+	int key = keytext[0].unicode();
 
 	if (!sinhalaInput && (keyval < 128)) {
 		commitChar(key);
@@ -193,9 +212,9 @@ bool QSinhalaTInputContext::filterEvent(const QEvent *event)
 					commitChar(lsbToUnicode(consonents[l1].mahaprana));
 					return TRUE;
 				}
-				if ((key == 'G') && (consonents[l1].mahaprana)) {
+				if ((key == 'G') && (consonents[l1].sagngnaka)) {
 					deleteSurrounding(-1, 1);
-					commitChar(lsbToUnicode(consonents[l1].mahaprana));
+					commitChar(lsbToUnicode(consonents[l1].sagngnaka));
 					return TRUE;
 				}
 				if (key == 'R') {

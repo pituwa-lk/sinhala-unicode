@@ -1,0 +1,10 @@
+Source: sinhala-locale-glibc
+Section: sinhala
+Priority: optional
+Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
+Build-Depends: debhelper (>> 3.0.0)
+
+Package: sinhala-locale-glibc
+Architecture: all
+Depends: locales
+Description: Sinhala locale for the GNU C library

@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+if ! grep '^[[:space:]]*si_LK.UTF-8[[:space:]]*UTF-8' /etc/locale.gen > /dev/null
+then
+	echo -n 'adding si_LK.UTF-8 to /etc/locale.gen... '
+	echo 'si_LK.UTF-8 UTF-8' >> /etc/locale.gen
+	echo 'done'
+	/usr/sbin/locale-gen
+fi
+

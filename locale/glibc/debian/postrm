@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+if grep '^[[:space:]]*si_LK.UTF-8[[:space:]]*UTF-8' /etc/locale.gen > /dev/null
+then
+	echo -n 'removing si_LK.UTF-8 from /etc/locale.gen... '
+	grep -v '^[[:space:]]*si_LK.UTF-8[[:space:]]*UTF-8' /etc/locale.gen > /tmp/locale.gen
+	mv -f /tmp/locale.gen /etc/locale.gen
+	echo 'done'
+	/usr/sbin/locale-gen
+fi
+

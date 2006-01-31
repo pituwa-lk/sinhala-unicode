@@ -1,0 +1,21 @@
+This package was debianized by Anuradha Ratnaweera
+<anuradha@taprobane.org> on Tue, 31 Jan 2006 10:10:10 +0600.
+
+It was downloaded from http://sinhala.linux.lk/.
+
+Copyright:
+
+Upstream Maintainer:
+ Anuradha Ratnaweera <anuradha@taprobane.org>
+
+Authors of the original Sinhala SCIM module:
+ Kazuki Ohta <mover@hct.zaq.ne.jp>
+ Takuro Ashie <ashie@homa.ne.jp>
+ Hiroyuki Ikezoe <poincare@ikezoe.net>
+
+License:
+ You are free to distribute this software under the terms of
+ the GNU General Public License.
+ On Debian systems, the complete text of the GNU General Public
+ License can be found in the file `/usr/share/common-licenses/GPL'.
+

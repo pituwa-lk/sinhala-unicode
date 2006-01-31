@@ -1,0 +1,10 @@
+Source: sinhala-font-lklug
+Section: sinhala
+Priority: optional
+Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
+Build-Depends: debhelper (>> 3.0.0)
+
+Package: sinhala-font-lklug
+Architecture: all
+Depends: xutils
+Description: Unicode Sinhala font by Lanka Linux User Group

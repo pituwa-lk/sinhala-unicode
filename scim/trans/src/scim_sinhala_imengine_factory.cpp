@@ -39,7 +39,6 @@
 #include <scim.h>
 #include "scim_sinhala_imengine_factory.h"
 #include "scim_sinhala_imengine.h"
-//#include "scim_sinhala_prefs.h"
 #include "intl.h"
 
 /* SCIM Related Definitions */

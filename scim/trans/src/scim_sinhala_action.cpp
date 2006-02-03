@@ -23,47 +23,45 @@
 
 #include "scim_sinhala_action.h"
 
-SinhalaAction::SinhalaAction (const String &name, const String &key_bindings,
-                          PMF pmf)
-    : m_name (name),
-      m_pmf (pmf)
+SinhalaAction::SinhalaAction(const String &name,
+		const String &key_bindings, PMF pmf) :
+	m_name(name), m_pmf(pmf)
 {
-    scim_string_to_key_list (m_key_bindings, key_bindings);
+	scim_string_to_key_list (m_key_bindings, key_bindings);
 }
 
-SinhalaAction::~SinhalaAction (void)
+SinhalaAction::~SinhalaAction(void)
 {
 }
 
-bool
-SinhalaAction::perform (SinhalaInstance *performer)
+bool SinhalaAction::perform(SinhalaInstance *performer)
 {
-    if (!performer || !m_pmf)
-        return false;
+	if (!performer || !m_pmf)
+		return false;
 
-    return (performer->*m_pmf) ();
+	return (performer->*m_pmf)();
 }
 
-bool
-SinhalaAction::perform (SinhalaInstance *performer, const KeyEvent &key)
+bool SinhalaAction::perform(SinhalaInstance *performer,
+		const KeyEvent &key)
 {
-    if (!performer || !m_pmf)
-        return false;
+	if (!performer || !m_pmf)
+		return false;
 
-    if (match_key_event (key))
-        return (performer->*m_pmf) ();
+	if (match_key_event (key))
+		return (performer->*m_pmf)();
 
-    return false;
+	return false;
 }
 
-bool
-SinhalaAction::match_key_event (const KeyEvent &key)
+bool SinhalaAction::match_key_event(const KeyEvent &key)
 {
-    KeyEventList::const_iterator kit;
+	KeyEventList::const_iterator kit;
 
-    for (kit = m_key_bindings.begin (); kit != m_key_bindings.end (); ++kit) {
-        if (key.code == kit->code && key.mask == kit->mask)
-             return true;
-    }
-    return false;
+	for (kit = m_key_bindings.begin(); kit != m_key_bindings.end(); ++kit) {
+		if (key.code == kit->code && key.mask == kit->mask)
+			return true;
+	}
+	return false;
 }
+

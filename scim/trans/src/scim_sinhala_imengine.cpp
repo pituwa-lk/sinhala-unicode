@@ -29,7 +29,7 @@
 #define Uses_SCIM_CONFIG_BASE
 
 #ifdef HAVE_CONFIG_H
-  #include <config.h>
+#include <config.h>
 #endif
 
 #include <stdio.h>
@@ -40,7 +40,6 @@
 #include <scim.h>
 #include "scim_sinhala_imengine_factory.h"
 #include "scim_sinhala_imengine.h"
-//#include "scim_sinhala_prefs.h"
 #include "intl.h"
 
 /*
@@ -137,22 +136,19 @@ struct {
 	{0, 0, 0, 0, 0}
 };
 
-SinhalaInstance::SinhalaInstance (SinhalaFactory   *factory,
-                                  const String   &encoding,
-                                  int             id)
-    : IMEngineInstanceBase (factory, encoding, id),
-      m_factory (factory),
-      m_prev_key (0,0)
+SinhalaInstance::SinhalaInstance(SinhalaFactory *factory,
+        const String &encoding, int id) :
+    IMEngineInstanceBase(factory, encoding, id),
+    m_factory(factory), m_prev_key(0, 0)
 {
     SCIM_DEBUG_IMENGINE(1) << "Create SINHALA Instance : ";
 }
 
-SinhalaInstance::~SinhalaInstance ()
+SinhalaInstance::~SinhalaInstance()
 {
 }
 
-bool
-SinhalaInstance::process_key_event (const KeyEvent& key)
+bool SinhalaInstance::process_key_event(const KeyEvent& key)
 {
     SCIM_DEBUG_IMENGINE(2) << "process_key_event.\n";
 
@@ -472,7 +468,6 @@ SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
             return true;
         }
         if ((event.code == SCIM_KEY_H) && (consonents[l1].mahaprana)) {
-            //delete_surrounding_text(-1, 1);
             backspace();
             u = create_unicode_character_from_lsb(consonents[l1].mahaprana);
             commit_string(utf8_mbstowcs((const char*)u));
@@ -482,7 +477,6 @@ SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
             return true;
         }
         if ((event.code == SCIM_KEY_G) && (consonents[l1].sagngnaka)) {
-            //delete_surrounding_text(-1, 1);
             backspace();
             u = create_unicode_character_from_lsb(consonents[l1].sagngnaka);
             commit_string(utf8_mbstowcs((const char*)u));
@@ -541,25 +535,23 @@ SinhalaInstance::handle_vowel_pressed(const KeyEvent &event, int c)
         last_key = lsb_to_unicode(vowels[c].single1);
     }
     else if (c1 == vowels[c].single0) {
-        //delete_surrounding_text(-1, 1);
         backspace();
         u = create_unicode_character_from_lsb(vowels[c].double0);
         last_key = lsb_to_unicode(vowels[c].double0);
     }
     else if (c1 == vowels[c].single1) {
-        //delete_surrounding_text(-1, 1);
         backspace();
         u = create_unicode_character_from_lsb(vowels[c].double1);
         last_key = lsb_to_unicode(vowels[c].double1);
     }
-
-    if (u == NULL)
+    else {
         u = create_unicode_character_from_lsb(vowels[c].single0);
+        last_key = lsb_to_unicode(vowels[c].single0);
+    }
 
     commit_string(utf8_mbstowcs((const char*)u));
     free(u);
 
-    last_key = lsb_to_unicode(vowels[c].single1);
     return true;
 }
 

@@ -83,3 +83,52 @@ pkgdir0=scim/trans
 pkgname=scim-sinhala-trans
 make_package
 
+update_package_lists () {
+	cd /var/www/sinhala
+	for i in etch breezy
+	do
+		cd $i
+		dpkg-scanpackages . /dev/null | gzip --best > Packages.gz
+		cd ..
+	done
+}
+
+#
+# build contrib packages
+#
+
+cd /var/www/sinhala/contrib/src || exit 1
+for i in breezy
+do
+	pbuilder-$i build scim*dsc
+	mkdir -p /var/www/sinhala/$i
+	mv -f /root/pbuilder/*.deb /var/www/sinhala/$i
+done
+update_package_lists
+
+cd /var/www/sinhala/contrib/src || exit 1
+for i in etch breezy
+do
+	pbuilder-$i build skim*dsc
+	mkdir -p /var/www/sinhala/$i
+	mv -f /root/pbuilder/*.deb /var/www/sinhala/$i
+done
+update_package_lists
+
+#
+# build contrib packages
+#
+
+cd $tmpdir/deb || exit 1
+for i in etch breezy
+do
+	for d in *.dsc
+	do
+		pbuilder-$i build $d
+		mkdir -p /var/www/sinhala/$i
+		mv -f /root/pbuilder/*.deb /var/www/sinhala/$i
+	done
+done
+
+update_package_lists
+

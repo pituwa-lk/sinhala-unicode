@@ -7,7 +7,6 @@ Standards-Version: 3.6.2
 
 Package: sinhala-gnu-linux
 Architecture: all
-Depends: libskim0, scim-sinhala-trans, sinhala-font-lklug, sinhala-locale-glibc
-Suggests: scim, skim, firefox (>= 1.5)
+Depends: firefox (>= 1.5), libskim0, scim, scim-sinhala-trans, sinhala-font-lklug, sinhala-locale-glibc, skim
 Description: Dummy package to install all the packages to add Sinhala
  support for GNU/Linux.

@@ -19,3 +19,5 @@ then
 	dpkg-reconfigure locales
 fi
 
+exit 0
+

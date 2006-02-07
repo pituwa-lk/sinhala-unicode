@@ -10,3 +10,5 @@ then
 	/usr/sbin/locale-gen
 fi
 
+exit 0
+

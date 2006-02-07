@@ -1,0 +1,26 @@
+#!/bin/sh
+set -e
+
+if ! grep '^[[:space:]]*export[[:space:]][[:space:]]*XMODIFIERS=[^#]*@im=' /etc/environment > /dev/null
+then
+	echo -n 'adding XMODIFIERS to /etc/environment...'
+	echo 'export XMODIFIERS=@im=SCIM' >> /etc/environment
+	echo ' done'
+fi
+
+if ! grep '^[[:space:]]*export[[:space:]][[:space:]]*GTK_IM_MODULE=' /etc/environment > /dev/null
+then
+	echo -n 'adding GTK_IM_MODULE to /etc/environment...'
+	echo 'export GTK_IM_MODULE=scim' >> /etc/environment
+	echo ' done'
+fi
+
+if ! grep '^[[:space:]]*export[[:space:]][[:space:]]*QT_IM_MODULE=' /etc/environment > /dev/null
+then
+	echo -n 'adding QT_IM_MODULE to /etc/environment...'
+	echo 'export QT_IM_MODULE=scim' >> /etc/environment
+	echo ' done'
+fi
+
+exit 0
+

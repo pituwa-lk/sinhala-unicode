@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+echo
+echo '*** IMPORTANT ***'
+echo
+echo 'I am NOT removing SCIM related entries from /etc/environment.'
+echo 'Please remove them manually if you no longer use SCIM for input.'
+echo
+
+exit 0
+

@@ -3,9 +3,19 @@ set -e
 
 if ! grep '^[[:space:]]*si_LK.UTF-8[[:space:]]*UTF-8' /etc/locale.gen > /dev/null
 then
-	echo -n 'adding si_LK.UTF-8 to /etc/locale.gen... '
+	echo -n 'adding si_LK.UTF-8 to /etc/locale.gen...'
 	echo 'si_LK.UTF-8 UTF-8' >> /etc/locale.gen
-	echo 'done'
-	/usr/sbin/locale-gen
+	echo ' done'
+
+	echo
+	echo "* Now I am going to re-configure the \`locales' package"
+	echo '* Do NOT unselect si_LK.UTF-8'
+	echo '* Select a UTF-8 based locale as the default (not necessarily si_LK.UTF-8)'
+	echo
+	echo -n 'Hit ENTER to continue...'
+
+	read foo
+
+	dpkg-reconfigure locales
 fi
 

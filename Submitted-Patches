@@ -4,11 +4,15 @@ Accepted
 GLIBC
 - Adding si_LK locale
   http://sources.redhat.com/bugzilla/show_bug.cgi?id=367
+- Fixing a typo in SUPPORTED file
+  http://sources.redhat.com/bugzilla/show_bug.cgi?id=1773
 
-GTK
+GTK/Pango
 - Pango rendering patch to add Sinhala
   http://bugzilla.gnome.org/show_bug.cgi?id=153517
 - Fix to avoid creating implicit conjuncts
+  http://bugzilla.gnome.org/show_bug.cgi?id=161981
+- Fix for Australian Problem in Pango
   http://bugzilla.gnome.org/show_bug.cgi?id=161981
 
 OpenOffice
@@ -29,7 +33,6 @@ XFree86
 - Adding si_LK locale
   http://bugs.xfree86.org/show_bug.cgi?id=1465
 
-
 Rejected
 --------
 
@@ -46,11 +49,8 @@ Evolution (bug report only)
 - Adding surrounding text to the composer
   http://bugzilla.ximian.com/show_bug.cgi?id=70248
 
-GLIBC
-- Fixing a typo in SUPPORTED file
-  http://sources.redhat.com/bugzilla/show_bug.cgi?id=1773
-
-GTK
-- Fix for Australian Problem in Pango
-  http://bugzilla.gnome.org/show_bug.cgi?id=161981
+SCIM
+- Adding Sinhala to the list of languages
+  Changing Sinhalese to Sinhala
+  http://sourceforge.net/mailarchive/forum.php?thread_id=9652531&forum_id=43684
 

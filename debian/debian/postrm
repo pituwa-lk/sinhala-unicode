@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+echo
+echo '*** IMPORTANT ***'
+echo
+echo 'I am NOT removing MOZ_ENABLE_PANGO from /etc/environment.'
+echo "Please remove it manually if you don't want Pango rendering in Mozilla."
+echo
+
+exit 0
+

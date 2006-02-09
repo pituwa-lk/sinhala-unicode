@@ -2,7 +2,7 @@ Source: sinhala-font-lklug
 Section: sinhala
 Priority: optional
 Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
-Build-Depends: debhelper (>> 3.0.0)
+Build-Depends: debhelper (>> 3.0.0), defoma (>= 0.7.0)
 Standards-Version: 3.6.2
 
 Package: sinhala-font-lklug

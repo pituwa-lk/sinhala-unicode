@@ -30,10 +30,10 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/tmp
-	install -m 755 -d $(CURDIR)/debian/tmp/usr/share/fonts/sinhala
+	install -m 755 -d $(CURDIR)/debian/tmp/usr/share/fonts/truetype/sinhala
 	install -m 755 -d $(CURDIR)/debian/tmp/etc/fonts/conf.d
-	install -m 644 $(CURDIR)/lklug.otf $(CURDIR)/debian/tmp/usr/share/fonts/sinhala/lklug.ttf
-	install -m 644 $(CURDIR)/lklug.conf $(CURDIR)/debian/tmp/etc/fonts/conf.d
+	install -m 644 $(CURDIR)/lklug.ttf $(CURDIR)/debian/tmp/usr/share/fonts/truetype/sinhala/lklug.ttf
+#	install -m 644 $(CURDIR)/lklug.conf $(CURDIR)/debian/tmp/etc/fonts/conf.d
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -46,7 +46,8 @@ binary-arch: build install
 #	dh_movefiles
 	dh_install --sourcedir=debian/tmp
 
-#	dh_installdebconf	
+	dh_installdebconf	
+	dh_installdefoma
 #	dh_installdocs
 #	dh_installexamples
 #	dh_installmenu

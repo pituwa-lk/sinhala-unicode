@@ -1,8 +1,0 @@
-#!/bin/sh
-set -e
-
-cd /usr/share/fonts/sinhala/ 2> /dev/null || exit 0
-
-/usr/bin/X11/mkfontscale
-/usr/bin/X11/mkfontdir
-

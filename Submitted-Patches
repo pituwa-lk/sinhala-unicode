@@ -13,6 +13,11 @@ GTK/Pango
 - Fix to avoid creating implicit conjuncts
   http://bugzilla.gnome.org/show_bug.cgi?id=161981
 
+ICU
+- http://dev.icu-project.org/cgi-bin/icu-bugs?findid=4298
+- http://dev.icu-project.org/cgi-bin/icu-bugs?findid=4711
+- http://dev.icu-project.org/cgi-bin/icu-bugs?findid=5057
+
 OpenOffice
 - Adding si_LK locale
   http://www.openoffice.org/issues/show_bug.cgi?id=51358

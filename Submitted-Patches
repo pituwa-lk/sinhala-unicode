@@ -12,6 +12,8 @@ GTK/Pango
   http://bugzilla.gnome.org/show_bug.cgi?id=153517
 - Fix to avoid creating implicit conjuncts
   http://bugzilla.gnome.org/show_bug.cgi?id=161981
+- Enable touching letters
+  http://bugzilla.gnome.org/show_bug.cgi?id=302577
 
 ICU
 - http://dev.icu-project.org/cgi-bin/icu-bugs?findid=4298

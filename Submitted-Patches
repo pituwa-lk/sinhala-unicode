@@ -22,6 +22,11 @@ QT
   Issue #57856
   http://www.lug.lk/lurker/thread/20041110.042559.1c41c2ae.si.html
 
+SCIM
+- Adding Sinhala to the list of languages
+  Changing Sinhalese to Sinhala
+  http://sourceforge.net/mailarchive/forum.php?thread_id=9652531&forum_id=43684
+
 X.Org
 - Adding si_LK locale
   http://freedesktop.org/bugzilla/show_bug.cgi?id=1544
@@ -46,9 +51,4 @@ Pending
 Evolution (bug report only)
 - Adding surrounding text to the composer
   http://bugzilla.ximian.com/show_bug.cgi?id=70248
-
-SCIM
-- Adding Sinhala to the list of languages
-  Changing Sinhalese to Sinhala
-  http://sourceforge.net/mailarchive/forum.php?thread_id=9652531&forum_id=43684
 

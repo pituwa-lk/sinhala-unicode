@@ -12,8 +12,6 @@ GTK/Pango
   http://bugzilla.gnome.org/show_bug.cgi?id=153517
 - Fix to avoid creating implicit conjuncts
   http://bugzilla.gnome.org/show_bug.cgi?id=161981
-- Fix for Australian Problem in Pango
-  http://bugzilla.gnome.org/show_bug.cgi?id=161981
 
 OpenOffice
 - Adding si_LK locale

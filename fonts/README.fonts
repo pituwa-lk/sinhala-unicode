@@ -2,11 +2,11 @@ Using Fonts in X-Window System
 ------------------------------
 By Anuradha Ratnaweera
 
-Copy all your fonts to a custom location, normally
+Copy all your fonts to a suitable location, typically to
 /usr/local/share/fonts.
 
     mkdir -p /usr/local/share/fonts
-    cp *.otf /usr/local/share/fonts/
+    cp lklug.ttf /usr/local/share/fonts/
 
 X Window System uses two different font systems and the
 fonts have to be added to both of them.

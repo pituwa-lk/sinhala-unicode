@@ -1,3 +1,9 @@
+sinhala-locale-glibc (0.4.0-2) unstable; urgency=low
+
+  * Glibc locale (>= 2.3.6) includes si_LK
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Fri, 07 Apr 2006 14:12:00 +0600
+
 sinhala-locale-glibc (0.4.0-1) unstable; urgency=low
 
   * Initial release

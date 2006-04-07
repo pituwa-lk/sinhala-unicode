@@ -1,3 +1,9 @@
+sinhala-gnu-linux (0.4.0-2) unstable; urgency=low
+
+  * Glibc locales (>= 2.3.6) includes si_LK
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Fri, 07 Apr 2006 14:09:00 +0600
+
 sinhala-gnu-linux (0.4.0-1) unstable; urgency=low
 
   * Initial release

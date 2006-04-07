@@ -7,5 +7,6 @@ Standards-Version: 3.6.2
 
 Package: sinhala-locale-glibc
 Architecture: all
-Depends: locales
+Depends: locales (< 2.3.6)
+Conflicts: locales (>= 2.3.6)
 Description: Sinhala locale for the GNU C library

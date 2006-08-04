@@ -1,4 +1,3 @@
-
 Pango patch was originally written by Harsha Senanayaka of John Keells
 Holdings (harsha.sgit at keells com)
 
@@ -7,3 +6,5 @@ of British Columbia (chamath at cs ubc ca), Anuradha Ratnaweera of
 Virtusa Corporation (anuradha at gnu org) and Nimal Ratnayaka (nimalr at
 pdn ac lk).
 
+The patch changing the state table, pango-1.6.0-australian.patch, by
+Harshula Jayasuriya (harshula at gmail com).

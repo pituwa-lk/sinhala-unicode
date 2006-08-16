@@ -1,3 +1,9 @@
+scim-sinhala-trans (0.2.0-2) unstable; urgency=low
+
+  * Update postinst to use the correct format for /etc/environment
+
+ -- Harshula Jayasuriya <harshula@gmail.com>  Wed, 16 Aug 2006 02:52:20 +0530
+
 scim-sinhala-trans (0.2.0-1) unstable; urgency=low
 
   * Initial release

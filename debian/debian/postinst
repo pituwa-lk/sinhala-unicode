@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
 
-if ! grep '^[[:space:]]*export[[:space:]][[:space:]]*MOZ_ENABLE_PANGO=' /etc/environment > /dev/null
+if ! grep '^[[:space:]]*MOZ_DISABLE_PANGO=' /etc/environment > /dev/null
 then
-	echo -n 'adding MOZ_ENABLE_PANGO to /etc/environment...'
-	echo 'export MOZ_ENABLE_PANGO=1' >> /etc/environment
+	echo -n 'adding MOZ_DISABLE_PANGO=0 to /etc/environment ...'
+	echo 'MOZ_DISABLE_PANGO=0' >> /etc/environment
 	echo ' done'
 fi
 

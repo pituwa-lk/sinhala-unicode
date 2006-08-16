@@ -2,10 +2,11 @@ Source: sinhala-gnu-linux
 Section: sinhala
 Priority: optional
 Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
+Uploaders: Harshula Jayasuriya <harshula@gmail.com>
 Build-Depends: debhelper (>> 3.0.0)
 Standards-Version: 3.6.2
 
 Package: sinhala-gnu-linux
 Architecture: all
-Depends: firefox (>= 1.5), libskim0, scim, scim-gtk2-immodule, scim-sinhala-trans, sinhala-font-lklug, glibc (>= 2.3.6) | sinhala-locale-glibc, skim
+Depends: firefox (>= 1.5), scim, scim-gtk2-immodule, scim-sinhala-trans, sinhala-font-lklug, glibc (>= 2.3.6) | libc6 (>= 2.3.6) | sinhala-locale-glibc
 Description: Dummy package to install all Sinhala language packages

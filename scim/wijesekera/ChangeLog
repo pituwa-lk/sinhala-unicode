@@ -1,0 +1,6 @@
+2006-08-15  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): Add intl, po, m4.
+	(EXTRA_DIST): Add config.rpath, mkinstalldirs.
+	* configure.ac (AC_CONFIG_FILES): Add intl/Makefile, po/Makefile.in, m4/Makefile.
+

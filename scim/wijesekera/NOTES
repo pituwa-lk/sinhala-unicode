@@ -1,0 +1,36 @@
+Notes:
+0.2.2
+Fixed some minor bugs in the build system. Now less files are needed for 
+source distribution. Uses autogen.sh and cleanup.sh (from scim/trans in 
+sinhala project) build all the necessary files.
+
+0.2.1
+(Fixed) If text is selected and Ctrl+Ins (Copy) is keyed, the selected text was getting deleted.
+
+0.2.0
+
+1.
+(What I call) modifier keys such as paa pilla, aela pilla etc are only allowed after a primary key is pressed. This is because (as far as I know) once text
+has been commited, SCIM engines can't change it. If modifiers were allowed,
+කෙ + ා would give කො (this is actually 3 characters) not කො (which is 2).
+
+2.
+Make sure SCIM is selected as the input method and not piped through
+the x input method. This is because the latter gives unpredictable results.
+Besides, the scim documentation discourages the x input approach.
+
+3.
+This layout conforms to the Sri Lanka Standard 1134 Revision 2: 2004 with
+the following exceptions which are left to be done:
+ - Repaya ('\') - I'll look for a text sample with this character
+ - Touching Letters ('\') - any samples?
+ - non breaking space (shift-space) - any samples?
+ - invicible (Alt+Shift+Space) - any samples?
+ - and the character that looks like grass :-) (alt -gr') - This one I don't see
+  in the character map app.
+
+4.
+Third level shift is Alt+Shift. I have been told that Alt must be used instead,
+but this raises an issue with applications that have menus that conflict with
+valid input keys. Maybe someone can clarify the official position regarding
+the 3rd level shift.

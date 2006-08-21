@@ -1,0 +1,16 @@
+Get the sinhala Tex package from http://www.ctan.org/tex-archive/language/sinhala/ and install it. You do not need the indica preprocessor. It is sufficient to install the sinhala Metafont fonts and the sinhala.sty file in proper places.
+
+Installing sintex
+=================
+tar zxvf sintex_0.01.tar.gz
+cd sintex_0.01
+make
+
+This will create the sintex binary. Note that you need flex in your system to create the sintex preprocessor.
+
+Using sintex
+============
+
+sintex < example.sin > example.tex
+latex example.tex
+

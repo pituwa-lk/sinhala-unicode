@@ -1,0 +1,11 @@
+Version 0.2.0
+==============
+  * Changed the directory and file names  so that they follow the standard naming convention.
+  * Added support to handle ligatures, such as "ksha", followed by a vowel sign.
+  * Cleaned up the sintex.lex a bit.
+  * Corrected few mistakes in the example.pdf.
+  * Anuradha Ratnaweera <anuradha@taprobane.org> debianized the Version 0.1.0 and this version is also debianized based on that initial debianization.
+
+Version 0.1.0
+===============
+Initial version (released as Version 0.01)

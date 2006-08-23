@@ -6,4 +6,6 @@ sintex: lex.yy.c
 lex.yy.c: sintex.lex
 	flex sintex.lex
 
-	
+clean:
+	rm -f sintex lex.yy.c
+

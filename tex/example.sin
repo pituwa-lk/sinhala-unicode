@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage{sinhala}
+\usepackage{url}
+
+\hyphenpenalty 10000
+\setlength{\parskip}{1.5ex}
+\pagestyle{empty}
+\sloppy
+
+\begin{document}
+\title{යුනිකේතයෙන් ලියු සිංහල \LaTeX\ ලේඛන සඳහා පෙර සකසනය}
+\author{චමත් කැප්පිටියාගම \\
+chamath@ucsc.cmb.ac.lk}
+
+\maketitle
+
+\begin{abstract}
+මෙම ලිපිය {\underline {\bf සිංහල \LaTeX\ පෙර සකසනය}} පරික්‍ෂා කරීම සඳහා ලියන ලද්දකි. භාශා වියතුන් මෙහි ඇති වැරදි වලට සමාව දෙනු ඇතයි සිතමි.
+\end{abstract}
+
+\section{හැදින්වීම}
+
+\LaTeX\ යනු පරිගණක අකුරු සංයොජනය සඳහා යොදා ගන්නා පරිගණක වැඩසටහන් ගොනුවකි. සිංහල භාෂාව සඳහා \LaTeX\ යොදා ගත හැකි ලෙස  Yannis Haralambous සහ Dominik Wujastyk එයට කොටස් එකතු කර සිංහල \LaTeX\ ගොනුව 1994 දී එලිදක්වන ලදි. වසන්ත සපරමාදු "සමනල" ක්‍රමයට ඉංග්‍රීසි අකුරු යොදාගෙන සිංහල අකුරු සංයෝජනය කිරීමට එය වැඩි දියුනු කරන ලදි.
+
+අද බොහො පරිගණක තුල සිංහල යුනිකේතය හැසිරවීමට පහසුකම් ඇති බැවින් ඉංග්‍රීසි අකුරු භාවිතය අවශ්‍ය නොවේ. යුනිකේතයෙන් ලියන ලද සිංහල ලිපි සැකසීම සඳහා {\it Sinhala} \LaTeX\ වැඩ සටහන් ගොනුවේ තිබු {\it indica} පෙරසකසනය වෙනස් කර ලිවීමට ගන්නා ලද උත්සහයකි මේ.
+
+
+
+\section{උපදෙස්}
+මෙම පෙර සකසනය සකසා ගැනීම සඳහා පහත සඳහන් වැඩ සටහන් ගොනු අවශ්‍ය වේ.
+
+\begin{itemize}
+\item {flex}
+\item {සිංහල \LaTeX\ ගොනුව. මෙය \url{http://www.ctan.org/tex-archive/language/sinhala/} වෙබ් අඩවියෙන් ලබාගත හැක.}
+\end{itemize}
+
+වැඩි විස්තර සඳහා README ලිපිය කියවන්න.
+
+\section{භාවිතය}
+
+\tt{sintex <test.sin> test.tex}
+
+
+\noindent \tt{latex test.tex}
+
+\end{document}

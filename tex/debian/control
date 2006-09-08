@@ -1,0 +1,12 @@
+Source: sintex
+Section: sinhala
+Priority: optional
+Maintainer: Chamath Keppitiyagama <chamathk@gmail.com>
+Build-Depends: debhelper (>> 3.0.0), flex, gcc
+Standards-Version: 3.6.2
+
+Package: sintex
+Architecture: all
+Depends: tetex-bin
+Description: Sinhala LaTeX preprocessor for UTF-8
+

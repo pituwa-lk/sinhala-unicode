@@ -1,6 +1,13 @@
+sinhala-gnu-linux (0.4.2-1) unstable; urgency=low
+
+  * Remove postinst and postrm.
+  * Make a Ubuntu specific control file.
+
+ -- Harshula Jayasuriya <harshula@gmail.com>  Sun, 05 Nov 2006 23:09:51 +0530
+
 sinhala-gnu-linux (0.4.1-1) unstable; urgency=low
 
-  * Update control, postinst and  postrm
+  * Update control, postinst and postrm
 
  -- Harshula Jayasuriya <harshula@gmail.com>  Wed, 16 Aug 2006 02:52:20 +0530
 

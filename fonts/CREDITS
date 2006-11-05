@@ -24,8 +24,8 @@ Quoted from the README of that package:
 LKLUG OpenType font was created by Anuradha Ratnaweera of Virtusa
 Corporation (anuradha at gnu org) and Harshani Devadithya using the
 outlines of the above font and adding GSUB table entries.
-"Kunddaliya" glyph added by Harshula Jayasuriya (harshula at gmail
-dot com)
+"Kunddaliya" glyph added and OTF tables modified by Harshula Jayasuriya
+(harshula at gmail dot com)
 
 The LKLUG font was created completely using FontForge
 (http://fontforge.sourceforge.net).

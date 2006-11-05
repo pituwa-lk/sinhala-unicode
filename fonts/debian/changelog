@@ -1,3 +1,14 @@
+sinhala-font-lklug (0.4.2-1) unstable; urgency=low
+
+  * Set basefilename to lklug
+  * Run 'Element -> Find Problems' on kunddaliya and fix problems.
+  * Move the repaya ligatures out of the PUA and into the section with the rest of the ligatures.
+    - Add lookups for the 40 repaya ligatures.
+    - Using rphf feature did not work, so used akhn.
+    - Remove unused codepoints in PUA.
+
+ -- Harshula Jayasuriya <harshula@gmail.com>  Sun, 05 Nov 2006 23:09:51 +0530
+
 sinhala-font-lklug (0.4.1-1) unstable; urgency=low
 
   * Create and add the "Kunddaliya" glyph

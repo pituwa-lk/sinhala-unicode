@@ -1,10 +1,9 @@
-Pango patch was originally written by Harsha Senanayaka of John Keells
-Holdings (harsha.sgit at keells com)
+Pango patch was originally written by Harsha Senanayake of John Keells
+Holdings (harsha.sgit at keells dot com)
 
-Ported to different versions by Chamath Keppitiyagama of the University
-of British Columbia (chamath at cs ubc ca), Anuradha Ratnaweera of
-Virtusa Corporation (anuradha at gnu org) and Nimal Ratnayaka (nimalr at
-pdn ac lk).
+Ported to different versions by Chamath Keppitiyagama (chamathk at gmail
+dot com), Anuradha Ratnaweera of Virtusa Corporation (anuradha at gnu dot
+org) and Nimal Ratnayake (nimalr at pdn dot ac dot lk).
 
 The patch changing the state table, pango-1.6.0-australian.patch, by
-Harshula Jayasuriya (harshula at gmail com).
+Harshula Jayasuriya (harshula at gmail dot com).

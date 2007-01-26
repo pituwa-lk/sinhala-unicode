@@ -31,7 +31,7 @@
 ;;;
 
 ;; define vowels (as regex obj.)
-(set! vowels "^i$\\|^ii$\\|^e$\\|^ee$\\|^ae$\\|^aee$\\|^u$\\|\\^uu$\\|^o$\\|^oo$\\|^a$\\|^aa$\\|^aaa$\\|^aaaa$")
+(set! vowels "^i$\\|^ii$\\|^e$\\|^ee$\\|^ae$\\|^aee$\\|^u$\\|^uu$\\|^o$\\|^oo$\\|^a$\\|^aa$\\|^aaa$\\|^aaaa$")
 ;; define consonants (as regex obj.)
 (set! consonants "^k$\\|^g$\\|^on$\\|^sg$\\|^cha$\\|^j$\\|^nga$\\|^t$\\|^d$\\|^sd$\\|^tha$\\|^dha$\\|^n$\\|^sdha$\\|^p$\\|^b$\\|^m$\\|^sba$\\|^y$\\|^r$\\|^l$\\|^v$\\|^sha$\\|^s$\\|^h$\\|^f$")
 ;; define stop consonants

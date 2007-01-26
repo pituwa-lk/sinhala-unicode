@@ -1,0 +1,80 @@
+ACKNOWLEDGEMENT
+---------------------------
+
+This work was made possible through the PAN Localization Project, (http://www.PANL10n.net) a grant from the International
+Development Research Center (IDRC), Ottawa, Canada, administered through the Center for Research in Urdu Language Processing,
+National University of Computer and Emerging Sciences, Pakistan. 
+
+The voice you hear on Sinhala Text-to-Speech Synthesizer is that of Mr. Sandun Sulakshana.
+
+      - We would like to thank Mr. Sandun for providing us with such a lucid, male voice.
+      - We apologize for robotizing his manly natural voice to suit our selfish motives!
+
+Developers of Sinhala Text-to-Speech Synthesis Voice 'Festival-si':
+
+        Asanka Wasala, Viraj Welgama, Kumudu Gamage
+	
+Sinhala MSAPI Solution (Win32) & Gnopernicus (Linux) solution developed by:
+
+        Asanka Wasala
+
+Special Thanks to :
+
+        Dr. Ruvan Weerasingh - Director, University of Colombo School of Computing(UCSC)/Team lead of PAN L10n Sri Lanka team
+
+      - We would like to thank Dr. Ruvan Weerasinghe for providing thought leadership and access to academic thinking at UCSC. In addition,         over the years he has provided mentoring and coaching on the development of TTS.
+      
+        Dr. Sarmad Hussain (NUCES, Pakistan)- Associate Professor and Head of Center for Research in Urdu Language Processing.
+
+      - We would like to thank him on behalf of conducting training workshop on "Phonetics and Phonology for TTS" and supporting throughout           the project
+	
+        Mr. S.T. Nandasara 
+
+      - For providing assitance for recording in the UCSC Studio.
+
+        Rafia Bokhari (Team lead-Pakistan TTS team)
+
+      - For assisting us to solve various technical issues.
+
+        David Brown 
+
+      - For creating and sharing Festival.NET solution
+
+Devlopers of the Festival-MSAPI bridge:
+
+        Dr. Briony Williams (University of Wales, Bangor) 
+        Dr. Rhys J Jones (University of Wales, Bangor)    
+
+      - For their invaluable help in developing Sinhala MSAPI solution as well as prosody aspects.
+
+        Ambrose Choy (University of Wales, Bangor)
+        Dewi B Jones (University of Wales, Bangor)
+
+Mr. Harsha Wijayawardhana, for being available whenever his technical assistance was sought.
+
+Mr. Harshula Jayasuriya, for helping us with solving various Linux and CVS related issues.
+
+Roger Wilson-Hinds	(Thunder screenreader), Dipendra Manocha (SAFA screenreader), for helping to improve the functionality of Screen readers in Sinhala.
+
+Sinhala Language scholars:
+
+        Prof. J.B. Dissanayake
+        Prof. R.M.W. Rajapaksha
+
+Developers of the Festival Speech Synthesis System:
+
+        Alan W Black   (Carnegie Mellon University)
+        Rob Clark      (Edinburgh University)
+        Korin Richmond (Edinburgh University)
+        Heiga Zen      (Nagoya Institute of Technology)
+
+And other colleagues of the Language Technology Research Laboratory, UCSC,
+
+        Mr. Vincent Halahakone
+        Mr. Dulip Lakmal Herath
+        Mr. Nishantha Medagoda
+        Mr. Eranga Jayalatharachchi
+
+For his valuble feedback:
+
+        Prof. D.P.M.W. Weerakkody

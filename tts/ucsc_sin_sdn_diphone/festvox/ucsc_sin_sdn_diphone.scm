@@ -231,6 +231,9 @@ Set speaker to sdn in Sinhala from ucsc."
    (description
     "UCSC Sinhala Sandun Diphone Voice"
     )
-   (builtwith festvox-1.3)))
+    (builtwith festvox-1.3)
+    (coding UTF-8)
+    ))
+
 
 (provide 'ucsc_sin_sdn_diphone)

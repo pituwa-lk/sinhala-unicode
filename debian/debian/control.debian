@@ -8,5 +8,5 @@ Standards-Version: 3.6.2
 
 Package: sinhala-gnu-linux
 Architecture: all
-Depends: scim, scim-m17n, scim-gtk2-immodule, scim-sinhala-trans, sinhala-font-lklug, glibc (>= 2.3.6) | libc6 (>= 2.3.6) | sinhala-locale-glibc
+Depends: scim, scim-gtk2-immodule, scim-m17n, m17n-db, scim-sinhala-trans, sinhala-font-lklug, glibc (>= 2.3.6) | libc6 (>= 2.3.6) | sinhala-locale-glibc
 Description: Dummy package to install all Sinhala language packages

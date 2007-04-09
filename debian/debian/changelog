@@ -1,3 +1,11 @@
+sinhala-gnu-linux (0.4.2-2) unstable; urgency=low
+
+  * Remove Firefox from the dependencies.
+  * Debian: Add scim-m17n and m17n-db to 'Depends'.
+  * Ubuntu: Add scim-m17n and m17n-db to 'Suggests'.
+
+ -- Harshula Jayasuriya <harshula@gmail.com>  Fri, 16 Feb 2007 15:23:24 +0530
+
 sinhala-gnu-linux (0.4.2-1) unstable; urgency=low
 
   * Remove postinst and postrm.

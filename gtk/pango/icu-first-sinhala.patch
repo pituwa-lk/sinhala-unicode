@@ -1,0 +1,78 @@
+--- layout.ori\IndicClassTables.cpp	Wed Jun 04 02:58:22 2003
++++ layout\IndicClassTables.cpp	Sun Sep 14 15:09:52 2003
+@@ -177,6 +178,19 @@
+     _iv, _iv, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx  // 0D60 - 0D6F
+ };
+ 
++
++static const IndicClassTable::CharClass sinhCharClasses[] =
++{
++    _xx, _xx, _ma, _mp, _xx, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, _iv, // 0D80 - 0D8F
++    _iv, _iv, _iv, _iv, _iv, _iv, _iv, _xx, _xx, _xx, _ct, _ct, _ct, _ct, _ct, _ct, // 0D90 - 0D9F
++    _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, // 0DA0 - 0DB0
++    _ct, _ct, _xx, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _ct, _xx, _ct, _xx, _xx, // 0DB0 - 0DAF
++    _ct, _ct, _ct, _ct, _ct, _ct, _ct, _xx, _xx, _xx, _vr, _xx, _xx, _xx, _xx, _dr, // 0DC0 - 0DCF
++    _dr, _dr, _da, _da, _db, _xx, _db, _xx, _dr, _dl, _s1, _dl, _s2, _s3, _s4, _dr, // 0DD0 - 0DDF
++    _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, _xx, // 0DE0 - 0DEF
++    _xx, _xx, _dr, _dr, _ct                                                         // 0DF0 - 0DF4
++};
++
+ //
+ // Split matra tables
+ //
+@@ -193,6 +207,8 @@
+ 
+ static const SplitMatra mlymSplitTable[] = {{0x0D46, 0x0D3E}, {0x0D47, 0x0D3E}, {0x0D46, 0x0D57}};
+ 
++static const SplitMatra sinhSplitTable[] = {{0x0DD9, 0x0DCA}, {0x0DD9, 0x0DCF}, {0x0DD9, 0x0DCF,0x0DCA}, {0x0DD9, 0x0DF3} };
++
+ //
+ // Script Flags
+ //
+@@ -209,6 +225,7 @@
+ #define TELU_SCRIPT_FLAGS (IndicClassTable::SF_MATRAS_AFTER_BASE | 3)
+ #define KNDA_SCRIPT_FLAGS (IndicClassTable::SF_MATRAS_AFTER_BASE | 3)
+ #define MLYM_SCRIPT_FLAGS (IndicClassTable::SF_MPRE_FIXUP | IndicClassTable::SF_NO_POST_BASE_LIMIT)
++#define SINH_SCRIPT_FLAGS (IndicClassTable::SF_MPRE_FIXUP | IndicClassTable::SF_NO_POST_BASE_LIMIT)
+ 
+ //
+ // Indic Class Tables
+@@ -231,6 +248,8 @@
+ 
+ static const IndicClassTable mlymClassTable = {0x0D00, 0x0D6F, 3, MLYM_SCRIPT_FLAGS, mlymCharClasses, mlymSplitTable};
+ 
++static const IndicClassTable sinhClassTable = {0x0D80, 0x0DF4, 3, SINH_SCRIPT_FLAGS, sinhCharClasses, sinhSplitTable};
++
+ //
+ // IndicClassTable addresses
+ //
+@@ -268,7 +287,7 @@
+     NULL,            /* 'ital' (OLD-ITALIC) */
+     &oryaClassTable, /* 'orya' (ORIYA) */
+     NULL,            /* 'runr' (RUNIC) */
+-    NULL,            /* 'sinh' (SINHALA) */
++    &sinhClassTable, /* 'sinh' (SINHALA) */
+     NULL,            /* 'syrc' (SYRIAC) */
+     &tamlClassTable, /* 'taml' (TAMIL) */
+     &teluClassTable, /* 'telu' (TELUGU) */
+--- layout.ori\IndicReordering.cpp	Wed Jun 04 02:58:22 2003
++++ layout\IndicReordering.cpp	Sun Sep 14 15:53:18 2003
+@@ -45,7 +45,7 @@
+             fMabove = matra;
+         } else if (IndicClassTable::isMpost(matraClass)) {
+             fMpost = matra;
+-        } else if (IndicClassTable::isLengthMark(matraClass)) {
++        } else if (IndicClassTable::isLengthMark(matraClass)||IndicClassTable::isVirama(matraClass)/*temp hack for Sinhala DIGA KOMBUVA (0x0DDA) & SINHALA VOWEL SIGN KOMBUVA HAA DIGA AELA-PILLA (0x0DDD) */) {
+             fLengthMark = matra;
+         }
+     }
+--- layout.ori\LayoutEngine.cpp	Thu Jun 05 04:39:18 2003
++++ layout\LayoutEngine.cpp	Sat Sep 13 15:55:03 2003
+@@ -424,6 +424,7 @@
+         case guruScriptCode:
+         case tamlScriptCode:
+         case teluScriptCode:
++		case sinhScriptCode:
+             result = new IndicOpenTypeLayoutEngine(fontInstance, scriptCode, languageCode, gsubTable);
+             break;
+ 

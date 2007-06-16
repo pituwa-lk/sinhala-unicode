@@ -1,3 +1,10 @@
+scim-sinhala-trans (0.2.0-3) unstable; urgency=low
+
+  * Use --copy with libtool and automake to avoid symlinks in the source
+    Debian package.
+
+ -- Harshula Jayasuriya <harshula@gmail.com>  Sat, 16 Jun 2007 19:02:46 +1000
+
 scim-sinhala-trans (0.2.0-2) unstable; urgency=low
 
   * Update postinst to use the correct format for /etc/environment

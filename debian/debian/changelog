@@ -1,3 +1,10 @@
+sinhala-gnu-linux (0.4.2-3) unstable; urgency=low
+
+  * Debian: Add m17n-contrib to 'Depends'.
+  * Ubuntu: Add scim-m17n, m17n-db and m17n-contrib to 'Recommends'.
+
+ -- Harshula Jayasuriya <harshula@gmail.com>  Sat, 20 Oct 2007 19:12:43 +1000
+
 sinhala-gnu-linux (0.4.2-2) unstable; urgency=low
 
   * Remove Firefox from the dependencies.

@@ -1,7 +1,7 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- *  Copyright (C) 2004 
- *  Copyright (C) 2004 - 2005
+ *  Copyright (C) Dushara Jayasinghe
+ *  Copyright (C) 2004 - 2008 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@
 
 using namespace scim;
 
-#include "sinhala.h"
+#include "parser.h"
 
 class WijesekeraInstance : public IMEngineInstanceBase
 {
@@ -39,16 +39,13 @@ class WijesekeraInstance : public IMEngineInstanceBase
 private:
     WijesekeraFactory        *m_factory;
 
-    KeyEvent                m_prev_key;
-
     /* for candidates window */
     CommonLookupTable       m_lookup_table;
 
     /* for toolbar */
     PropertyList            m_properties;
-
-	uint8_t Aux[32];	// Aux String (in LSBs)
-	int AuxCount;	// # of bytes in string
+    
+    parser_data_t	m_parser_data;
 
 public:
     WijesekeraInstance (WijesekeraFactory *factory,
@@ -57,18 +54,18 @@ public:
     virtual ~WijesekeraInstance ();
 
     virtual bool process_key_event             (const KeyEvent& key);
-    virtual void move_preedit_caret            (unsigned int pos);
-    virtual void select_candidate              (unsigned int item);
-    virtual void update_lookup_table_page_size (unsigned int page_size);
-    virtual void lookup_table_page_up          (void);
-    virtual void lookup_table_page_down        (void);
     virtual void reset                         (void);
     virtual void focus_in                      (void);
     virtual void focus_out                     (void);
-    virtual void trigger_property              (const String &property);
+    virtual void update_client_capabilities    (unsigned int cap);
 
 public:
-
+	friend void commit_utf16(void *context, const u_int16_t *buf, int len);
+	friend void write_preedit(void *context, const u_int16_t *buf, int len);
+	friend void close_preedit(void *context);
+	friend void write_status(void *context, const u_int16_t *buf, int len);
+	friend void close_status(void *context);
+	
 private: // actions
 
 private:
@@ -81,16 +78,14 @@ private:
     bool   process_key_event_with_candidate    (const KeyEvent &key);
     bool   process_remaining_key_event         (const KeyEvent &key);
 
-	inline bool is_shift_handled(const KeyEvent &key)
-	{
-		return (key.mask==0||key.is_shift_down()||key.is_mod2_down());
-	}
+#if 0
 	void   build_unicode_char(unsigned char lsb, unsigned char *u);
 	void   translate_and_commit(void);
 	void   build_complex_char(const uint8_t idx);
 	void   display_aux(void);
 	void   handle_modifier(const KeyTrans_t *kt);
 	bool   handle_key(const KeyEvent& key);
+#endif
 };
 #endif /* __SCIM_WIJESEKERA_IMENGINE_H__ */
 /*

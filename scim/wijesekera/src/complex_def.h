@@ -1,10 +1,31 @@
+/*
+ *  Copyright (C) Dushara Jayasinghe
+ *  Copyright (C) 2004 - 2008 
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2, or (at your option)
+ *  any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
 #ifndef COMPLEX_DEF
 #define COMPLEX_DEF(name)
 #endif
 
-COMPLEX_DEF(yansaya)
-COMPLEX_DEF(rakaransaya)
-COMPLEX_DEF(repaya)
-COMPLEX_DEF(mluyanna)
+COMPLEX_DEF(yans)
+COMPLEX_DEF(rak)
+COMPLEX_DEF(rep)
+COMPLEX_DEF(mlu)
+COMPLEX_DEF(baendi)
+COMPLEX_DEF(touch)
 
 #undef COMPLEX_DEF

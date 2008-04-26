@@ -17,7 +17,8 @@ module_LTLIBRARIES = wijesekera.la
 
 wijesekera_la_SOURCES = \
 	scim_wijesekera_imengine_factory.cpp \
-	scim_wijesekera_imengine.cpp
+	scim_wijesekera_imengine.cpp	\
+	parser.cpp wijesekera.cpp imcompat.cpp
 
 wijesekera_la_CFLAGS = @SCIM_CFLAGS@  @SCIM_DEBUG_FLAGS@
 wijesekera_la_CXXFLAGS = @SCIM_CFLAGS@ @SCIM_DEBUG_FLAGS@

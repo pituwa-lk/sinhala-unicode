@@ -1,6 +1,6 @@
 make distclean # ignore this error
 rm -rf aclocal.m4 config.guess config.h.in config.sub configure \
-	config.rpath install-sh depcomp missing ltmain.sh mkinstalldirs \
+	install-sh depcomp missing ltmain.sh mkinstalldirs \
 	*~ autom*.cache/ debian/scim-sinhala-trans/ build-stamp \
 	debian/scim-sinhala-trans.substvars debian/files config.status
 cp intl/Makefile.in intl/Makefile.in.dj

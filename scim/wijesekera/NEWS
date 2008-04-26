@@ -1,0 +1,25 @@
+scim-wijesekera 0.3.3
+* Removed unused virtual functions.
+* Uses AUX window for pre-edit string if on-the-stop preedit capability is not
+  available.
+* General cleanup in the way compound characters are defined.
+* Updated bootstrap
+
+scim-wijesekera 0.3.2
+* Updated autotools. configure.ac and friends built from sort of scratch
+* Updated gettext version
+
+scim-wijesekera 0.3.1
+* Cleaned up 'Invalid key' error is clearing.
+* Right Alt key is now 'hijacked' to simulate AltGr.
+* Shift+Sp produces non breaking space.
+* mlu + diga paa pilla is handled.
+* Added support for diga gayanukitta.
+
+scim-wijesekera 0.2.2
+* Fixed some minor bugs in the build system. Now less files are needed for 
+  source distribution. Uses autogen.sh and cleanup.sh (from scim/trans in 
+  sinhala project) build all the necessary files.
+
+scim-wijesekera 0.2.1
+* (Fixed) If text is selected and Ctrl+Ins (Copy) is keyed, the selected text was getting deleted.

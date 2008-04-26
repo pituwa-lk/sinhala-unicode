@@ -1,4 +1,3 @@
 # List of source files which contain translatable strings.
 src/scim_wijesekera_imengine.cpp
-src/scim_wijesekera_imengine_factory.cpp
 src/scim_wijesekera_imengine_setup.cpp

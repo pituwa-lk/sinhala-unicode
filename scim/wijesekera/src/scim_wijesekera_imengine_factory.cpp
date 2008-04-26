@@ -1,7 +1,7 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
- *  Copyright (C) 
- *  Copyright (C) 
+ *  Copyright (C) Dushara Jayasinghe
+ *  Copyright (C) 2004 - 2008 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@
 #define scim_imengine_module_init wijesekera_LTX_scim_imengine_module_init
 #define scim_imengine_module_create_factory wijesekera_LTX_scim_imengine_module_create_factory
 
-#define SCIM_CONFIG_IMENGINE_WIJESEKERA_UUID     "/IMEngine/Wijesekera/UUID-"
+#define SCIM_CONFIG_IMENGINE_WIJESEKERA_UUID     "eecc608c-900e-490e-b533-74b0738b2c7d"
 
 #ifndef SCIM_WIJESEKERA_ICON_FILE
     #define SCIM_WIJESEKERA_ICON_FILE           (SCIM_ICONDIR"/scim-wijesekera.png")
@@ -82,7 +82,7 @@ extern "C" {
 
         try {
             factory = new WijesekeraFactory (String ("si_LK"),
-                                           String ("eecc608c-900e-490e-b533-74b0738b2c7d"),
+					     String (SCIM_CONFIG_IMENGINE_WIJESEKERA_UUID),
                                            _scim_config);
         } catch (...) {
             delete factory;

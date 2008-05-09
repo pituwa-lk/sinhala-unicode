@@ -1,3 +1,9 @@
+Overview of Changes from scim-sinhala-0.2.0 to scim-sinhala-0.3.0
+=================================================================
+* Better usability.
+* Surrounding text support when available (works in gtk)
+* Help text.
+
 Overview of Changes from scim-sinhala-0.1.0 to scim-sinhala-0.2.0
 =================================================================
 * Changed the im-engine not to use surrounding text support.

@@ -1,0 +1,31 @@
+scim-sayura (0.3.0-1) unstable; urgency=low
+
+  * Use preedit instead of emulating backspace (Pravin S)
+  * Fix algorithm to use preedit (Anuradha)
+  * Fix aclocal and automake version dependency (Pravin S)
+  * Removed timeout dependancy (Pravin S)
+  * Use surrounding text support when available (Anuradha)
+  * Usability fixes in the transliteration scheme (Anuradha)
+  * Help text suport (Pravin S)
+  * Added the complete scheme as help text (Anuradha)
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Thu, 08 May 2008 12:00:00 +0530
+
+scim-sinhala-trans (0.2.0-3) unstable; urgency=low
+
+  * Recompiled with newer libraries
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Wed, 12 Jul 2006 15:00:10 +0530
+
+scim-sinhala-trans (0.2.0-2) unstable; urgency=low
+
+  * Added post install/remove scripts
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Tue, 07 Feb 2006 15:00:10 +0600
+
+scim-sinhala-trans (0.2.0-1) unstable; urgency=low
+
+  * Initial Debianized release
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Tue, 31 Jan 2006 10:10:10 +0600
+

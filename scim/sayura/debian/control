@@ -1,0 +1,21 @@
+Source: scim-sayura
+Section: utils
+Priority: optional
+Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
+Build-Depends: debhelper (>= 4.0.0), scim (>= 1.3.0), scim-dev (>= 1.3.0), libgtk2.0-dev, autotools-dev
+Standards-Version: 3.6.2
+
+Package: scim-sayura
+Architecture: any
+Depends: ${shlibs:Depends}, scim (<< 1.5.0)
+Suggests: skim
+Conflicts: scim-sinhala-trans
+Replaces: scim-sinhala-trans
+Provides: scim-sinhala-trans
+Description: SCIM IMEngine module for Sinhala
+ SCIM (Smart Common Input Method) is an input method (IM) platform.
+ .
+ Sayura is a quasi-transliteration scheme to enter text in Sinhala
+ language.  It is aimed to achieve speed and usability.
+ .
+ Homepage: http://www.sayura.net/im/

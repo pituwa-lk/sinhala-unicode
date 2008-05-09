@@ -1,0 +1,42 @@
+2008-05-09 Anuradha Ratnaweera <anuradha@taprobane.org>
+
+	* Use preedit instead of emulating backspace (Pravin S).
+	* Fix algorithm to use preedit.
+	* Fix aclocal and automake version dependency (Pravin S).
+	* Removed timeout dependancy (Pravin S).
+	* Use surrounding text support when available.
+	* Usability fixes in the transliteration scheme.
+	* Help text suport (Pravin S).
+	* Added the complete scheme as help text.
+
+2006-01-30 Anuradha Ratnaweera <anuradha@taprobane.org>
+
+	* Pruned the code by removing parts not relevant.
+	* Removed dependancy on surrounding text support.
+	* Removed Ctrl+Space for latin input.
+	* New image scim-sinhala.png.
+	* Version 0.2.0
+
+2005-09-26 Takuro Ashie <ashie@homa.ne.jp>
+
+	* Version 0.1.0.
+
+2005-09-26 Takuro Ashie <ashie@homa.ne.jp>
+
+	* AUTHORS: Change order of authors list.
+
+2005-09-16 Takuro Ashie <ashie@homa.ne.jp>
+
+	* data/Makefile.am, data/scim-sinhala.png: Rename from scim-canna.png
+	* src/scim_sinahala_imengine_factory.cpp: Disconnect reload signal in
+	destructor.
+
+2005-09-07 Takuro Ashie <ashie@homa.ne.jp>
+
+	* src/scim_sinhala_imengine.{cpp,h}: Split some codes from
+	sinhala_transliterated_filter_keypress() to handle_consonant_pressed()
+	and handle_vowel_pressed().
+
+2005-09-07 Takuro Ashie <ashie@homa.ne.jp>
+
+	* Initial release (Version-0.0.0).

@@ -134,10 +134,32 @@ SinhalaFactory::get_credits () const
     return WideString ();
 }
 
-WideString
-SinhalaFactory::get_help () const
+WideString SinhalaFactory::get_help () const
 {
-    return WideString ();
+	String help;
+
+	help =  String (_("Keyboard usage:\n")) + 
+		String (_("\tඅ: a\t\tආ: aa\tඇ: q,A,aaa\tඈ: qq,AA,aaaa\n")) +
+		String (_("\tඉ: i\t\tඊ: ii\t\tඋ: u\t\t\tඌ: uu\n")) +
+		String (_("\tඑ: e\t\tඒ: ee\tඔ: o\t\t\tඕ: oo\n")) +
+		String (_("\tඓ: I\t\tඖ: O\tඍ: U\t\tඎ: UU\n\n")) +
+		String (_("\tක: k\t\tඛ: kH\tග: g\t\tඝ: gH\tඞ: X\n")) +
+		String (_("\tච: c\t\tඡ: C,cH\tජ: j\t\tඣ: J,jH\tඤ: z\n")) +
+		String (_("\tට: T\t\tඨ: TH\tඩ: D\t\tඪ: DH\tණ: N\n")) +
+		String (_("\tත: t\t\tථ: tH\tද: d\t\tධ: dH\tන: n\n")) +
+		String (_("\tප: p\t\tඵ: P,pH\tබ: b\t\tභ: B,bH\tම: m\n")) +
+		String (_("\tය: y\t\tර: r\t\tල: l\t\tව: v\n")) +
+		String (_("\tස: s\t\tශ: S\t\tෂ: sH,SH\tහ: h\t\tළ: L\n\n")) +
+		String (_("\tඟ: gG\tඦ: jG\tඬ: DG\tඳ: dG\n")) +
+		String (_("\tඹ: M,bG\tඥ: Z\tෆ: f\n\n")) +
+		String (_("\tක: k\t\tකා: ka\tකැ: kq\tකෑ: kqq\n")) +
+		String (_("\tකි: ki\tකී: kii\tකු: ku\tකූ: kuu\n")) +
+		String (_("\tකෙ: ke\tකේ: kee\tකො: ko\tකෝ: koo\n")) +
+		String (_("\tකෛ: kI\tකෞ: kO\tකෘ: kU\tකෲ: kUU\n")) +
+		String (_("\tක්‍ර: kR\tක්‍ය: kY\tක්: kw\tක්‍ෂ: kWsH\n")) +
+		String (_("\tකං: kx\tකඃ: khH\n")) +
+		String (_("\n"));
+	return utf8_mbstowcs (help);
 }
 
 String

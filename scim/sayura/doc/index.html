@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>Sayura Sinhala Input Scheme</title>
+  <link rel=stylesheet href="style.css">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="author" content="Anuradha Ratnaweera">
+  <meta name="generator" content="vi">
+</head>
+<body>
+
+<h1>Sayura Sinhala Input Scheme</h1>
+
+<h4>By <a href="http://www.sayura.net/anuradha/">Anuradha
+Ratnaweera</a></h4>
+
+<p>The latest version of this document can always be found <a
+href="http://www.sayura.net/im/">here</a>.</p>
+
+<ul>
+ <li><a href="#intro">Introduction</a>
+ <li><a href="#keys">Key Allocation</a>
+  <ul>
+    <li><a href="#vowels">Vowels</a></li>
+    <li><a href="#modifiers">Modifiers</a></li>
+    <li><a href="#consonants">Consonants</a></li>
+    <li><a href="#al">Al Akuru</a></li>
+  </ul>
+  <li><a href="#install">Installing</a></li>
+</ul>
+
+<h2>Introduction</h2>
+<a name="intro" />
+
+<p>Sayura is a quasi-transliteration scheme for Sinhala script.  Unlike true
+tansliteration schemes, Sayura uses individual Latin characters to signify unmodified consonents, and not their "hal" form.  For example, මම is entered as "mm", and not "mama".</p>
+
+<h2>Key Allocation</h2>
+<a name="keys" />
+
+<h3>Vowels</h3>
+<a name="vowels" />
+
+<p>First, we assigned "a", "e", "i", "o" and "u" to their most obvious counterparts in Sinhala: "අ", "එ", "ඉ", "ඔ" and "උ".  Remaining basic vowel "ඇ" was given he key "A" in Sayura version 0.2, but we decided to also allocate "q" to input "ඇ" in 0.3, because pressing shift to the common "ඇ" turned out to be counter-productive.</p>
+
+<p>Long wovels are typed by pressing the same key twice.  For example, "aa" produces "ආ".</p>
+
+<p>"ඓ" and "ඖ" were allocated "I" and "O", and "U" produces long and short forms of "ඍ".  "අං" and "අඃ" are given "x" and "hH", but from 0.3.1, we will allocate "Q" also to enter අඃ".</p>
+
+<h3>Modifiers</h3>
+<a name="modifiers" />
+
+<p>Modifiers are allocated the same keys as vowels, but effective when typed after a consonent.  Only difference is that "a" corresponds to "ආ" instead of "අ".</p>
+<p>For example, "kii" produces "කී", while "kU" gives us "කෘ".</p>
+
+<h3>Consonants</h3>
+<a name="consonants" />
+
+<p>First we allocated lower case keys to consonents in the most obvious form: "r", "t", "y", "p", "s", "d", "f", "g", "h", "j", "k", "l", "c", "v", "b", "n" and "m" to "ර", "ත", "ය", "ප", "ස", "ද", "ෆ", "ග", "හ", "ජ", "ක", "ල", "ච", "ව", "බ", "න" and "ම" respectively.</p>
+
+<p>The only arguable allocatoins are "t" and "d".  We think "ත" and "ද" is more common than "ට" and "ඩ", so decided to risk a few initial surprises for the sake of long term efficiency.</p>
+
+<p>Upper case letters are used for other consonant forms (e.g.: ඵ, ළ, ණ) whenever possible.  We also introduced some shortcuts such as "M" for "ඹ".  As we use "x" for "අං", upper case "X" was assigned "ඞ".</p>
+
+<p>A consonant is converted to mahaprana and sagngnaka by typing upper case "H" and "G".  But there are shortcuts such as "P" for "ඵ", "G" for "ඟ" and "M" for "ඹ".</p>
+
+<h3>Al Akuru</h3>
+<a name="al" />
+
+<p>We allocated "w", the only unallocated and easy-to-type character for al-kireema, and upper case "W" to add a ZWJ to create a joiner.  So, typing "kwsH" creates "ක්ෂ", while "kWsH" produces joint "ක්‍ෂ".<p>
+
+<p>We also have shortcuts "R" and "Y" to produce "rakaransaya" and "yansaya".  E.g.: "SRii" produces "ශ්‍රී".</p>
+
+<h3>Installing</h3>
+<a name="install" />
+
+<p>If you want to try out the present stable version of Sayura SCIM module (which is called scim-sinhala-trans), follow the instructions at <a href="http://sinhala.sourceforge.net">sinhala.sourceforge.net</a>.  However, we encourage you to test 0.3 series, which brings out "preedit" support and improvements to the scheme itself.</p>
+
+<p>Latest version of SCIM module for Sayura can be found <a href="http://sinhala.sourceforge.net/files/">here</a>.</p>
+
+<p>On Debian based systems, you easily make a DEB package:</p>
+<pre class="term">
+% tar -xzvf scim-sayura-0.3.0.tar.gz
+% cd scim-sayura-0.3.0
+% dpkg-buildpackage -b
+</pre>
+
+<p>If you get a "command not found" error, you need to install "dpkg-dev" package, and preferably "build-essential" package as well.</p>
+
+<p>If dpkg-buildpackage complains about missing packages, install them and try again.</p>
+
+</body>
+</html>

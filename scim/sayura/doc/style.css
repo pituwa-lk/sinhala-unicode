@@ -1,0 +1,23 @@
+
+body {
+	font-family: arial, helvetica, sans-serif;
+}
+
+pre {
+	padding: 4px;
+}
+
+pre.term {
+	color: #ffffff;
+	background-color: #339966;
+	font-family: monospace;
+	font-weight: bold;
+} 
+
+pre.file {
+	color: #000000;
+	background-color: #ccccff;
+	font-family: monospace;
+	font-weight: bold;
+} 
+

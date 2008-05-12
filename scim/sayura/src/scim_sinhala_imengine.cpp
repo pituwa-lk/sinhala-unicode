@@ -595,6 +595,11 @@ bool SinhalaInstance::handle_vowel_pressed(const KeyEvent &event, int c)
 			update_preedit_string(m_preedit_string);
 			update_preedit_caret(m_preedit_string.length());
 			return true;
+		} else {
+			m_preedit_string.push_back(lsb_to_unicode(vowels[c].single0));
+			update_preedit_string(m_preedit_string);
+			update_preedit_caret(m_preedit_string.length());
+			return true;
 		}
 	}
 

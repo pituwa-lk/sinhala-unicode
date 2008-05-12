@@ -10,14 +10,15 @@
 
 <h1>Sayura Sinhala Input Scheme</h1>
 
-<h4>By <a href="http://www.sayura.net/anuradha/">Anuradha
-Ratnaweera</a></h4>
+<h4>By <a href="http://www.sayura.net/anuradha/">Anuradha Ratnaweera</a></h4>
 
-<p>The latest version of this document can always be found <a
-href="http://www.sayura.net/im/">here</a>.</p>
+<p>The latest version of this document can always be found <a href="http://www.sayura.net/im/">here</a>.</p>
 
 <ul>
  <li><a href="#intro">Introduction</a>
+ <ul>
+  <li><a href="#history">History</a></li>
+ </ul>
  <li><a href="#keys">Key Allocation</a>
   <ul>
     <li><a href="#vowels">Vowels</a></li>
@@ -31,8 +32,81 @@ href="http://www.sayura.net/im/">here</a>.</p>
 <h2>Introduction</h2>
 <a name="intro" />
 
-<p>Sayura is a quasi-transliteration scheme for Sinhala script.  Unlike true
-tansliteration schemes, Sayura uses individual Latin characters to signify unmodified consonents, and not their "hal" form.  For example, මම is entered as "mm", and not "mama".</p>
+<p>Sayura is a quasi-transliteration scheme for Sinhala script.  Unlike
+true tansliteration schemes, Sayura uses individual Latin characters to
+signify unmodified consonents, and not their "hal" form.  For example,
+මම is entered as "mm", and not "mama".</p> 
+
+<h3>History</h3>
+<a name="history" />
+
+<p>I wrote the first implementation of Sayura transliterated scheme in
+mid 2004 to include in <a
+href="http://mail.lug.lk/lurker/thread/20040902.035405.daf12f07.en.html">our
+first package</a> (version 0.1 it was called) to enable Sinhala in
+GNU/Linux.  It was only for GTK, and not properly named.  For the GTK
+part of the implementation, I used some code from another im-module
+written by Chamath Keppitiyagama.</p>
+
+<p>Sayura defines context dependant behaviour of keys.  For example, "i"
+at the beginning of a word produced "ඉ", after another "i" it converted
+"ඉ" to "ඊ", after a consonant it added an ispilla, and after a consonant
+with an ispilla, it converted the ispilla to a diga ispilla.  Multiple
+use of keys depending on the context allowed us to use fewer keys in
+very intuitive ways.</p>
+
+<p>Sayura algorithm internally uses bytes, not UTF-8.  Sinhala code page
+is mapped to characters 128-255, and ZWJ and ZWNJ are given 0x0d and
+0x0c.</p>
+
+<p>In September 2004, <a
+href="http://mail.lug.lk/lurker/message/20040906.132054.53a033be.en.html">I
+announced</a> an attempt to port the GTK im-module to QT.  After first
+<a
+href="http://lists.freedesktop.org/pipermail/immodule-qt/2004-September/000540.html">implementing
+surrounding text support</a>, the QT port of the im-module <a
+href="http://mail.lug.lk/lurker/thread/20040922.062240.f535d462.en.html">was
+announced</a> in late September 2004, and included in <a
+href="http://mail.lug.lk/lurker/thread/20040927.053658.514d4128.en.html">Sinhala
+GNU/Linux 0.2</a>.</p>
+
+<p>However, my patch to QT broke binary compatibility, so applying it
+also required a complete recompile of dependant apps.  Therefore, it was
+unlikely to go upstream.  Although <a
+href="http://lists.freedesktop.org/pipermail/immodule-qt/2004-September/000554.html">Kazuki
+Otta's port</a> made to QT4 upstream, QT3 apps were going to be there
+for a long time to come.</p>
+
+<p>Typing in OpenOffice was yet to be solved.</p>
+
+<p>In October 2005, there was a Codefest in Colombo as a part of the
+Asia OSS conference.  Kazuki Otta <a
+href="http://mail.lug.lk/lurker/thread/20051012.062709.e8b18c88.en.html">ported</a>
+the GTK module to <a href="http://www.scim-im.org">SCIM</a>.  As SCIM
+stands below GTK, QT and OpenOffice and all other X apps, it provided a
+unified input mechanism.</p>
+
+<p>The algorithm's dependency on surrounding text support was also
+removed.  The package was called "scim-sinhala-trans".</a>
+
+<p>For the next couple of years, scim-sinhala-trans became the primary
+input scheme on GNU/Linux systems, and was shipped with some distros
+including Fedora/Redhat.  Debs were always available <a
+href="http://sinhala.sourceforge.net">here</a>.</p>
+
+<p>In early 2008, S Pravin sent some patches to add preedit support and
+other improvements.  I added several tweaks to the algorithm to bring
+back old semantics broken by the new code, and also to improve in
+certain places. A key improvement is to bring back surround text
+support, but only to use it when available.</p>
+
+<p>A development series 0.3.x <a
+href="http://mail.lug.lk/lurker/message/20080509.202929.5e581c19.en.html">was
+announced</a> in May 2008 to continue and test the new set of
+developments, and the scheme was named "Sayura" to distinguish from
+other schemes such as <a
+href="http://www.ocs.mq.edu.au/~vsaparam/samanala.pdf">Samanala</a> and
+<a href="http://www.ruh.ac.lk/Songs/Sumihiri.html">Sumihiri</a>.</p>
 
 <h2>Key Allocation</h2>
 <a name="keys" />
@@ -40,42 +114,69 @@ tansliteration schemes, Sayura uses individual Latin characters to signify unmod
 <h3>Vowels</h3>
 <a name="vowels" />
 
-<p>First, we assigned "a", "e", "i", "o" and "u" to their most obvious counterparts in Sinhala: "අ", "එ", "ඉ", "ඔ" and "උ".  Remaining basic vowel "ඇ" was given he key "A" in Sayura version 0.2, but we decided to also allocate "q" to input "ඇ" in 0.3, because pressing shift to the common "ඇ" turned out to be counter-productive.</p>
+<p>First, we assigned "a", "e", "i", "o" and "u" to their most obvious
+counterparts in Sinhala: "අ", "එ", "ඉ", "ඔ" and "උ".  Remaining basic
+vowel "ඇ" was given he key "A" in Sayura version 0.2, but we decided to
+also allocate "q" to input "ඇ" in 0.3, because pressing shift to the
+common "ඇ" turned out to be counter-productive.</p>
 
-<p>Long wovels are typed by pressing the same key twice.  For example, "aa" produces "ආ".</p>
+<p>Long wovels are typed by pressing the same key twice.  For example,
+"aa" produces "ආ".</p>
 
-<p>"ඓ" and "ඖ" were allocated "I" and "O", and "U" produces long and short forms of "ඍ".  "අං" and "අඃ" are given "x" and "hH", but from 0.3.1, we will allocate "Q" also to enter අඃ".</p>
+<p>"ඓ" and "ඖ" were allocated "I" and "O", and "U" produces long and
+short forms of "ඍ".  "අං" and "අඃ" are given "x" and "hH", but from 0.3.1,
+we will allocate "Q" also to enter අඃ".</p>
 
 <h3>Modifiers</h3>
 <a name="modifiers" />
 
-<p>Modifiers are allocated the same keys as vowels, but effective when typed after a consonent.  Only difference is that "a" corresponds to "ආ" instead of "අ".</p>
+<p>Modifiers are allocated the same keys as vowels, but effective when
+typed after a consonent.  Only difference is that "a" corresponds to "ආ"
+instead of "අ".</p>
+
 <p>For example, "kii" produces "කී", while "kU" gives us "කෘ".</p>
 
 <h3>Consonants</h3>
 <a name="consonants" />
 
-<p>First we allocated lower case keys to consonents in the most obvious form: "r", "t", "y", "p", "s", "d", "f", "g", "h", "j", "k", "l", "c", "v", "b", "n" and "m" to "ර", "ත", "ය", "ප", "ස", "ද", "ෆ", "ග", "හ", "ජ", "ක", "ල", "ච", "ව", "බ", "න" and "ම" respectively.</p>
+<p>First we allocated lower case keys to consonents in the most obvious
+form: "r", "t", "y", "p", "s", "d", "f", "g", "h", "j", "k", "l", "c",
+"v", "b", "n" and "m" to "ර", "ත", "ය", "ප", "ස", "ද", "ෆ", "ග", "හ",
+"ජ", "ක", "ල", "ච", "ව", "බ", "න" and "ම" respectively.</p>
 
-<p>The only arguable allocatoins are "t" and "d".  We think "ත" and "ද" is more common than "ට" and "ඩ", so decided to risk a few initial surprises for the sake of long term efficiency.</p>
+<p>The only arguable allocatoins are "t" and "d".  We think "ත" and "ද"
+is more common than "ට" and "ඩ", so decided to risk a few initial
+surprises for the sake of long term efficiency.</p>
 
-<p>Upper case letters are used for other consonant forms (e.g.: ඵ, ළ, ණ) whenever possible.  We also introduced some shortcuts such as "M" for "ඹ".  As we use "x" for "අං", upper case "X" was assigned "ඞ".</p>
+<p>Upper case letters are used for other consonant forms (e.g.: ඵ, ළ, ණ)
+whenever possible.  We also introduced some shortcuts such as "M" for
+"ඹ".  As we use "x" for "අං", upper case "X" was assigned "ඞ".</p>
 
-<p>A consonant is converted to mahaprana and sagngnaka by typing upper case "H" and "G".  But there are shortcuts such as "P" for "ඵ", "G" for "ඟ" and "M" for "ඹ".</p>
+<p>A consonant is converted to mahaprana and sagngnaka by typing upper
+case "H" and "G".  But there are shortcuts such as "P" for "ඵ", "G" for
+"ඟ" and "M" for "ඹ".</p>
 
 <h3>Al Akuru</h3>
 <a name="al" />
 
-<p>We allocated "w", the only unallocated and easy-to-type character for al-kireema, and upper case "W" to add a ZWJ to create a joiner.  So, typing "kwsH" creates "ක්ෂ", while "kWsH" produces joint "ක්‍ෂ".<p>
+<p>We allocated "w", the only unallocated and easy-to-type character for
+al-kireema, and upper case "W" to add a ZWJ to create a joiner.  So,
+typing "kwsH" creates "ක්ෂ", while "kWsH" produces joint "ක්‍ෂ".<p>
 
-<p>We also have shortcuts "R" and "Y" to produce "rakaransaya" and "yansaya".  E.g.: "SRii" produces "ශ්‍රී".</p>
+<p>We also have shortcuts "R" and "Y" to produce "rakaransaya" and
+"yansaya".  E.g.: "SRii" produces "ශ්‍රී".</p>
 
 <h3>Installing</h3>
 <a name="install" />
 
-<p>If you want to try out the present stable version of Sayura SCIM module (which is called scim-sinhala-trans), follow the instructions at <a href="http://sinhala.sourceforge.net">sinhala.sourceforge.net</a>.  However, we encourage you to test 0.3 series, which brings out "preedit" support and improvements to the scheme itself.</p>
+<p>If you want to try out the present stable version of Sayura SCIM
+module (which is called scim-sinhala-trans), follow the instructions at
+<a href="http://sinhala.sourceforge.net">sinhala.sourceforge.net</a>.
+However, we encourage you to test 0.3 series, which brings out "preedit"
+support and improvements to the scheme itself.</p>
 
-<p>Latest version of SCIM module for Sayura can be found <a href="http://sinhala.sourceforge.net/files/">here</a>.</p>
+<p>Latest version of SCIM module for Sayura can be found <a
+href="http://sinhala.sourceforge.net/files/">here</a>.</p>
 
 <p>On Debian based systems, you easily make a DEB package:</p>
 <pre class="term">
@@ -84,9 +185,12 @@ tansliteration schemes, Sayura uses individual Latin characters to signify unmod
 % dpkg-buildpackage -b
 </pre>
 
-<p>If you get a "command not found" error, you need to install "dpkg-dev" package, and preferably "build-essential" package as well.</p>
+<p>If you get a "command not found" error, you need to install
+"dpkg-dev" package, and preferably "build-essential" package as
+well.</p>
 
-<p>If dpkg-buildpackage complains about missing packages, install them and try again.</p>
+<p>If dpkg-buildpackage complains about missing packages, install them
+and try again.</p>
 
 </body>
 </html>

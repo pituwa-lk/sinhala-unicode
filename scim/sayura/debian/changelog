@@ -1,3 +1,10 @@
+scim-sayura (0.3.1-1) unstable; urgency=low
+
+  * HTML documentation.
+  * "Q" produces "ah".
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 12 May 2008 12:00:00 +0530
+
 scim-sayura (0.3.0-1) unstable; urgency=low
 
   * Use preedit instead of emulating backspace (Pravin S)

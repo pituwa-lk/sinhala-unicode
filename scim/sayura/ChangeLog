@@ -1,3 +1,8 @@
+2008-05-12 Anuradha Ratnaweera <anuradha@taprobane.org>
+
+	* HTML documentation.
+	* "Q" produces "ah".
+
 2008-05-09 Anuradha Ratnaweera <anuradha@taprobane.org>
 
 	* Use preedit instead of emulating backspace (Pravin S).

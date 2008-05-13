@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
  *  Copyright (C) Hiroyuki Ikezoe <poincare@ikezoe.net>
  *  Copyright (C) 2005 Kazuki Ohta <mover@hct.zaq.ne.jp>
@@ -28,7 +27,7 @@
 #define Uses_SCIM_CONFIG_BASE
 
 #ifdef HAVE_CONFIG_H
-  #include <config.h>
+#include <config.h>
 #endif
 
 #include <stdio.h>
@@ -45,100 +44,95 @@
 #define scim_module_init sayura_LTX_scim_module_init
 #define scim_module_exit sayura_LTX_scim_module_exit
 #define scim_imengine_module_init sayura_LTX_scim_imengine_module_init
-#define scim_imengine_module_create_factory sayura_LTX_scim_imengine_module_create_factory
-#define SCIM_CONFIG_IMENGINE_SINHALA_UUID     "/IMEngine/Sayura/UUID-"
+#define scim_imengine_module_create_factory \
+	sayura_LTX_scim_imengine_module_create_factory
+#define SCIM_CONFIG_IMENGINE_SINHALA_UUID "/IMEngine/Sayura/UUID-"
 #ifndef SCIM_SINHALA_ICON_FILE
-    #define SCIM_SINHALA_ICON_FILE           (SCIM_ICONDIR"/scim-sayura.png")
+#define SCIM_SINHALA_ICON_FILE (SCIM_ICONDIR"/scim-sayura.png")
 #endif
 
-static ConfigPointer _scim_config (0);
+static ConfigPointer _scim_config(0);
 
 extern "C" {
-    void scim_module_init (void)
-    {
-        bindtextdomain (GETTEXT_PACKAGE, SCIM_SINHALA_LOCALEDIR);
-        bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-    }
+	void scim_module_init(void)
+	{
+		bindtextdomain(GETTEXT_PACKAGE, SCIM_SINHALA_LOCALEDIR);
+		bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+	}
 
-    void scim_module_exit (void)
-    {
-        _scim_config.reset ();
-    }
+	void scim_module_exit(void)
+	{
+		_scim_config.reset();
+	}
 
-    uint32 scim_imengine_module_init (const ConfigPointer &config)
-    {
-        SCIM_DEBUG_IMENGINE(1) << "Initialize Sayura Engine.\n";
+    uint32 scim_imengine_module_init(const ConfigPointer &config)
+	{
+		SCIM_DEBUG_IMENGINE(1) << "Initialize Sayura Engine.\n";
 
-        _scim_config = config;
+		_scim_config = config;
 
-        return 1;
-    }
+		return 1;
+	}
 
-    IMEngineFactoryPointer scim_imengine_module_create_factory (uint32 engine)
-    {
-        SinhalaFactory *factory = 0;
+	IMEngineFactoryPointer scim_imengine_module_create_factory(uint32 engine)
+	{
+		SinhalaFactory *factory = 0;
 
-        try {
-            factory = new SinhalaFactory (String ("si_LK"),
-                                          String ("c16a58be-6f71-4137-b0ac-441859d58641"),
-                                          _scim_config);
-        } catch (...) {
-            delete factory;
-            factory = 0;
-        }
+		try {
+			factory = new SinhalaFactory(String("si_LK"),
+					String("c16a58be-6f71-4137-b0ac-441859d58641"),
+					_scim_config);
+		} catch (...) {
+			delete factory;
+			factory = 0;
+		}
 
-        return factory;
-    }
+		return factory;
+	}
 }
 
 
-SinhalaFactory::SinhalaFactory (const String &lang,
-                            const String &uuid,
-                            const ConfigPointer &config)
-    : m_uuid (uuid),
-      m_config (config)
+SinhalaFactory::SinhalaFactory(const String &lang, const String &uuid,
+		const ConfigPointer &config) : m_uuid(uuid), m_config(config)
 {
-    SCIM_DEBUG_IMENGINE(1) << "Create Sinhala Factory :\n";
-    SCIM_DEBUG_IMENGINE(1) << "  Lang : " << lang << "\n";
-    SCIM_DEBUG_IMENGINE(1) << "  UUID : " << uuid << "\n";
+	SCIM_DEBUG_IMENGINE(1) << "Create Sinhala Factory :\n";
+	SCIM_DEBUG_IMENGINE(1) << "  Lang : " << lang << "\n";
+	SCIM_DEBUG_IMENGINE(1) << "  UUID : " << uuid << "\n";
 
-    if (lang.length () >= 2)
-        set_languages (lang);
+	if (lang.length () >= 2) set_languages(lang);
 
     // config
-    reload_config (m_config);
-    m_reload_signal_connection
-        = m_config->signal_connect_reload (slot (this, &SinhalaFactory::reload_config));
+    reload_config(m_config);
+    m_reload_signal_connection =
+		m_config->signal_connect_reload(slot(this,
+					&SinhalaFactory::reload_config));
 }
 
-SinhalaFactory::~SinhalaFactory ()
+SinhalaFactory::~SinhalaFactory()
 {
-    m_reload_signal_connection.disconnect ();
+	m_reload_signal_connection.disconnect();
 }
 
-WideString
-SinhalaFactory::get_name () const
+WideString SinhalaFactory::get_name() const
 {
-    return utf8_mbstowcs (String ("Sayura"));
+	return utf8_mbstowcs(String("Sayura"));
 }
 
-WideString
-SinhalaFactory::get_authors () const
+WideString SinhalaFactory::get_authors() const
 {
-    return WideString ();
+	return WideString();
 }
 
-WideString
-SinhalaFactory::get_credits () const
+WideString SinhalaFactory::get_credits() const
 {
-    return WideString ();
+	return WideString();
 }
 
-WideString SinhalaFactory::get_help () const
+WideString SinhalaFactory::get_help() const
 {
 	String help;
 
-	help =  String (_("Keyboard usage:\n")) + 
+	help = String (_("Keyboard usage:\n")) + 
 		String (_("\tඅ: a\t\tආ: aa\tඇ: q,A,aaa\tඈ: qq,AA,aaaa\n")) +
 		String (_("\tඉ: i\t\tඊ: ii\t\tඋ: u\t\t\tඌ: uu\n")) +
 		String (_("\tඑ: e\t\tඒ: ee\tඔ: o\t\t\tඕ: oo\n")) +
@@ -159,30 +153,28 @@ WideString SinhalaFactory::get_help () const
 		String (_("\tක්‍ර: kR\tක්‍ය: kY\tක්: kw\tක්‍ෂ: kWsH\n")) +
 		String (_("\tකං: kx\tකඃ: khH\n")) +
 		String (_("\n"));
-	return utf8_mbstowcs (help);
+
+	return utf8_mbstowcs(help);
 }
 
-String
-SinhalaFactory::get_uuid () const
+String SinhalaFactory::get_uuid() const
 {
-    return m_uuid;
+	return m_uuid;
 }
 
-String
-SinhalaFactory::get_icon_file () const
+String SinhalaFactory::get_icon_file() const
 {
-    return String (SCIM_SINHALA_ICON_FILE);
+	return String(SCIM_SINHALA_ICON_FILE);
 }
 
-IMEngineInstancePointer
-SinhalaFactory::create_instance (const String &encoding, int id)
+IMEngineInstancePointer SinhalaFactory::create_instance(
+		const String &encoding, int id)
 {
-    return new SinhalaInstance (this, encoding, id);
+	return new SinhalaInstance(this, encoding, id);
 }
 
-void
-SinhalaFactory::reload_config (const ConfigPointer &config)
+void SinhalaFactory::reload_config(const ConfigPointer &config)
 {
-    if (!config) return;
+	if (!config) return;
 }
 

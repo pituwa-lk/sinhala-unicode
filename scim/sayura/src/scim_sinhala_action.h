@@ -1,4 +1,3 @@
-/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
  *  Copyright (C) 2005 Kazuki Ohta <mover@hct.zaq.ne.jp>
  *
@@ -29,25 +28,24 @@ class SinhalaInstance;
 
 class SinhalaAction
 {
-    typedef bool (SinhalaInstance::*PMF) (void);
+	typedef bool (SinhalaInstance::*PMF) (void);
 
 public:
-    SinhalaAction  (const String &name, const String &key_bindings, PMF pmf);
-    ~SinhalaAction ();
+	SinhalaAction(const String &name, const String &key_bindings, PMF pmf);
+	~SinhalaAction();
 
 public:
-    bool perform (SinhalaInstance  *performer);
-    bool perform (SinhalaInstance  *performer,
-                  const KeyEvent &key);
+	bool perform(SinhalaInstance *performer);
+	bool perform(SinhalaInstance *performer, const KeyEvent &key);
 
 private:
-    bool match_key_event (const KeyEvent &key);
+	bool match_key_event(const KeyEvent &key);
 
 private:
-    String         m_name;
-    String         m_desc;
-    PMF            m_pmf;
-    KeyEventList   m_key_bindings;
+	String m_name;
+	String m_desc;
+	PMF m_pmf;
+	KeyEventList m_key_bindings;
 };
 
 #endif /* __SCIM_SINHALA_ACTION_H__ */

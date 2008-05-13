@@ -1,4 +1,3 @@
-/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
  *  Copyright (C) 2004 Hiroyuki Ikezoe
  *  Copyright (C) 2005 Kazuki Ohta <mover@hct.zaq.ne.jp>
@@ -34,40 +33,36 @@ using namespace scim;
 
 class SinhalaFactory : public IMEngineFactoryBase
 {
-    String m_uuid;
+	String m_uuid;
 
-    friend class SinhalaInstance;
+	friend class SinhalaInstance;
 
-    /* config */
-    ConfigPointer  m_config;
-    Connection     m_reload_signal_connection;
+	/* config */
+	ConfigPointer m_config;
+	Connection m_reload_signal_connection;
 
-    /* for preference */
+	/* for preference */
 
-    /* for key bindings */
-    std::vector<SinhalaAction> m_actions;
+	/* for key bindings */
+	std::vector<SinhalaAction> m_actions;
 
 public:
-    SinhalaFactory (const String &lang,
-                  const String &uuid,
-                  const ConfigPointer &config);
-    virtual ~SinhalaFactory ();
+	SinhalaFactory(const String &lang, const String &uuid,
+			const ConfigPointer &config);
+	virtual ~SinhalaFactory();
 
-    virtual WideString  get_name      () const;
-    virtual WideString  get_authors   () const;
-    virtual WideString  get_credits   () const;
-    virtual WideString  get_help      () const;
-    virtual String      get_uuid      () const;
-    virtual String      get_icon_file () const;
+	virtual WideString get_name() const;
+	virtual WideString get_authors() const;
+	virtual WideString get_credits() const;
+	virtual WideString get_help() const;
+	virtual String get_uuid() const;
+	virtual String get_icon_file() const;
 
-    virtual IMEngineInstancePointer create_instance (const String& encoding,
-                                                     int id = -1);
+	virtual IMEngineInstancePointer
+		create_instance(const String& encoding, int id = -1);
 
 private:
-    void reload_config (const ConfigPointer &config);
+	void reload_config(const ConfigPointer &config);
 };
 
 #endif /* __SCIM_SINHALA_IMENGINE_FACTORY_H__ */
-/*
-vi:ts=4:nowrap:ai:expandtab
-*/

@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
  *  Copyright (C) Hiroyuki Ikezoe <poincare@ikezoe.net>
  *  Copyright (C) 2005 Kazuki Ohta <mover@hct.zaq.ne.jp>
@@ -22,19 +21,19 @@
 #define __INTL_H__
 
 #ifdef HAVE_CONFIG_H
-  #include <config.h>
+#include <config.h>
 #endif
 
 #ifdef HAVE_GETTEXT
-  #include <libintl.h>
-  #define _(String) dgettext(GETTEXT_PACKAGE,String)
-  #define N_(String) (String)
+#include <libintl.h>
+#define _(String) dgettext(GETTEXT_PACKAGE,String)
+#define N_(String) (String)
 #else
-  #define _(String) (String)
-  #define N_(String) (String)
-  #define bindtextdomain(Package,Directory)
-  #define textdomain(domain)
-  #define bind_textdomain_codeset(domain,codeset)
+#define _(String) (String)
+#define N_(String) (String)
+#define bindtextdomain(Package,Directory)
+#define textdomain(domain)
+#define bind_textdomain_codeset(domain,codeset)
 #endif
 
 #endif /* __INTL_H__ */

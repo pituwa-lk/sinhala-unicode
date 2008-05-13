@@ -1,4 +1,3 @@
-/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
  *  Copyright (C) 2005 Kazuki Ohta <mover@hct.zaq.ne.jp>
  *
@@ -27,7 +26,7 @@ SinhalaAction::SinhalaAction(const String &name,
 		const String &key_bindings, PMF pmf) :
 	m_name(name), m_pmf(pmf)
 {
-	scim_string_to_key_list (m_key_bindings, key_bindings);
+	scim_string_to_key_list(m_key_bindings, key_bindings);
 }
 
 SinhalaAction::~SinhalaAction(void)
@@ -42,13 +41,12 @@ bool SinhalaAction::perform(SinhalaInstance *performer)
 	return (performer->*m_pmf)();
 }
 
-bool SinhalaAction::perform(SinhalaInstance *performer,
-		const KeyEvent &key)
+bool SinhalaAction::perform(SinhalaInstance *performer, const KeyEvent &key)
 {
 	if (!performer || !m_pmf)
 		return false;
 
-	if (match_key_event (key))
+	if (match_key_event(key))
 		return (performer->*m_pmf)();
 
 	return false;

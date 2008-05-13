@@ -59,7 +59,9 @@ using namespace scim;
  *
  * In the present context, we will be calling this LSB representation.
  */
-/* Sinhala Related Definitions */
+
+/* Sinhala related definitions */
+
 #define ZWNJ 0x0c
 #define ZWJ  0x0d
 
@@ -72,7 +74,6 @@ static struct {
 	unsigned char sagngnaka;
 	int key;
 } consonents[] = {
-//	{0xa4, 0x00, 0x00, SCIM_KEY_q},
 	{0x83, 0x00, 0x00, SCIM_KEY_Q},
 	{0xa4, 0x00, 0x00, SCIM_KEY_z},
 	{0xa5, 0x00, 0x00, SCIM_KEY_Z},
@@ -158,49 +159,49 @@ bool SinhalaInstance::process_key_event(const KeyEvent& key)
 	return sinhala_transliterated_filter_keypress(key);
 }
 
-void SinhalaInstance::move_preedit_caret (unsigned int pos)
+void SinhalaInstance::move_preedit_caret(unsigned int pos)
 {
 }
 
-void SinhalaInstance::select_candidate (unsigned int item)
+void SinhalaInstance::select_candidate(unsigned int item)
 {
 	SCIM_DEBUG_IMENGINE(2) << "select_candidate.\n";
 
 	select_candidate_no_direct (item);
 }
 
-void SinhalaInstance::select_candidate_no_direct (unsigned int item)
+void SinhalaInstance::select_candidate_no_direct(unsigned int item)
 {
 	SCIM_DEBUG_IMENGINE(2) << "select_candidate_no_direct.\n";
 
-	m_lookup_table.set_cursor_pos_in_current_page (item);
-	update_lookup_table (m_lookup_table);
+	m_lookup_table.set_cursor_pos_in_current_page(item);
+	update_lookup_table(m_lookup_table);
 }
 
-void SinhalaInstance::update_lookup_table_page_size (unsigned int page_size)
+void SinhalaInstance::update_lookup_table_page_size(unsigned int page_size)
 {
 	SCIM_DEBUG_IMENGINE(2) << "update_lookup_table_page_size.\n";
 
-	m_lookup_table.set_page_size (page_size);
+	m_lookup_table.set_page_size(page_size);
 }
 
-void SinhalaInstance::lookup_table_page_up ()
+void SinhalaInstance::lookup_table_page_up()
 {
 	SCIM_DEBUG_IMENGINE(2) << "lookup_table_page_up.\n";
 
-	m_lookup_table.page_up ();
-	update_lookup_table (m_lookup_table);
+	m_lookup_table.page_up();
+	update_lookup_table(m_lookup_table);
 }
 
-void SinhalaInstance::lookup_table_page_down ()
+void SinhalaInstance::lookup_table_page_down()
 {
 	SCIM_DEBUG_IMENGINE(2) << "lookup_table_page_down.\n";
 
-	m_lookup_table.page_down ();
-	update_lookup_table (m_lookup_table);
+	m_lookup_table.page_down();
+	update_lookup_table(m_lookup_table);
 }
 
-void SinhalaInstance::reset ()
+void SinhalaInstance::reset()
 {
 	SCIM_DEBUG_IMENGINE(2) << "reset.\n";
 
@@ -213,26 +214,26 @@ void SinhalaInstance::reset ()
 	//    hide_preedit_string();
 }
 
-void SinhalaInstance::focus_in ()
+void SinhalaInstance::focus_in()
 {
 	SCIM_DEBUG_IMENGINE(2) << "focus_in.\n";
 
-	hide_aux_string ();
+	hide_aux_string();
 }
 
-void SinhalaInstance::focus_out ()
+void SinhalaInstance::focus_out()
 {
 	SCIM_DEBUG_IMENGINE(2) << "focus_out.\n";
 }
 
-void SinhalaInstance::trigger_property (const String &property)
+void SinhalaInstance::trigger_property(const String &property)
 {
-	String sinhala_prop = property.substr (property.find_last_of ('/') + 1);
+	String sinhala_prop = property.substr(property.find_last_of('/') + 1);
 
 	SCIM_DEBUG_IMENGINE(2) << "trigger_property : " << property << " - " << sinhala_prop << "\n";
 }
 
-void SinhalaInstance::backspace ()
+void SinhalaInstance::backspace()
 {
 	KeyEvent e = scim::KeyEvent::KeyEvent(SCIM_KEY_BackSpace, 0);
 	forward_key_event(e);
@@ -494,10 +495,10 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 			return true;
 		}
 		if ((event.code == SCIM_KEY_G) && (consonents[l1].sagngnaka)) {
-			m_preedit_string.erase (m_preedit_string.length () - 1, 1);
-			m_preedit_string.push_back (lsb_to_unicode(consonents[l1].sagngnaka));
-			update_preedit_string (m_preedit_string);
-			update_preedit_caret (m_preedit_string.length ());
+			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
+			m_preedit_string.push_back(lsb_to_unicode(consonents[l1].sagngnaka));
+			update_preedit_string(m_preedit_string);
+			update_preedit_caret(m_preedit_string.length());
 
 			return true;
 		}

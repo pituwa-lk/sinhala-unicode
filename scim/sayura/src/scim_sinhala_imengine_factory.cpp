@@ -151,7 +151,7 @@ WideString SinhalaFactory::get_help() const
 		String (_("\tකෙ: ke\tකේ: kee\tකො: ko\tකෝ: koo\n")) +
 		String (_("\tකෛ: kI\tකෞ: kO\tකෘ: kU\tකෲ: kUU\n")) +
 		String (_("\tක්‍ර: kR\tක්‍ය: kY\tක්: kw\tක්‍ෂ: kWsH\n")) +
-		String (_("\tකං: kx\tකඃ: khH\n")) +
+		String (_("\tකං: kx\tකඃ: kQ,khH\n")) +
 		String (_("\n"));
 
 	return utf8_mbstowcs(help);

@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /*
  *  Copyright (C) Hiroyuki Ikezoe <poincare@ikezoe.net>
  *  Copyright (C) 2005 Kazuki Ohta <mover@hct.zaq.ne.jp>
@@ -607,6 +606,3 @@ bool SinhalaInstance::handle_vowel_pressed(const KeyEvent &event, int c)
 	return true;
 }
 
-/*
- * vi:ts=4:nowrap:ai:expandtab
-*/

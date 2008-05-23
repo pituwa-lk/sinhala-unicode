@@ -76,14 +76,14 @@ static struct {
 	{0x83, 0x00, 0x00, SCIM_KEY_Q},
 	{0xa4, 0x00, 0x00, SCIM_KEY_z},
 	{0xa5, 0x00, 0x00, SCIM_KEY_Z},
-	{0xc0, 0x00, 0x00, SCIM_KEY_w},
-	{0x0c, 0x00, 0x00, SCIM_KEY_W},
+	{0xca, 0x00, 0x00, SCIM_KEY_w},
+	{0xca, 0x00, 0x00, SCIM_KEY_W},
 	{0xbb, 0x00, 0x00, SCIM_KEY_r},
-	{0xbb, 0x00, 0x00, SCIM_KEY_R},
+	{0xca, 0x00, 0x00, SCIM_KEY_R},
 	{0xad, 0xae, 0x00, SCIM_KEY_t},
 	{0xa7, 0xa8, 0x00, SCIM_KEY_T},
 	{0xba, 0x00, 0x00, SCIM_KEY_y},
-	{0xba, 0x00, 0x00, SCIM_KEY_Y},
+	{0xca, 0x00, 0x00, SCIM_KEY_Y},
 	{0xb4, 0xb5, 0x00, SCIM_KEY_p},
 	{0xb5, 0xb5, 0x00, SCIM_KEY_P},
 	{0xc3, 0xc2, 0x00, SCIM_KEY_s},
@@ -210,7 +210,7 @@ void SinhalaInstance::reset()
 	update_preedit_caret(0);
 	m_lookup_table.clear();
 	hide_lookup_table();
-	//    hide_preedit_string();
+	hide_preedit_string();
 }
 
 void SinhalaInstance::focus_in()
@@ -460,28 +460,9 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		c1 = get_known_lsb_character((int)m_preedit_string[l - 1]);
 	}
 
-	if (l == 0) {
-		m_preedit_string.push_back(lsb_to_unicode(consonents[c].character));
-		update_preedit();
-		return true;
-	}
-
-	/* do modifiers. */
 	l1 = find_consonent(c1);
-	/* do modifiers only if there is a valid character before */
+	/* do sagngnaka and mahapprana if there is a valid character before */
 	if (l1 >= 0) {
-		if (event.code == SCIM_KEY_w) {
-			m_preedit_string.push_back(0x0dca);
-			update_preedit();
-			return true;
-		}
-		if (event.code == SCIM_KEY_W) {
-			/* bandi hal kireema */
-			m_preedit_string.push_back(0x0dca);
-			m_preedit_string.push_back(0x200d);
-			update_preedit();
-			return true;
-		}
 		if ((event.code == SCIM_KEY_H) && (consonents[l1].mahaprana)) {
 			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
 			m_preedit_string.push_back(lsb_to_unicode(consonents[l1].mahaprana));
@@ -494,27 +475,29 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 			update_preedit();
 			return true;
 		}
-		if (event.code == SCIM_KEY_R) {
-			/* rakaraanshaya */
-			m_preedit_string.push_back(0x0dca);
-			m_preedit_string.push_back(0x200d);
-			m_preedit_string.push_back(0x0dbb);
-			update_preedit();
-			return true;
-		}
-		if (event.code == SCIM_KEY_Y) {
-			/* yansaya */
-			m_preedit_string.push_back(0x0dca);
-			m_preedit_string.push_back(0x200d);
-			m_preedit_string.push_back(0x0dba);
-			update_preedit();
-			return true;
-		}
 	}
 
-	if (c1 != 0x0d) reset(); // FIXME: This happens even after ZWJ
-
-	m_preedit_string.push_back(lsb_to_unicode(consonents[c].character));
+	if (event.code == SCIM_KEY_w) {
+		/* hal kireema */
+		m_preedit_string.push_back(0x0dca);
+	} else if (event.code == SCIM_KEY_W) {
+		/* bandi hal kireema  */
+		m_preedit_string.push_back(0x0dca);
+		m_preedit_string.push_back(0x200d);
+	} else if (event.code == SCIM_KEY_R) {
+		/* rakaraanshaya */
+		m_preedit_string.push_back(0x0dca);
+		m_preedit_string.push_back(0x200d);
+		m_preedit_string.push_back(0x0dbb);
+	} else if (event.code == SCIM_KEY_Y) {
+		/* yansaya */
+		m_preedit_string.push_back(0x0dca);
+		m_preedit_string.push_back(0x200d);
+		m_preedit_string.push_back(0x0dba);
+	} else {
+		if (c1 != 0x0d) reset(); // FIXME: This happens even after ZWJ
+		m_preedit_string.push_back(lsb_to_unicode(consonents[c].character));
+	}
 	update_preedit();
 
 	return true;

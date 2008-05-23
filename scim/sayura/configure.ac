@@ -1,4 +1,4 @@
-AC_INIT(scim-sayura, 0.3.0, anuradha@taprobane.org)
+AC_INIT(scim-sayura, 0.3.1, anuradha@taprobane.org)
 AC_CONFIG_SRCDIR([configure.ac])
 
 AM_INIT_AUTOMAKE

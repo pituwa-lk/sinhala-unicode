@@ -29,16 +29,16 @@
   <li><a href="#install">Installing</a></li>
 </ul>
 
-<h2>Introduction</h2>
 <a name="intro" />
+<h2>Introduction</h2>
 
 <p>Sayura is a quasi-transliteration scheme for Sinhala script.  Unlike
 true tansliteration schemes, Sayura uses individual Latin characters to
 signify unmodified consonents, and not their "hal" form.  For example,
 මම is entered as "mm", and not "mama".</p> 
 
-<h3>History</h3>
 <a name="history" />
+<h3>History</h3>
 
 <p>I wrote the first implementation of Sayura transliterated scheme in
 mid 2004 to include in <a
@@ -108,11 +108,11 @@ other schemes such as <a
 href="http://www.ocs.mq.edu.au/~vsaparam/samanala.pdf">Samanala</a> and
 <a href="http://www.ruh.ac.lk/Songs/Sumihiri.html">Sumihiri</a>.</p>
 
-<h2>Key Allocation</h2>
 <a name="keys" />
+<h2>Key Allocation</h2>
 
-<h3>Vowels</h3>
 <a name="vowels" />
+<h3>Vowels</h3>
 
 <p>First, we assigned "a", "e", "i", "o" and "u" to their most obvious
 counterparts in Sinhala: "අ", "එ", "ඉ", "ඔ" and "උ".  Remaining basic
@@ -127,8 +127,8 @@ common "ඇ" turned out to be counter-productive.</p>
 short forms of "ඍ".  "අං" and "අඃ" are given "x" and "hH", but from 0.3.1,
 we will allocate "Q" also to enter අඃ".</p>
 
-<h3>Modifiers</h3>
 <a name="modifiers" />
+<h3>Modifiers</h3>
 
 <p>Modifiers are allocated the same keys as vowels, but effective when
 typed after a consonent.  Only difference is that "a" corresponds to "ආ"
@@ -136,8 +136,8 @@ instead of "අ".</p>
 
 <p>For example, "kii" produces "කී", while "kU" gives us "කෘ".</p>
 
-<h3>Consonants</h3>
 <a name="consonants" />
+<h3>Consonants</h3>
 
 <p>First we allocated lower case keys to consonents in the most obvious
 form: "r", "t", "y", "p", "s", "d", "f", "g", "h", "j", "k", "l", "c",
@@ -156,27 +156,27 @@ whenever possible.  We also introduced some shortcuts such as "M" for
 case "H" and "G".  But there are shortcuts such as "P" for "ඵ", "G" for
 "ඟ" and "M" for "ඹ".</p>
 
-<h3>Al Akuru</h3>
 <a name="al" />
+<h3>Al Akuru</h3>
 
-<p>We allocated "w", the only unallocated and easy-to-type character for
-al-kireema, and upper case "W" to add a ZWJ to create a joiner.  So,
+<p>We allocated "w", the only unallocated and easy-to-type character,
+for al-kireema, and upper case "W" to add a ZWJ to create a joiner.  So,
 typing "kwsH" creates "ක්ෂ", while "kWsH" produces joint "ක්‍ෂ".<p>
 
 <p>We also have shortcuts "R" and "Y" to produce "rakaransaya" and
 "yansaya".  E.g.: "SRii" produces "ශ්‍රී".</p>
 
-<h3>Installing</h3>
 <a name="install" />
+<h2>Installing</h2>
+
+<p>Latest version of SCIM module (0.3.0) for Sayura can be found <a
+href="http://sinhala.sourceforge.net/files/">here</a>.</p>
 
 <p>If you want to try out the present stable version of Sayura SCIM
 module (which is called scim-sinhala-trans), follow the instructions at
 <a href="http://sinhala.sourceforge.net">sinhala.sourceforge.net</a>.
 However, we encourage you to test 0.3 series, which brings out "preedit"
 support and improvements to the scheme itself.</p>
-
-<p>Latest version of SCIM module for Sayura can be found <a
-href="http://sinhala.sourceforge.net/files/">here</a>.</p>
 
 <p>On Debian based systems, you easily make a DEB package:</p>
 <pre class="term">

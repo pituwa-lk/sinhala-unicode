@@ -4,6 +4,7 @@
 	* Seperate function to update preedit.
 	* R, Y, W and w doesn't depending on previous consonant.
 	* Fixed preedit with ZWJ.
+	* Version 0.3.1
 
 2008-05-13 Anuradha Ratnaweera <anuradha@taprobane.org>
 
@@ -25,6 +26,7 @@
 	* Usability fixes in the transliteration scheme.
 	* Help text suport (Pravin S).
 	* Added the complete scheme as help text.
+	* Version 0.3.0
 
 2006-01-30 Anuradha Ratnaweera <anuradha@taprobane.org>
 

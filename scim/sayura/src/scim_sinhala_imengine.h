@@ -85,6 +85,7 @@ private:
 	int find_consonent(int c);
 	int find_vowel_by_key(int k);
 	unsigned char* create_unicode_character_from_lsb(unsigned int lsb);
+	void update_preedit();
 	bool sinhala_transliterated_filter_keypress(const KeyEvent &key);
 	bool handle_consonant_pressed(const KeyEvent &event, int c);
 	bool handle_vowel_pressed(const KeyEvent &event, int c);

@@ -1,7 +1,17 @@
+2008-05-23 Anuradha Ratnaweera <anuradha@taprobane.org>
+
+	* Show preedit after updating to make KDE happy.
+	* Seperate function to update preedit.
+
+2008-05-13 Anuradha Ratnaweera <anuradha@taprobane.org>
+
+	* K&R formatting.
+
 2008-05-12 Anuradha Ratnaweera <anuradha@taprobane.org>
 
 	* HTML documentation.
 	* "Q" produces "ah".
+	* Use basic vowel if previous vowel doesn't match.
 
 2008-05-09 Anuradha Ratnaweera <anuradha@taprobane.org>
 

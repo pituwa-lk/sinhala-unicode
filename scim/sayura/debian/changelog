@@ -1,7 +1,11 @@
 scim-sayura (0.3.1-1) unstable; urgency=low
 
-  * HTML documentation.
-  * "Q" produces "ah".
+  * HTML documentation
+  * "Q" produces "ah"
+  * Use basic vowel if previous vowel doesn't match
+  * K&R formatting
+  * Show preedit after updating to make KDE happy
+  * Seperate function to update preedit
 
  -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 12 May 2008 12:00:00 +0530
 

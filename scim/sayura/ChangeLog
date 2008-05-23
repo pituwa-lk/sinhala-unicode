@@ -3,6 +3,7 @@
 	* Show preedit after updating to make KDE happy.
 	* Seperate function to update preedit.
 	* R, Y, W and w doesn't depending on previous consonant.
+	* Fixed preedit with ZWJ.
 
 2008-05-13 Anuradha Ratnaweera <anuradha@taprobane.org>
 

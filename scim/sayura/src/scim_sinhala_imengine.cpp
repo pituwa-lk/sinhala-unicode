@@ -261,7 +261,7 @@ int SinhalaInstance::get_known_lsb_character(int c)
 {
 	if ((c >= 0xd80) && (c <= 0xdff))
 		return c - 0xd80 + 128;
-	if ((c == 0x200c) && (c == 0x200d))
+	if ((c == 0x200c) || (c == 0x200d))
 		return c - 0x2000;
 	return -1;
 }

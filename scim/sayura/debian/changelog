@@ -7,6 +7,7 @@ scim-sayura (0.3.1-1) unstable; urgency=low
   * Show preedit after updating to make KDE happy
   * Seperate function to update preedit
   * R, Y, W and w doesn't depending on previous consonant
+  * Fixed preedit with ZWJ
 
  -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 12 May 2008 12:00:00 +0530
 

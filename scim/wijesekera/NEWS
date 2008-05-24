@@ -1,3 +1,7 @@
+scim-wijesekera 0.3.4
+* updated bootstrap to include m4 with aclocal
+* a reset event from SCIM framework commits the preedit buffer
+
 scim-wijesekera 0.3.3
 * Removed unused virtual functions.
 * Uses AUX window for pre-edit string if on-the-stop preedit capability is not

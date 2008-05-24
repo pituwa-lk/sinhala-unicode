@@ -118,7 +118,7 @@ WijesekeraInstance::reset ()
 
     m_lookup_table.clear ();
     update_preedit_caret (0);
-    update_preedit_string (utf8_mbstowcs (""));
+    parse_key(0, 0, 0, &m_parser_data);
     hide_lookup_table ();
     hide_preedit_string ();
 }

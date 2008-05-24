@@ -104,8 +104,7 @@ WijesekeraFactory::WijesekeraFactory (const String &lang,
     SCIM_DEBUG_IMENGINE(1) << "  Lang : " << lang << "\n";
     SCIM_DEBUG_IMENGINE(1) << "  UUID : " << uuid << "\n";
 
-    if (lang.length () >= 2)
-        set_languages (lang);
+    set_languages (lang);
 
     // config
     reload_config (m_config);

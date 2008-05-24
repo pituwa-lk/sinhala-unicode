@@ -107,7 +107,6 @@ static struct {
 	{0xa0, 0xa1, 0x00, SCIM_KEY_c},
 	{0xa1, 0xa1, 0x00, SCIM_KEY_C},
 	{0xc0, 0x00, 0x00, SCIM_KEY_v},
-	{0xc0, 0x00, 0x00, SCIM_KEY_V},
 	{0xb6, 0xb7, 0xb9, SCIM_KEY_b},
 	{0xb7, 0xb7, 0xb9, SCIM_KEY_B},
 	{0xb1, 0x00, 0x82, SCIM_KEY_n},
@@ -135,7 +134,7 @@ static struct {
 	{0x96, 0x00, 0xde, 0xdf, SCIM_KEY_O},
 	{0x8b, 0x8c, 0xd4, 0xd6, SCIM_KEY_u},
 	{0x8d, 0x8e, 0xd8, 0xf2, SCIM_KEY_U},
-	{0x8f, 0x90, 0x8f, 0x90, SCIM_KEY_Z},
+	{0x8f, 0x90, 0x8f, 0x90, SCIM_KEY_V},
 	{0, 0, 0, 0, 0}
 };
 
@@ -463,7 +462,8 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 	l1 = find_consonent(c1);
 	/* do sagngnaka and mahapprana if there is a valid character before */
 	if (l1 >= 0) {
-		if ((event.code == SCIM_KEY_H) && (consonents[l1].mahaprana)) {
+		if (((event.code == SCIM_KEY_H) || (event.code == SCIM_KEY_f))
+				&& (consonents[l1].mahaprana)) {
 			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
 			m_preedit_string.push_back(lsb_to_unicode(consonents[l1].mahaprana));
 			update_preedit();

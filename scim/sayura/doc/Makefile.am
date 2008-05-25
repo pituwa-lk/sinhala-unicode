@@ -1,5 +1,7 @@
 TEX= sayura
 
+EXTRA_DIST = index.html sayura.tex sinhala.sty style.css
+
 pdf: $(TEX).pdf
 
 $(TEX).pdf: $(TEX).tex

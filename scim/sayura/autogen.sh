@@ -1,3 +1,7 @@
+#!/bin/sh
+
+set -e
+
 libtoolize
 aclocal
 autoheader

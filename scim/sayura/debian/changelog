@@ -5,6 +5,7 @@ scim-sayura (0.3.2-1) unstable; urgency=low
   * PDF brochure
   * One page PDF reference brochure
   * Properly commit preedits with ang and ah
+  * Autogen fails on error
 
  -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 25 May 2008 12:00:00 +0530
 

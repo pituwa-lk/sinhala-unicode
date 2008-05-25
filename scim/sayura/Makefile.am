@@ -1,3 +1,3 @@
 
-SUBDIRS = src data debian
+SUBDIRS = src data doc debian
 

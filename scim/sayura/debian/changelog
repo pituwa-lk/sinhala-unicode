@@ -1,3 +1,12 @@
+scim-sayura (0.3.2-1) unstable; urgency=low
+
+  * Use f also for mahaprana conversion.
+  * V for ilu and iluu.
+  * PDF brochure.
+  * One page PDF reference brochure.
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 25 May 2008 12:00:00 +0530
+
 scim-sayura (0.3.1-1) unstable; urgency=low
 
   * HTML documentation
@@ -9,7 +18,7 @@ scim-sayura (0.3.1-1) unstable; urgency=low
   * R, Y, W and w doesn't depending on previous consonant
   * Fixed preedit with ZWJ
 
- -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 12 May 2008 12:00:00 +0530
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 23 May 2008 12:00:00 +0530
 
 scim-sayura (0.3.0-1) unstable; urgency=low
 

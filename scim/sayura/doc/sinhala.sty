@@ -1,0 +1,26 @@
+% sinhala.sty version 20080420
+% Typesetting mixed Sinhala documents in XeTeX
+%
+% Copyright (C) 2008 by Anuradha Ratnaweera
+%
+\ifx\XeTeXrevision\@undefined
+  \errmessage{XeTeX is required to use sinhala}
+\fi
+\ifx\XeTeXinterchartokenstate\@undefined
+  \errmessage{XeTeX 0.997 or above required to use sinhala}
+\fi
+\ProvidesPackage{sinhala}[2008/04/20]
+\RequirePackage{fontspec}
+\newfontinstance{\sifont}[Script=Sinhala]{LKLUG}
+\newcommand\latinfont{\fontfamily{lmr}\selectfont}
+\XeTeXinterchartokenstate = 1
+\newcount\cnt\cnt="0D80
+\loop
+  \XeTeXcharclass\cnt=10 \ifnum\cnt<"0DFF \advance\cnt1
+\repeat
+\XeTeXcharclass "200C = 10
+\XeTeXcharclass "200D = 10
+\XeTeXinterchartoks 0 10 = {\sifont}
+\XeTeXinterchartoks 255 10 = {\sifont}
+\XeTeXinterchartoks 10 0 = {\latinfont}
+\XeTeXinterchartoks 10 255 = {\latinfont}

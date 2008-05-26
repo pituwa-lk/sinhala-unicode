@@ -1,10 +1,16 @@
+2008-05-26 Anuradha Ratnaweera <anuradha@taprobane.org>
+
+	* Initial RPM packaging.
+
 2008-05-25 Anuradha Ratnaweera <anuradha@taprobane.org>
+
 	* One page PDF reference brochure.
 	* Properly commit preedits with ang and ah.
 	* Autogen fails on error.
 	* Version 0.3.2
 
 2008-05-24 Anuradha Ratnaweera <anuradha@taprobane.org>
+
 	* Use f also for mahaprana conversion.
 	* V for ilu and iluu.
 	* PDF brochure.

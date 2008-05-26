@@ -1,3 +1,9 @@
+scim-sayura (0.3.3-1) unstable; urgency=low
+
+  * Initial RPM packaging.
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 26 May 2008 12:00:00 +0530
+
 scim-sayura (0.3.2-1) unstable; urgency=low
 
   * Use f also for mahaprana conversion

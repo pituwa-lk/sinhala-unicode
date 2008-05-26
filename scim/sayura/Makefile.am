@@ -1,3 +1,3 @@
 
-SUBDIRS = src data doc debian
+SUBDIRS = data debian doc rpm src
 

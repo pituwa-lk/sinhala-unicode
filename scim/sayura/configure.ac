@@ -1,4 +1,4 @@
-AC_INIT(scim-sayura, 0.3.2, anuradha@taprobane.org)
+AC_INIT(scim-sayura, 0.3.3, anuradha@taprobane.org)
 AC_CONFIG_SRCDIR([configure.ac])
 
 AM_INIT_AUTOMAKE
@@ -59,6 +59,7 @@ AC_CONFIG_FILES([
 	data/Makefile
 	debian/Makefile
 	doc/Makefile
+	rpm/Makefile
 	src/Makefile
 ])
 

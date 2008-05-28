@@ -522,7 +522,7 @@ cons:
 
 bool SinhalaInstance::handle_vowel_pressed(const KeyEvent &event, int c)
 {
-	int l, c1 = 0, cursor;
+	int l, c1 = -1, cursor;
 	WideString s;
 
 	l = m_preedit_string.length();
@@ -542,45 +542,25 @@ bool SinhalaInstance::handle_vowel_pressed(const KeyEvent &event, int c)
 				l = m_preedit_string.length();
 			}
 		}
-	}
-
-	if (l == 0) {
-		m_preedit_string.push_back(lsb_to_unicode(vowels[c].single0));
-		update_preedit();
-		return true;
 	} else {
-		if (c1 == 0)
-			c1 = get_known_lsb_character((int)m_preedit_string[l - 1]);
-
-		if (is_consonent(c1)) {
-			m_preedit_string.push_back(lsb_to_unicode(vowels[c].single1));
-			update_preedit();
-			return true;
-		}
-		else if (c1 == vowels[c].single0) {
-			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
-			m_preedit_string.push_back(lsb_to_unicode(vowels[c].double0));
-			update_preedit();
-			return true;
-		}
-		else if (c1 == vowels[c].single1) {
-			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
-			m_preedit_string.push_back(lsb_to_unicode(vowels[c].double1));
-			update_preedit();
-			return true;
-		}
-		else if (((c1 == 0x86) || (c1 == 0x87)) && (c == 0)) {
-			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
-			m_preedit_string.push_back(lsb_to_unicode(c1 + 1));
-			update_preedit();
-			return true;
-		} else {
-			m_preedit_string.push_back(lsb_to_unicode(vowels[c].single0));
-			update_preedit();
-			return true;
-		}
+		c1 = get_known_lsb_character((int)m_preedit_string[l - 1]);
 	}
 
+	if (is_consonent(c1)) {
+		m_preedit_string.push_back(lsb_to_unicode(vowels[c].single1));
+	} else if (c1 == vowels[c].single0) {
+		m_preedit_string.erase(m_preedit_string.length() - 1, 1);
+		m_preedit_string.push_back(lsb_to_unicode(vowels[c].double0));
+	} else if (c1 == vowels[c].single1) {
+		m_preedit_string.erase(m_preedit_string.length() - 1, 1);
+		m_preedit_string.push_back(lsb_to_unicode(vowels[c].double1));
+	} else if ((c == 0) && ((c1 == 0x86) || (c1 == 0x87))) {
+		m_preedit_string.erase(m_preedit_string.length() - 1, 1);
+		m_preedit_string.push_back(lsb_to_unicode(c1 + 1));
+	} else {
+		m_preedit_string.push_back(lsb_to_unicode(vowels[c].single0));
+	}
+	update_preedit();
 	return true;
 }
 

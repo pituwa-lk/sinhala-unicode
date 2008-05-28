@@ -12,7 +12,9 @@
 
 <h4>By <a href="http://www.sayura.net/anuradha/">Anuradha Ratnaweera</a></h4>
 
-<p>The latest version of this document can always be found <a href="http://www.sayura.net/im/">here</a>.</p>
+<p>Most up-to-date version of this document can always be found <a href="http://www.sayura.net/im/">here</a>.</p>
+
+<p>Latest version of SCIM module is 0.3.3.  Download it <a href="scim-sayura-0.3.3.tar.gz">here</a>.</p>
 
 <p>If you are looking for a reference while typing with Sayura, download <a href="sayura.pdf">this brochure</a>.</p>
 
@@ -171,7 +173,7 @@ typing "kwsH" creates "ක්ෂ", while "kWsH" produces joint "ක්‍ෂ".<p
 <a name="install" />
 <h2>Installing</h2>
 
-<p>Latest version of SCIM module is 0.3.2.  Download it <a href="scim-sayura-0.3.2.tar.gz">here</a>.</p>
+<p>Latest version of SCIM module is 0.3.3.  Download it <a href="scim-sayura-0.3.3.tar.gz">here</a>.</p>
 
 <p>If you want to try out the present stable version of Sayura SCIM
 module (which is called scim-sinhala-trans), follow the instructions at
@@ -179,19 +181,38 @@ module (which is called scim-sinhala-trans), follow the instructions at
 However, we encourage you to test 0.3 series, which brings out "preedit"
 support and improvements to the scheme itself.</p>
 
-<p>On Debian based systems, you easily make a DEB package:</p>
+<h3>DEB based systems</h3>
+<p>On Debian based systems, make a DEB package:</p>
 <pre class="term">
-% tar -xzvf scim-sayura-0.3.2.tar.gz
-% cd scim-sayura-0.3.2
+% tar -xzvf scim-sayura-0.3.3.tar.gz
+% cd scim-sayura-0.3.3
 % dpkg-buildpackage -b
 </pre>
 
-<p>If you get a "command not found" error, you need to install
-"dpkg-dev" package, and preferably "build-essential" package as
-well.</p>
+<p>If you get a "command not found" error, install the "dpkg-dev" package, and preferably "build-essential" package as well.</p>
 
 <p>If dpkg-buildpackage complains about missing packages, install them
 and try again.</p>
+
+<h3>RPM based systems</h3>
+
+<p>Locate your RPM directory, usually in /usr/src/.  Following examples assume /usr/src/rpm.  You also need the 'rpmbuild' tool.</p>
+
+<p>First unpack the tarball to a temporary location, and copy the rpm/scim-sayura.spec file to the SPECS subdirectory in RPM directory.  Copy the tarball into SOURCES subdirectory.</p>
+
+<pre class="term">
+# cd /tmp
+# tar -xzvf /wherever/is/scim-sayura-0.3.3.tar.gz
+# cp scim-sayura-0.3.3/rpm/scim-sayura.spec /usr/src/rpm/SPECS/
+# cp /wherever/is/scim-sayura-0.3.3.tar.gz /usr/src/rpm/SOURCES/
+</pre>
+
+<p>Now run the rpmbuild command with the -bb options to build a binary RPM inside RPMS subdirectory.</p>
+
+<pre class="term">
+# cd /usr/src/rpm/SPECS/
+# rpmbuild -bb scim-sayura.spec
+</pre>
 
 </body>
 </html>

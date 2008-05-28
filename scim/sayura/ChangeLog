@@ -4,6 +4,7 @@
 	* Allow typing rakaransaya or yansaya after a modifier.
 	* Validate w, W, R and Y when possible.
 	* Efficiency improvements and code cleanup.
+	* Documentation update.
 	* Version 0.3.3.
 
 2008-05-26 Anuradha Ratnaweera <anuradha@taprobane.org>

@@ -459,19 +459,19 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		c1 = get_known_lsb_character((int)m_preedit_string[l - 1]);
 	}
 
-	l1 = find_consonent(c1);
 	/* do sagngnaka and mahapprana if there is a valid character before */
-	if (l1 >= 0) {
-		if (((event.code == SCIM_KEY_H) || (event.code == SCIM_KEY_f))
-				&& (consonents[l1].mahaprana)) {
-			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
-			m_preedit_string.push_back(lsb_to_unicode(consonents[l1].mahaprana));
-			update_preedit();
-			return true;
+	if (c1 >= 0) {
+		c2 = -1;
+		if ((event.code == SCIM_KEY_H) || (event.code == SCIM_KEY_f)) {
+			l1 = find_consonent(c1);
+			c2 = consonents[l1].mahaprana;
+		} else if (event.code == SCIM_KEY_G) {
+			l1 = find_consonent(c1);
+			c2 = consonents[l1].sagngnaka;
 		}
-		if ((event.code == SCIM_KEY_G) && (consonents[l1].sagngnaka)) {
+		if (c2 > 0) {
 			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
-			m_preedit_string.push_back(lsb_to_unicode(consonents[l1].sagngnaka));
+			m_preedit_string.push_back(lsb_to_unicode(c2));
 			update_preedit();
 			return true;
 		}

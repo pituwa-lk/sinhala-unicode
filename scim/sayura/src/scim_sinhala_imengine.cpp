@@ -499,16 +499,17 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		/* bandi hal kireema  */
 		m_preedit_string.push_back(0x0dca);
 		m_preedit_string.push_back(0x200d);
-	} else if (event.code == SCIM_KEY_R) {
-		/* rakaraanshaya */
+	} else if ((event.code == SCIM_KEY_R) || (event.code == SCIM_KEY_Y)) {
+		/* rakaransaya or yansaya */
+		c2 = -1;
+		if (is_modifier(c1)) {
+			c2 = lsb_to_unicode(c1);
+			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
+		}
 		m_preedit_string.push_back(0x0dca);
 		m_preedit_string.push_back(0x200d);
-		m_preedit_string.push_back(0x0dbb);
-	} else if (event.code == SCIM_KEY_Y) {
-		/* yansaya */
-		m_preedit_string.push_back(0x0dca);
-		m_preedit_string.push_back(0x200d);
-		m_preedit_string.push_back(0x0dba);
+		m_preedit_string.push_back((event.code == SCIM_KEY_R) ? 0x0dbb : 0x0dba);
+		if (c2 > 0) m_preedit_string.push_back(c2);
 	} else {
 		if (c1 != 0x0d) reset();
 		m_preedit_string.push_back(lsb_to_unicode(consonents[c].character));

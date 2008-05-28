@@ -78,11 +78,11 @@ static struct {
 	{0xc0, 0x00, 0x00, SCIM_KEY_w},
 	{0xc0, 0x00, 0x00, SCIM_KEY_W},
 	{0xbb, 0x00, 0x00, SCIM_KEY_r},
-	{0xca, 0x00, 0x00, SCIM_KEY_R},
+	{0xbb, 0x00, 0x00, SCIM_KEY_R},
 	{0xad, 0xae, 0x00, SCIM_KEY_t},
 	{0xa7, 0xa8, 0x00, SCIM_KEY_T},
 	{0xba, 0x00, 0x00, SCIM_KEY_y},
-	{0xca, 0x00, 0x00, SCIM_KEY_Y},
+	{0xba, 0x00, 0x00, SCIM_KEY_Y},
 	{0xb4, 0xb5, 0x00, SCIM_KEY_p},
 	{0xb5, 0xb5, 0x00, SCIM_KEY_P},
 	{0xc3, 0xc2, 0x00, SCIM_KEY_s},
@@ -503,7 +503,8 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		if (is_modifier(c1)) {
 			c2 = lsb_to_unicode(c1);
 			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
-		}
+		} else if ((c1 != -1) && !is_consonent(c1))
+			goto cons;
 		m_preedit_string.push_back(0x0dca);
 		m_preedit_string.push_back(0x200d);
 		m_preedit_string.push_back((event.code == SCIM_KEY_R) ? 0x0dbb : 0x0dba);
@@ -512,6 +513,7 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		return true;
 	}
 
+cons:
 	if (c1 != 0x0d) reset();
 	m_preedit_string.push_back(lsb_to_unicode(consonents[c].character));
 	update_preedit();

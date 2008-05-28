@@ -37,6 +37,6 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 - Intuitive behaviour of al kireema after vowels and modifiers
 - Allow typing rakaransaya or yansaya after a modifier
-- Validate al kireema when possible
+- Validate w, W, R and Y when possible
 * Mon May 26 2008 Anuradha Ratnaweera <anuradha@taprobane.org> - 0.3.3-1
 - Initial RPM packaging

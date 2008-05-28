@@ -3,7 +3,7 @@ scim-sayura (0.3.3-1) unstable; urgency=low
   * Initial RPM packaging
   * Intuitive behaviour of al kireema after vowels and modifiers
   * Allow typing rakaransaya or yansaya after a modifier
-  * Validate al kireema when possible
+  * Validate w, W, R and Y when possible
 
  -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 26 May 2008 12:00:00 +0530
 

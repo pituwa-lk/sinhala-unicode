@@ -1,11 +1,16 @@
-Source: sinhala-font-lklug
-Section: sinhala
+Source: ttf-sinhala-lklug
+Section: x11
 Priority: optional
 Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
-Build-Depends: debhelper (>> 3.0.0), defoma (>= 0.7.0), fontforge
-Standards-Version: 3.6.2
+Build-Depends: debhelper (>= 4.1.0), cdbs (>= 0.4.23)
+Build-Depends-Indep: defoma (>= 0.7.0), fontforge (>= 0.0.20080330)
+Standards-Version: 3.7.3
 
-Package: sinhala-font-lklug
+Package: ttf-sinhala-lklug
 Architecture: all
-Depends: xutils
+Depends: defoma
+Recommends: x-ttcidfont-conf
+Conflicts: sinhala-font-lklug
+Replaces: sinhala-font-lklug
+Provides: sinhala-font-lklug
 Description: Unicode Sinhala font by Lanka Linux User Group

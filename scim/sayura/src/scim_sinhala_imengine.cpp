@@ -477,8 +477,9 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		}
 	}
 
-	/* Intuitive behaviour of al kireema after e and o */
-	if ((c1 > 0) && ((event.code == SCIM_KEY_w) || (event.code == SCIM_KEY_W))) {
+	if ((event.code == SCIM_KEY_w) || (event.code == SCIM_KEY_W)) {
+		/* al kireema */
+		/* Intuitive behaviour after e and o */
 		c2 = -1;
 		if (c1 == 0x91) c2 = 0x0d92;
 		if (c1 == 0x94) c2 = 0x0d95;
@@ -490,10 +491,6 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 			update_preedit();
 			return true;
 		}
-	}
-
-	if ((event.code == SCIM_KEY_w) || (event.code == SCIM_KEY_W)) {
-		/* al kireema */
 		if ((c1 == -1) || (is_consonent(c1))) {
 			m_preedit_string.push_back(0x0dca);
 			if (event.code == SCIM_KEY_W) m_preedit_string.push_back(0x200d);

@@ -31,8 +31,8 @@ install: build
 
 	# Add here commands to install the package into debian/tmp
 	install -m 755 -d $(CURDIR)/debian/tmp/usr/share/fonts/truetype/sinhala
-	install -m 755 -d $(CURDIR)/debian/tmp/etc/fonts/conf.d
 	install -m 644 $(CURDIR)/lklug.ttf $(CURDIR)/debian/tmp/usr/share/fonts/truetype/sinhala/lklug.ttf
+#	install -m 755 -d $(CURDIR)/debian/tmp/etc/fonts/conf.d
 #	install -m 644 $(CURDIR)/lklug.conf $(CURDIR)/debian/tmp/etc/fonts/conf.d
 
 # Build architecture-independent files here.

@@ -75,8 +75,8 @@ static struct {
 } consonents[] = {
 	{0xa4, 0x00, 0x00, SCIM_KEY_z},
 	{0xa5, 0x00, 0x00, SCIM_KEY_Z},
-	{0xca, 0x00, 0x00, SCIM_KEY_w},
-	{0xca, 0x00, 0x00, SCIM_KEY_W},
+	{0xc0, 0x00, 0x00, SCIM_KEY_w},
+	{0xc0, 0x00, 0x00, SCIM_KEY_W},
 	{0xbb, 0x00, 0x00, SCIM_KEY_r},
 	{0xca, 0x00, 0x00, SCIM_KEY_R},
 	{0xad, 0xae, 0x00, SCIM_KEY_t},
@@ -477,7 +477,7 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		}
 	}
 
-	/* More intuitive behaviour of al kireema */
+	/* Intuitive behaviour of al kireema after e and o */
 	if ((c1 > 0) && ((event.code == SCIM_KEY_w) || (event.code == SCIM_KEY_W))) {
 		c2 = -1;
 		if (c1 == 0x91) c2 = 0x0d92;
@@ -492,13 +492,14 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		}
 	}
 
-	if (event.code == SCIM_KEY_w) {
-		/* hal kireema */
-		m_preedit_string.push_back(0x0dca);
-	} else if (event.code == SCIM_KEY_W) {
-		/* bandi hal kireema  */
-		m_preedit_string.push_back(0x0dca);
-		m_preedit_string.push_back(0x200d);
+	if ((event.code == SCIM_KEY_w) || (event.code == SCIM_KEY_W)) {
+		/* al kireema */
+		if ((c1 == -1) || (is_consonent(c1))) {
+			m_preedit_string.push_back(0x0dca);
+			if (event.code == SCIM_KEY_W) m_preedit_string.push_back(0x200d);
+			update_preedit();
+			return true;
+		}
 	} else if ((event.code == SCIM_KEY_R) || (event.code == SCIM_KEY_Y)) {
 		/* rakaransaya or yansaya */
 		c2 = -1;
@@ -510,12 +511,13 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		m_preedit_string.push_back(0x200d);
 		m_preedit_string.push_back((event.code == SCIM_KEY_R) ? 0x0dbb : 0x0dba);
 		if (c2 > 0) m_preedit_string.push_back(c2);
-	} else {
-		if (c1 != 0x0d) reset();
-		m_preedit_string.push_back(lsb_to_unicode(consonents[c].character));
+		update_preedit();
+		return true;
 	}
-	update_preedit();
 
+	if (c1 != 0x0d) reset();
+	m_preedit_string.push_back(lsb_to_unicode(consonents[c].character));
+	update_preedit();
 	return true;
 }
 

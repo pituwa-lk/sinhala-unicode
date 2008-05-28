@@ -2,6 +2,7 @@
 
 	* Intuitive behaviour of al kireema after vowels and modifiers.
 	* Allow typing rakaransaya or yansaya after a modifier.
+	* Validate al kireema when possible.
 
 2008-05-26 Anuradha Ratnaweera <anuradha@taprobane.org>
 

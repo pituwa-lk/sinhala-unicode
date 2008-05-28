@@ -1,0 +1,7 @@
+* Version in Changelog
+* Version and date in debian/changelog
+* Version and date in rpm/scim-sayura.spec
+* Version in configure.ac
+* Version in doc/index.html
+* Upload tarball
+* Upload files in doc/

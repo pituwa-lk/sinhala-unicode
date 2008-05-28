@@ -1,5 +1,4 @@
-[ -f Makefile ] && make clean
-[ -f Makefile ] && make distclean
+[ -f Makefile ] && make maintainer-clean
 rm -rf aclocal.m4 config.guess config.h.in config.sub configure \
 	config.rpath install-sh depcomp missing ltmain.sh mkinstalldirs \
 	*~ autom*.cache/ debian/scim-sayura/ build-stamp \

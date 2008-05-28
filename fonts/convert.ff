@@ -1,0 +1,8 @@
+#!/usr/bin/fontforge
+#
+# Convert fonts from FontForge's native format to TrueType format
+
+Open($argv[1] + ".sfd")
+Generate($argv[1] + ".ttf")
+Close()
+

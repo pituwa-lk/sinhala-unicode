@@ -3,6 +3,8 @@
 	* Intuitive behaviour of al kireema after vowels and modifiers.
 	* Allow typing rakaransaya or yansaya after a modifier.
 	* Validate w, W, R and Y when possible.
+	* Efficiency improvements and code cleanup.
+	* Version 0.3.3.
 
 2008-05-26 Anuradha Ratnaweera <anuradha@taprobane.org>
 
@@ -13,7 +15,7 @@
 	* One page PDF reference brochure.
 	* Properly commit preedits with ang and ah.
 	* Autogen fails on error.
-	* Version 0.3.2
+	* Version 0.3.2.
 
 2008-05-24 Anuradha Ratnaweera <anuradha@taprobane.org>
 
@@ -27,7 +29,7 @@
 	* Seperate function to update preedit.
 	* R, Y, W and w doesn't depending on previous consonant.
 	* Fixed preedit with ZWJ.
-	* Version 0.3.1
+	* Version 0.3.1.
 
 2008-05-13 Anuradha Ratnaweera <anuradha@taprobane.org>
 
@@ -49,7 +51,7 @@
 	* Usability fixes in the transliteration scheme.
 	* Help text suport (Pravin S).
 	* Added the complete scheme as help text.
-	* Version 0.3.0
+	* Version 0.3.0.
 
 2006-01-30 Anuradha Ratnaweera <anuradha@taprobane.org>
 
@@ -57,7 +59,7 @@
 	* Removed dependancy on surrounding text support.
 	* Removed Ctrl+Space for latin input.
 	* New image scim-sinhala.png.
-	* Version 0.2.0
+	* Version 0.2.0.
 
 2005-09-26 Takuro Ashie <ashie@homa.ne.jp>
 

@@ -5,8 +5,7 @@ Summary:	Sayura Sinhala input method for SCIM
 Group:		System Environment/Libraries
 License:	GPLv2
 URL:		http://www.sayura.net/im/
-
-Source:		%{name}-%{version}.tar.gz
+Source:		http://www.sayura.net/im/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	scim-devel
 Requires:	scim

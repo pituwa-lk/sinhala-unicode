@@ -441,7 +441,7 @@ bool SinhalaInstance::sinhala_transliterated_filter_keypress(const KeyEvent &eve
 
 bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 {
-	int l, c1 = -1, l1, cursor;
+	int l, c1 = -1, c2, l1, l2, cursor;
 	WideString s;
 
 	l = m_preedit_string.length();
@@ -477,6 +477,21 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		}
 	}
 
+	/* More intuitive behaviour of al kireema */
+	if ((c1 > 0) && ((event.code == SCIM_KEY_w) || (event.code == SCIM_KEY_W))) {
+		c2 = -1;
+		if (c1 == 0x91) c2 = 0x0d92;
+		if (c1 == 0x94) c2 = 0x0d95;
+		if (c1 == 0xd9) c2 = 0x0dda;
+		if (c1 == 0xdc) c2 = 0x0ddd;
+		if (c2 > 0) {
+			m_preedit_string.erase(m_preedit_string.length() - 1, 1);
+			m_preedit_string.push_back(c2);
+			update_preedit();
+			return true;
+		}
+	}
+
 	if (event.code == SCIM_KEY_w) {
 		/* hal kireema */
 		m_preedit_string.push_back(0x0dca);
@@ -495,7 +510,7 @@ bool SinhalaInstance::handle_consonant_pressed(const KeyEvent &event, int c)
 		m_preedit_string.push_back(0x200d);
 		m_preedit_string.push_back(0x0dba);
 	} else {
-		if (c1 != 0x0d) reset(); // FIXME: This happens even after ZWJ
+		if (c1 != 0x0d) reset();
 		m_preedit_string.push_back(lsb_to_unicode(consonents[c].character));
 	}
 	update_preedit();

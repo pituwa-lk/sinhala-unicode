@@ -35,5 +35,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/scim/icons/scim-sayura.png
 
 %changelog
+- Intuitive behaviour of al kireema after vowels and modifiers
 * Mon May 26 2008 Anuradha Ratnaweera <anuradha@taprobane.org> - 0.3.3-1
 - Initial RPM packaging

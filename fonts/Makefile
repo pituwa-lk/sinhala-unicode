@@ -12,12 +12,13 @@ clean:
 	rm -f $(FONT).ttf *stamp
 
 distclean: clean
-	rm -rf *stamp debian/ttf-sinhala-lklug debian/files debian/tmp debian/*.log
+	rm -rf debian/ttf-sinhala-lklug debian/files debian/tmp debian/*.log debian/*debhelper
 
-dist:
+dist: distclean
 	rm -rf $(DIST)
 	mkdir -p $(DIST)
 	cp -a convert.ff CREDITS debian lklug.sfd Makefile README.fonts $(DIST)
+	rm -rf $(DIST)/debian/CVS
 	tar -czf $(DIST)-$(VERSION).tar.gz $(DIST)
 	rm -rf $(DIST)
 

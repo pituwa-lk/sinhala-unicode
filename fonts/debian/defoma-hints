@@ -1,0 +1,11 @@
+category truetype
+begin /usr/share/fonts/truetype/sinhala/lklug.ttf
+  Family = LKLUG
+  FontName = LKLUG
+  Encoding = Unicode
+  Charset = ISO10646-1
+  Weight = Medium
+  Width = Variable
+  Shape = Upright
+  Priority = 90
+end

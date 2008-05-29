@@ -2,6 +2,7 @@ Source: ttf-sinhala-lklug
 Section: x11
 Priority: optional
 Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
+Uploaders: Anuradha Weeraman <aweeraman@gmail.com>
 Build-Depends: debhelper (>= 4.1.0), cdbs (>= 0.4.23)
 Build-Depends-Indep: defoma (>= 0.7.0), fontforge (>= 0.0.20080330)
 Standards-Version: 3.7.3

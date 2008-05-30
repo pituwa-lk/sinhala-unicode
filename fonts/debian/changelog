@@ -1,3 +1,12 @@
+ttf-sinhala-lklug (0.5.1-1) unstable; urgency=low
+
+  * Debian packaging changes
+  * Fixed lintian warnings
+  * Updated Makefile and debian/rules
+  * Removed debian/Makefile
+
+ -- Anuradha Weeraman <anuradha@gnuromancer.org>  Thu, 29 May 2008 20:25:00 -0400
+
 ttf-sinhala-lklug (0.5.0-1) unstable; urgency=low
 
   * Pakage renamed to ttf-sinhala-lklug

@@ -14,11 +14,10 @@ install:
 
 clean:
 	rm -f $(FONT).ttf
-	rm -f configure-stamp
+	make -C debian clean
 
 distclean: clean
-	rm -f $(DIST)-$(VERSION).tar.gz
-	[ -x /usr/bin/fakeroot ] && fakeroot debian/rules clean
+	make -C debian distclean
 
 dist: distclean
 	rm -rf $(DIST)

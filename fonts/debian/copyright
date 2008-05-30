@@ -1,34 +1,7 @@
-This package was debianized by Anuradha Ratnaweera <anuradha@taprobane.org>
-
-Upstream Authors:
+Upstream Author(s):
   Anuradha Ratnaweera <anuradha@taprobane.org>
   Harshula Jayasuriya <harshula@gmail.com>
 
 See CREDITS file for the history of outlines.
 
-Copyrights:
-	Copyright (C) 2008 Anuradha Ratnaweera and Harshani Devadithya
-	Copyright (C) 2006 Harshula Jayasuriya
-	Copyright (C) 2004 Yannis Haralambous
-
-License:
-
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Library General Public
-    version 2 of the License as published by the Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License with
-    the Debian GNU/Linux distribution in file /usr/share/common-licenses/GPL;
-    if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
-    Fifth Floor, Boston, MA 02110-1301  USA
-
-On Debian systems, the complete text of the GPLv2 license can be found
-in the file `/usr/share/common-licenses/GPL-2'.
-
-The Debian packaging is (C) 2008, Anuradha Ratnaweera <anuradha@taprobane.org> and
-is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
+Copyright: GPL version 2

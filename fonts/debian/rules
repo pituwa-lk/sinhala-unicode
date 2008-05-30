@@ -1,11 +1,47 @@
 #!/usr/bin/make -f
 
-include /usr/share/cdbs/1/rules/debhelper.mk
+config.status: configure
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	touch configure-stamp
 
-build/ttf-sinhala-lklug::
+build: build-stamp
+
+build-stamp:  config.status
+	dh_testdir
 	$(MAKE)
+	touch build-stamp
 
-binary-install/ttf-sinhala-lklug::
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp 
+
+	# Add here commands to clean up after the build process.
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installdocs
+	dh_installchangelogs
 	dh_install
 	dh_installdefoma
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
 
+binary-arch:
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install patch unpatch

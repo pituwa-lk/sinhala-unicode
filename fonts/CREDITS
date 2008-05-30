@@ -5,27 +5,25 @@ The outlines of this font are from the Sinhala LaTeX pagkage:
 
 Quoted from the README of that package:
 
-  "This is a package of Metafont fonts and a preprocessor
-  suitable for writing Sinhala script using TeX or LaTeX.  This
-  package was originally developed by Yannis Haralambous
-  (Yannis.Haralambous at univ-lille1 fr), with funding from the
-  Wellcome Institute for the History of Medicine, 183 Euston
-  Road, London NW1 2BE, England (Contact person: Dominik
-  Wujastyk (D.Wujastyk at ucl ac uk)), which is using the font
-  in its Catalogue of Sinhala Manuscript. The original package
+  "This is a package of Metafont fonts and a preprocessor suitable for
+  writing Sinhala script using TeX or LaTeX.  This package was
+  originally developed by Yannis Haralambous (Yannis.Haralambous at
+  univ-lille1 fr), with funding from the Wellcome Institute for the
+  History of Medicine, 183 Euston Road, London NW1 2BE, England (Contact
+  person: Dominik Wujastyk (D.Wujastyk at ucl ac uk)), which is using
+  the font in its Catalogue of Sinhala Manuscript. The original package
   was available by ftp at ftp.bcc.ac.uk in:
 
   /pub/users/ucgadkw/indology/software/sinhala1-TeX.zip
 
-  It was later modified by Vasantha Saparamadu (vsaparam at ocs
-  mq edu au) to add support for 'samanala' transliteration
-  scheme developed by Prasad Dharmasena (pkd at isr umd edu)."
+  It was later modified by Vasantha Saparamadu (vsaparam at ocs mq edu
+  au) to add support for 'samanala' transliteration scheme developed by
+  Prasad Dharmasena (pkd at isr umd edu)."
 
-LKLUG OpenType font was created by Anuradha Ratnaweera of Virtusa
-Corporation (anuradha at gnu org) and Harshani Devadithya using the
-outlines of the above font and adding GSUB table entries.
-"Kunddaliya" glyph added and OTF tables modified by Harshula Jayasuriya
-(harshula at gmail dot com)
+LKLUG font was created by Anuradha Ratnaweera (anuradha at taprobane
+org) and Harshani Devadithya using the outlines of the above font and
+adding OTF table entries.  "Kunddaliya" glyph added and OTF tables
+modified by Harshula Jayasuriya (harshula at gmail dot com)
 
 The LKLUG font was created completely using FontForge
 (http://fontforge.sourceforge.net).

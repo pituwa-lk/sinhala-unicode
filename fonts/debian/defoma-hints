@@ -1,5 +1,5 @@
 category truetype
-begin /usr/share/fonts/truetype/sinhala/lklug.ttf
+begin /usr/share/fonts/truetype/ttf-sinhala-lklug/lklug.ttf
   Family = LKLUG
   FontName = LKLUG
   Encoding = Unicode

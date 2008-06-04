@@ -1,3 +1,11 @@
+ttf-sinhala-lklug (0.5.3-1) unstable; urgency=low
+
+  * Closes: #483630 (Debian ITP)
+  * Changed font directory name
+  * Added DM-Upload-Allowed flag in debian/control
+
+ -- Anuradha Weeraman <anuradha@gnuromancer.org>  Wed, 04 Jun 2008 06:54:46 -0400
+
 ttf-sinhala-lklug (0.5.2-1) unstable; urgency=low
 
   * Improved copyright and license information (NIIBE Yutaka)

@@ -1,7 +1,7 @@
 
 FONT=lklug
 VERSION=0.5.1
-DIST=ttf-sinhala-$(FONT)
+DIST=ttf-sinhala-$(FONT)-$(VERSION)
 
 all: $(FONT).ttf
 
@@ -25,6 +25,6 @@ dist: distclean
 	mkdir -p $(DIST)
 	cp -a convert.ff CREDITS lklug.sfd Makefile README.fonts debian $(DIST)
 	find $(DIST) -name CVS -prune -exec rm -rf "{}" \;
-	tar -czf $(DIST)-$(VERSION).tar.gz $(DIST)
+	tar -czf $(DIST).tar.gz $(DIST)
 	rm -rf $(DIST)
 

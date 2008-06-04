@@ -1,9 +1,17 @@
+ttf-sinhala-lklug (0.5.2-1) unstable; urgency=low
+
+  * Improved copyright and license information (NIIBE Yutaka)
+  * Fixed the sequence for "ඹු"
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Wed, 04 Jun 2008 13:00:00 +0530
+
 ttf-sinhala-lklug (0.5.1-1) unstable; urgency=low
 
   * Debian packaging changes
   * Fixed lintian warnings
   * Updated Makefile and debian/rules
   * Removed debian/Makefile
+  * Closes: #483630 (Debian)
 
  -- Anuradha Weeraman <anuradha@gnuromancer.org>  Thu, 29 May 2008 20:25:00 -0400
 
@@ -14,7 +22,7 @@ ttf-sinhala-lklug (0.5.0-1) unstable; urgency=low
   * Makefile based build
   * Defoma hints
 
- -- Anuradha Ratnaweera <anuradha@taprobane.org>  Wed, 29 May 2008 12:00:00 +0530
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Wed, 28 May 2008 12:00:00 +0530
 
 sinhala-font-lklug (0.4.2-1) unstable; urgency=low
 

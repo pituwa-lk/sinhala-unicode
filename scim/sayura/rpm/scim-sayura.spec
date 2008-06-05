@@ -9,6 +9,9 @@ Source:		http://www.sayura.net/im/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	scim-devel
 Requires:	scim
+Obsoletes: scim-sinhala
+Conflicts: scim-sinhala
+Provides: scim-sinhala
 %description
 This package provides the Sayura Sinhala input method for SCIM.
 
@@ -34,6 +37,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/scim/icons/scim-sayura.png
 
 %changelog
+* Thu Jun 06 2008 Anuradha Ratnaweera <anuradha@taprobane.org> - 0.3.4-1
+- Made the package Debian native
+- RPM spec file provides, obsoletes and conflicts with scim-sinhala
 * Wed May 28 2008 Anuradha Ratnaweera <anuradha@taprobane.org> - 0.3.3-1
 - Initial RPM packaging
 - Intuitive behaviour of al kireema after vowels and modifiers

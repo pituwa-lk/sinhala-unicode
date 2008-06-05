@@ -1,3 +1,10 @@
+scim-sayura (0.3.4) unstable; urgency=low
+
+  * Made the package Debian native
+  * RPM spec file provides, obsoletes and conflicts with scim-sinhala
+
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Wed, 28 May 2008 12:00:00 +0530
+
 scim-sayura (0.3.3-1) unstable; urgency=low
 
   * Initial RPM packaging
@@ -6,8 +13,9 @@ scim-sayura (0.3.3-1) unstable; urgency=low
   * Validate w, W, R and Y when possible
   * Efficiency improvements and code cleanup
   * Documentation update
+  * Closes: 483544 (Debian)
 
- -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 28 May 2008 12:00:00 +0530
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Wed, 28 May 2008 12:00:00 +0530
 
 scim-sayura (0.3.2-1) unstable; urgency=low
 
@@ -18,7 +26,7 @@ scim-sayura (0.3.2-1) unstable; urgency=low
   * Properly commit preedits with ang and ah
   * Autogen fails on error
 
- -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 25 May 2008 12:00:00 +0530
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Sun, 25 May 2008 12:00:00 +0530
 
 scim-sayura (0.3.1-1) unstable; urgency=low
 
@@ -31,7 +39,7 @@ scim-sayura (0.3.1-1) unstable; urgency=low
   * R, Y, W and w doesn't depending on previous consonant
   * Fixed preedit with ZWJ
 
- -- Anuradha Ratnaweera <anuradha@taprobane.org>  Mon, 23 May 2008 12:00:00 +0530
+ -- Anuradha Ratnaweera <anuradha@taprobane.org>  Fri, 23 May 2008 12:00:00 +0530
 
 scim-sayura (0.3.0-1) unstable; urgency=low
 

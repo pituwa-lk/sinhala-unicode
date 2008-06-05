@@ -1,3 +1,12 @@
+2008-06-05 Anuradha Ratnaweera <anuradha@taprobane.org>
+
+	* Made the package Debian native.
+	* RPM spec file provides, obsoletes and conflicts with scim-sinhala.
+
+2008-06-01 Anuradha Ratnaweera <anuradha@taprobane.org>
+
+    * Revamp consonant handling to better support joint letters.
+
 2008-05-28 Anuradha Ratnaweera <anuradha@taprobane.org>
 
 	* Intuitive behaviour of al kireema after vowels and modifiers.

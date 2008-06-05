@@ -1,7 +1,8 @@
-ttf-sinhala-lklug (0.5.4-1) unstable; urgency=low
+ttf-sinhala-lklug (0.5.4) unstable; urgency=low
 
   * Proper copyright/license information in TTF names (NIIBE Yutaka)
   * Build depends on Debhelper >= 5 (NIIBE Yutaka)
+  * Made the package Debian native (NIIBE Yutaka)
 
  -- Anuradha Ratnaweera <anuradha@taprobane.org>  Thu, 05 Jun 2008 12:00:00 +0530
 

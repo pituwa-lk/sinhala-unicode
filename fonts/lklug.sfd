@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1159557118
-ModificationTime: 1212566813
+ModificationTime: 1212628999
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -62,7 +62,7 @@ Lookup: 4 0 0 "'abvs' Above Base Substitutions in Sinhala lookup 6"  {"'abvs' Ab
 Lookup: 4 1 0 "'abvs' Above Base Substitutions in Sinhala lookup 7"  {"'abvs' Above Base Substitutions in Sinhala lookup 7 subtable"  } ['abvs' ('sinh' <'dflt' > ) ]
 Lookup: 4 0 1 "'liga' Standard Ligatures in Sinhala lookup 8"  {"'liga' Standard Ligatures in Sinhala lookup 8 subtable"  } ['liga' ('sinh' <'dflt' > ) ]
 DEI: 0
-LangName: 1033 "" "" "Regular" "PfaEdit 1.0 : LklugNormal : 20-8-2003" 
+LangName: 1033 "Copyright (C) 2004,2008 Anuradha Ratnaweera and Harshani Devadithya+AAoA-Copyright (C) 2006 Harshula Jayasuriya+AAoA-Copyright (C) 1994, The Wellcome Trust, London" "" "Regular" "PfaEdit 1.0 : LklugNormal : 20-8-2003" "" "" "" "" "" "" "" "" "" "LKLUG font is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation." "http://www.gnu.org/licenses/gpl-2.0.html" 
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: Adobe Glyph List

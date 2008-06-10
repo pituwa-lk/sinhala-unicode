@@ -1,21 +1,21 @@
-TEX= sayura
+DOC= sayura.pdf sayura-paper.pdf
 
 EXTRA_DIST = index.html sayura.tex sayura.pdf sinhala.sty style.css
 
-pdf: $(TEX).pdf
+all: $(DOC)
 
-$(TEX).pdf: $(TEX).tex
-	if test ! -f $(TEX).aux  ; then \
-	    xelatex $(TEX).tex; \
+%.pdf: %.tex
+	if test ! -f $(basename $<).aux  ; then \
+	    xelatex $<; \
 	fi;
-	xelatex $(TEX).tex
+	xelatex $<
 
 clean:
-	rm -f $(TEX).log $(TEX).aux $(TEX).toc *~ sayura.synctex.gz
+	rm -f *.log *.aux *.toc *~ sayura.synctex.gz
 
 distclean: clean
 
 maintainer-clean: distclean
-	rm -f $(TEX).pdf
-	rm -f Makefile
+	rm -f $(DOC)
+	rm -f Makefile Makefile.in
 

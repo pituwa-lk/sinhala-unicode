@@ -1,6 +1,6 @@
 DOC= sayura.pdf sayura-paper.pdf
 
-EXTRA_DIST = index.html sayura.tex sayura.pdf sinhala.sty style.css
+EXTRA_DIST = index.html sayura.tex sayura.pdf sayura-paper.pdf sinhala.sty style.css
 
 all: $(DOC)
 

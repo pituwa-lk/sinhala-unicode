@@ -5,7 +5,7 @@ Maintainer: Anuradha Ratnaweera <anuradha@taprobane.org>
 Uploaders: Anuradha Weeraman <anuradha@gnuromancer.org>
 Build-Depends: debhelper (>= 5)
 Build-Depends-Indep: defoma (>= 0.7.0), fontforge (>= 0.0.20080330)
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 Homepage: http://www.lug.lk/fonts/lklug
 DM-Upload-Allowed: yes
 

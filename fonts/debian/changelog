@@ -3,6 +3,8 @@ ttf-sinhala-lklug (0.5.4) unstable; urgency=low
   * Proper copyright/license information in TTF names (NIIBE Yutaka)
   * Build depends on Debhelper >= 5 (NIIBE Yutaka)
   * Made the package Debian native (NIIBE Yutaka)
+  * Upgraded Debian standards version to 3.8.0
+  * TTF is a part of the distribution
 
  -- Anuradha Ratnaweera <anuradha@taprobane.org>  Thu, 05 Jun 2008 12:00:00 +0530
 
@@ -43,11 +45,11 @@ ttf-sinhala-lklug (0.5.0-1) unstable; urgency=low
 sinhala-font-lklug (0.4.2-1) unstable; urgency=low
 
   * Set basefilename to lklug
-  * Run 'Element -> Find Problems' on kunddaliya and fix problems.
-  * Move the repaya ligatures out of the PUA and into the section with the rest of the ligatures.
-    - Add lookups for the 40 repaya ligatures.
-    - Using rphf feature did not work, so used akhn.
-    - Remove unused codepoints in PUA.
+  * Run 'Element -> Find Problems' on kunddaliya and fix problems
+  * Move the repaya ligatures out of the PUA and into the section with the rest of the ligatures
+    - Add lookups for the 40 repaya ligatures
+    - Using rphf feature did not work, so used akhn
+    - Remove unused codepoints in PUA
 
  -- Harshula Jayasuriya <harshula@gmail.com>  Sun, 05 Nov 2006 23:09:51 +0530
 

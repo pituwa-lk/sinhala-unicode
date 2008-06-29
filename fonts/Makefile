@@ -1,29 +1,33 @@
 
 FONT=lklug
-VERSION=0.5.3-1
+VERSION=0.5.4
 DIST=ttf-sinhala-$(FONT)-$(VERSION)
 
-all: $(FONT).ttf
+all: ttf
+
+ttf: $(FONT).ttf
 
 $(FONT).ttf: $(FONT).sfd
 	./convert.ff $(FONT)
 
 install:
 	install -m 755 -d $(DESTDIR)/usr/share/fonts/truetype/$(DIST)
-	install -m 644 lklug.ttf $(DESTDIR)/usr/share/fonts/truetype/$(DIST)
+	install -m 644 $(FONT).ttf $(DESTDIR)/usr/share/fonts/truetype/$(DIST)
 
 clean:
-	rm -f $(FONT).ttf
 	rm -f configure-stamp
 
 distclean: clean
 	rm -f $(DIST)-$(VERSION).tar.gz
 	[ -x /usr/bin/fakeroot ] && fakeroot debian/rules clean
 
-dist: distclean
+maintainer-clean: distclean
+	rm -f $(FONT).ttf
+
+dist: distclean all
 	rm -rf $(DIST)
 	mkdir -p $(DIST)
-	cp -a convert.ff COPYING CREDITS lklug.sfd Makefile README.fonts debian $(DIST)
+	cp -a convert.ff COPYING CREDITS $(FONT).ttf $(FONT).sfd Makefile README.fonts debian $(DIST)
 	find $(DIST) -name CVS -prune -exec rm -rf "{}" \;
 	tar -czf $(DIST).tar.gz $(DIST)
 	rm -rf $(DIST)

@@ -24,7 +24,7 @@ distclean: clean
 maintainer-clean: distclean
 	rm -f $(FONT).ttf
 
-dist: distclean all
+dist: maintainer-clean all
 	rm -rf $(DIST)
 	mkdir -p $(DIST)
 	cp -a convert.ff COPYING CREDITS $(FONT).ttf $(FONT).sfd Makefile README.fonts debian $(DIST)

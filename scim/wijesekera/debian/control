@@ -2,12 +2,13 @@ Source: scim-wijesekera
 Section: utils
 Priority: optional
 Maintainer: Dushara Jayasinghe (pkgdev) <nidujay@gmail.com>
-Build-Depends: debhelper (>= 5), scim (>= 1.3.0), libscim-dev (>= 1.3.0), libgtk2.0-dev, autotools-dev, automake, autoconf, libtool, libltdl3-dev
+Build-Depends: debhelper (>= 5), scim (>= 1.3.0), libscim-dev (>= 1.3.0), libgtk2.0-dev, autotools-dev, autoconf, libtool, libltdl3-dev
 Standards-Version: 3.7.3
 
 Package: scim-wijesekera
 Architecture: any
-Depends: ${shlibs:Depends}, scim (<< 1.5.0), language-pack-si
+Depends: ${shlibs:Depends}, scim (<< 1.5.0)
+Suggests: skim
 Description: SCIM IMEngine Module for the Sinhala Wijesekera keyboard
  SCIM (Smart Common Input Method) is an input method (IM) platform.
  This module attempts to implement the keyboard layout described in 

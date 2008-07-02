@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT([scim-wijesekera],[0.3.3],[nidujay *killspam* gmail dot com])
+AC_INIT([scim-wijesekera],[0.3.4],[nidujay *killspam* gmail dot com])
 AC_CONFIG_SRCDIR([src/scim_wijesekera_prefs.h])
 
 # Save this value here, since automake will set cflags and cxxflags later
@@ -11,7 +11,7 @@ cppflags_set=${CPPFLAGS+set}
 
 SCIM_WIJESEKERA_MAJOR_VERSION=0
 SCIM_WIJESEKERA_MINOR_VERSION=3
-SCIM_WIJESEKERA_MICRO_VERSION=3
+SCIM_WIJESEKERA_MICRO_VERSION=4
 
 SCIM_WIJESEKERA_VERSION=$SCIM_WIJESEKERA_MAJOR_VERSION.$SCIM_WIJESEKERA_MINOR_VERSION.$SCIM_WIJESEKERA_MICRO_VERSION
 
@@ -29,7 +29,7 @@ AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
 # Init automake stuff
-AM_INIT_AUTOMAKE(scim-wijesekera, SCIM_WIJESEKERA_VERSION)
+AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER([config.h])
 AM_GNU_GETTEXT
 
@@ -121,7 +121,10 @@ fi
 AC_SUBST(SCIM_ICONDIR)
 AC_SUBST(SCIM_MODULEDIR)
 
-AC_CONFIG_FILES([Makefile intl/Makefile po/Makefile.in
-                 data/Makefile
-                 src/Makefile])
+AC_CONFIG_FILES([Makefile 
+	intl/Makefile 
+	po/Makefile.in
+	data/Makefile
+	src/Makefile
+])
 AC_OUTPUT

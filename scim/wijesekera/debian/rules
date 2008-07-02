@@ -23,9 +23,7 @@ endif
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
-	./bootstrap
 	./configure --prefix=/usr
-
 	touch configure-stamp
 
 
@@ -46,8 +44,6 @@ clean:
 	rm -f build-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	./cleanup.sh
-
 	dh_clean 
 
 install: build

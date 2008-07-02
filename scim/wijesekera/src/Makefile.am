@@ -10,7 +10,8 @@ noinst_HEADERS = \
 	intl.h \
 	scim_wijesekera_imengine_factory.h \
 	scim_wijesekera_imengine.h \
-	scim_wijesekera_prefs.h
+	scim_wijesekera_prefs.h	\
+	parser.h compat_data.h states.h complex_def.h layout.h imcompat.h
 
 moduledir = @SCIM_MODULEDIR@/IMEngine
 module_LTLIBRARIES = wijesekera.la

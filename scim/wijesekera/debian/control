@@ -1,15 +1,19 @@
 Source: scim-wijesekera
 Section: utils
 Priority: optional
-Maintainer: Dushara Jayasinghe (pkgdev) <nidujay@gmail.com>
+Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
 Build-Depends: debhelper (>= 5), scim (>= 1.3.0), libscim-dev (>= 1.3.0), libgtk2.0-dev, autotools-dev
 Standards-Version: 3.7.3
+Vcs-Browser: http://sinhala.cvs.sourceforge.net/sinhala/sinhala/scim/wijesekera
+Homepage: http://sinhala.sourceforge.net
 
 Package: scim-wijesekera
 Architecture: any
 Depends: ${shlibs:Depends}, scim (<< 1.5.0)
 Suggests: skim
-Description: SCIM IMEngine Module for the Sinhala Wijesekera keyboard
+Description: scim-wijesekera is a SCIM module for the Sinhala Wijesekera keyboard.
+ .
  SCIM (Smart Common Input Method) is an input method (IM) platform.
- This module attempts to implement the keyboard layout described in 
+ .
+ This module implements the keyboard layout described in 
  the "Sri Lanka Standard 1134:2004" document.

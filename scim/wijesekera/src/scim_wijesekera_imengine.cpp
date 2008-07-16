@@ -36,6 +36,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <string.h>
 
 #include <scim.h>
 #include "scim_wijesekera_imengine_factory.h"

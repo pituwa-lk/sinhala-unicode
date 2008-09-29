@@ -7,7 +7,7 @@ Standards-Version: 3.6.2
 
 Package: scim-sayura
 Architecture: any
-Depends: ${shlibs:Depends}, scim (<< 1.5.0)
+Depends: ${shlibs:Depends}, scim (<< 1.5.0), im-switch
 Suggests: skim
 Conflicts: scim-sinhala-trans
 Replaces: scim-sinhala-trans

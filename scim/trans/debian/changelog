@@ -1,3 +1,10 @@
+scim-sinhala-trans (0.2.0-4) unstable; urgency=low
+
+  * Remove references to /etc/environment in postinst, postrm.
+    Should be using im-switch now.
+
+ -- Harshula Jayasuriya <harshula@gmail.com>  Fri, 09 Jan 2009 17:40:10 +1100
+
 scim-sinhala-trans (0.2.0-3) unstable; urgency=low
 
   * Use --copy with libtool and automake to avoid symlinks in the source

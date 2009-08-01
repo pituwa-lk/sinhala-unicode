@@ -22,8 +22,11 @@ Quoted from the README of that package:
 
 LKLUG font was created by Anuradha Ratnaweera (anuradha at taprobane
 org) and Harshani Devadithya using the outlines of the above font and
-adding OTF table entries.  "Kunddaliya" glyph added and OTF tables
-modified by Harshula Jayasuriya (harshula at gmail dot com)
+adding OTF table entries.
+
+"Kunddaliya", "dotted circle", "zero width non-joiner", "zero width joiner"
+glyphs created and OTF tables modified by Harshula Jayasuriya
+(harshula at gmail dot com).
 
 Debian packaging was reviewed and improved by Anuradha Weeraman and
 NIIBE Yutaka.
@@ -33,7 +36,7 @@ The LKLUG font was created completely using FontForge
 
 Copyrights:
   Copyright (C) 2004,2008 Anuradha Ratnaweera and Harshani Devadithya
-  Copyright (C) 2006 Harshula Jayasuriya
+  Copyright (C) 2006-2009 Harshula Jayasuriya
   Copyright (C) 1994, The Wellcome Trust, London
 
 License:

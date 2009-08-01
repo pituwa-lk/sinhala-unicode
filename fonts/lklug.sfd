@@ -3,8 +3,8 @@ FontName: LKLUG
 FullName: LKLUG
 FamilyName: LKLUG
 Weight: Book
-Copyright: Copyright (C) 2004,2008 Anuradha Ratnaweera and Harshani Devadithya\nCopyright (C) 2006 Harshula Jayasuriya\nCopyright (C) 1994, The Wellcome Trust, London\n\nLKLUG font is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation.\n\nSee CREDITS file for more details.
-Version: 0.3
+Copyright: Copyright (C) 2004,2008 Anuradha Ratnaweera and Harshani Devadithya\nCopyright (C) 2006-2009 Harshula Jayasuriya\nCopyright (C) 1994, The Wellcome Trust, London\n\nLKLUG font is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation.\n\nSee CREDITS file for more details.
+Version: 0.6
 DefaultBaseFilename: lklug
 ItalicAngle: 0
 UnderlinePosition: -205
@@ -12,8 +12,8 @@ UnderlineWidth: 102
 Ascent: 800
 Descent: 200
 LayerCount: 2
-Layer: 0 0 "Back" 
-Layer: 1 0 "Fore" 
+Layer: 0 0 "Back"  1
+Layer: 1 0 "Fore"  0
 XUID: [1021 668 958370197 10234196]
 UniqueID: 4107101
 FSType: 0
@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1159557118
-ModificationTime: 1212628999
+ModificationTime: 1249111576
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -61,9 +61,9 @@ Lookup: 4 0 0 "'akhn' Akhand in Sinhala lookup 5"  {"'akhn' Akhand in Sinhala lo
 Lookup: 4 0 0 "'abvs' Above Base Substitutions in Sinhala lookup 6"  {"'abvs' Above Base Substitutions in Sinhala lookup 6 subtable"  } ['abvs' ('sinh' <'dflt' > ) ]
 Lookup: 4 1 0 "'abvs' Above Base Substitutions in Sinhala lookup 7"  {"'abvs' Above Base Substitutions in Sinhala lookup 7 subtable"  } ['abvs' ('sinh' <'dflt' > ) ]
 Lookup: 4 0 1 "'liga' Standard Ligatures in Sinhala lookup 8"  {"'liga' Standard Ligatures in Sinhala lookup 8 subtable"  } ['liga' ('sinh' <'dflt' > ) ]
-DEI: 0
-LangName: 1033 "Copyright (C) 2004,2008 Anuradha Ratnaweera and Harshani Devadithya+AAoA-Copyright (C) 2006 Harshula Jayasuriya+AAoA-Copyright (C) 1994, The Wellcome Trust, London" "" "Regular" "PfaEdit 1.0 : LklugNormal : 20-8-2003" "" "" "" "" "" "" "" "" "" "LKLUG font is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation." "http://www.gnu.org/licenses/gpl-2.0.html" 
-Encoding: UnicodeBmp
+DEI: 91125
+LangName: 1033 "Copyright (C) 2004,2008 Anuradha Ratnaweera and Harshani Devadithya+AAoA-Copyright (C) 2006-2009 Harshula Jayasuriya+AAoA-Copyright (C) 1994, The Wellcome Trust, London" "" "Regular" "PfaEdit 1.0 : LklugNormal : 20-8-2003" "" "" "" "" "" "" "" "" "" "LKLUG font is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation." "http://www.gnu.org/licenses/gpl-2.0.html" 
+Encoding: Custom
 UnicodeInterp: none
 NameList: Adobe Glyph List
 DisplaySize: -24
@@ -78,7 +78,7 @@ StdHW 4 [22]
 StdVW 4 [22]
 ExpansionFactor 4 0.06
 EndPrivate
-BeginChars: 65965 511
+BeginChars: 65965 513
 
 StartChar: .notdef
 Encoding: 65536 -1 0
@@ -6030,10 +6030,30 @@ EndChar
 
 StartChar: uni200D
 Encoding: 8205 8205 81
-Width: 0
+Width: 240
 GlyphClass: 2
 Flags: W
+VStem: 101 38<3 494>
 LayerCount: 2
+Fore
+SplineSet
+42 580 m 0
+ 62 598 l 1
+ 120 546 l 1
+ 178 598 l 1
+ 198 580 l 1
+ 139 528 l 1
+ 198 476 l 1
+ 178 459 l 1
+ 139 494 l 1
+ 139 3 l 1
+ 120 3 112 3 101 3 c 1
+ 101 494 l 1
+ 62 459 l 1
+ 42 476 l 1
+ 101 528 l 1
+ 101 528 101 528 42 580 c 0
+EndSplineSet
 EndChar
 
 StartChar: uni0DC1.vatu.halant
@@ -47930,42 +47950,42 @@ EndChar
 StartChar: uni0DF4
 Encoding: 3572 3572 470
 Width: 1000
-Flags: H
+VWidth: 600
 TeX: 117 0
 LayerCount: 2
 Fore
 SplineSet
-948 120 m 1
- 934.491 96.0137 859.769 63.5791 822 92 c 1
- 794.141 121.57 801.464 127.527 781 146 c 1
- 760.609 154.161 743.973 120.057 717 132 c 1
- 688 184.961 698.947 217.701 683 223 c 1
- 666.807 229.184 639.323 169.132 622 162 c 1
- 604 169 621.681 258.507 602 256 c 1
- 589.623 270.576 555.598 186.468 539 194 c 1
- 513.009 204.229 528.153 257.146 502 265 c 1
- 489.207 285.335 454.185 172.793 437 171 c 1
- 406.999 188.559 409.402 226.708 388 235 c 1
- 373.026 248.993 342.971 145.298 321 132 c 1
- 304.195 133.7 279.72 164.457 267 158 c 1
- 237.966 140.814 245.011 106.605 215 94 c 1
- 163.724 59.748 97.8438 108.81 84 113 c 1
- 78.5869 142.574 78.1341 144.454 108 150 c 1
- 129.452 129.203 190.476 114.765 203 135 c 1
- 233.456 168.963 214.672 193.778 252 220 c 1
- 272.435 234.354 298.5 190 314 204 c 1
- 336.838 223.685 347.241 301.104 383.5 323 c 1
- 410 332 429.831 264.477 439 271 c 1
- 480.66 304.964 486.468 377.492 519.5 368.5 c 1
- 536.678 368.5 540.203 276 550 276 c 1
- 559.168 276 608.079 358.195 633 355 c 1
- 652.5 352.5 629.276 270.327 649 258 c 1
- 661 250.5 693.916 296.726 706 295 c 1
- 720 293 727 195.5 739 187 c 1
- 758.14 181.863 780.505 205.831 796 197 c 1
- 819.96 179.64 817.032 131.146 845 126 c 1
- 889.986 103.943 921.058 145.013 924 149 c 1
- 956.437 149 948 133.443 948 120 c 1
+959 54 m 1
+ 945 21 865 -24 825 15 c 1
+ 796 56 804 65 782 90 c 1
+ 760 102 743 54 714 71 c 1
+ 683 144 695 190 678 197 c 0
+ 661 206 632 122 613 112 c 1
+ 594 122 613 246 592 243 c 1
+ 579 263 543 146 525 157 c 0
+ 498 171 514 244 486 255 c 1
+ 473 284 435 127 417 125 c 1
+ 385 149 388 202 365 214 c 1
+ 349 233 306 100 283 81 c 1
+ 265 84 251 116 237 107 c 0
+ 206 83 214 36 182 18 c 1
+ 128 -29 58 39 43 45 c 1
+ 37 86 37 88 68 96 c 1
+ 91 67 156 47 169 75 c 1
+ 201 122 182 157 221 193 c 0
+ 243 213 258 156 274 175 c 0
+ 298 203 322 305 361 336 c 1
+ 389 348 410 255 419 264 c 0
+ 464 311 470 411 505 399 c 1
+ 523 399 527 271 537 271 c 0
+ 547 271 599 385 625 380 c 0
+ 646 377 621 263 642 246 c 0
+ 655 235 690 299 702 297 c 0
+ 717 294 725 159 737 147 c 1
+ 758 140 781 173 798 161 c 1
+ 823 137 820 70 850 63 c 1
+ 897 32 930 89 934 94 c 1
+ 968 94 959 73 959 54 c 1
 EndSplineSet
 EndChar
 
@@ -52616,6 +52636,74 @@ SplineSet
  313 482 325 444 338 407 c 1
 EndSplineSet
 Ligature2: "'akhn' Akhand in Sinhala lookup 5 subtable" uni0DBB uni0DCA uni200D uni0DC6
+EndChar
+
+StartChar: uni25CC
+Encoding: 9676 9676 511
+Width: 700
+VWidth: 0
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+389.604 42.0791 m 0
+ 389.604 20.2178 371.861 2.47559 350 2.47559 c 0
+ 328.139 2.47559 310.396 20.2178 310.396 42.0791 c 0
+ 310.396 63.9404 328.139 81.6836 350 81.6836 c 0
+ 371.861 81.6836 389.604 63.9404 389.604 42.0791 c 0
+389.604 457.921 m 0
+ 389.604 436.06 371.861 418.316 350 418.316 c 0
+ 328.139 418.316 310.396 436.06 310.396 457.921 c 0
+ 310.396 479.782 328.139 497.524 350 497.524 c 0
+ 371.861 497.524 389.604 479.782 389.604 457.921 c 0
+181.684 250 m 0
+ 181.684 228.139 163.94 210.396 142.079 210.396 c 0
+ 120.218 210.396 102.476 228.139 102.476 250 c 0
+ 102.476 271.861 120.218 289.604 142.079 289.604 c 0
+ 163.94 289.604 181.684 271.861 181.684 250 c 0
+597.524 250 m 0
+ 597.524 228.139 579.782 210.396 557.921 210.396 c 0
+ 536.06 210.396 518.316 228.139 518.316 250 c 0
+ 518.316 271.861 536.06 289.604 557.921 289.604 c 0
+ 579.782 289.604 597.524 271.861 597.524 250 c 0
+241.089 398.515 m 0
+ 241.089 376.653 223.347 358.911 201.485 358.911 c 0
+ 179.624 358.911 161.881 376.653 161.881 398.515 c 0
+ 161.881 420.376 179.624 438.119 201.485 438.119 c 0
+ 223.347 438.119 241.089 420.376 241.089 398.515 c 0
+538.119 398.515 m 0
+ 538.119 376.653 520.376 358.911 498.515 358.911 c 0
+ 476.653 358.911 458.911 376.653 458.911 398.515 c 0
+ 458.911 420.376 476.653 438.119 498.515 438.119 c 0
+ 520.376 438.119 538.119 420.376 538.119 398.515 c 0
+538.119 101.485 m 0
+ 538.119 79.624 520.376 61.8809 498.515 61.8809 c 0
+ 476.653 61.8809 458.911 79.624 458.911 101.485 c 0
+ 458.911 123.347 476.653 141.089 498.515 141.089 c 0
+ 520.376 141.089 538.119 123.347 538.119 101.485 c 0
+241.089 101.485 m 0
+ 241.089 79.624 223.347 61.8809 201.485 61.8809 c 0
+ 179.624 61.8809 161.881 79.624 161.881 101.485 c 0
+ 161.881 123.347 179.624 141.089 201.485 141.089 c 0
+ 223.347 141.089 241.089 123.347 241.089 101.485 c 0
+EndSplineSet
+EndChar
+
+StartChar: uni200C
+Encoding: 8204 8204 512
+Width: 240
+VWidth: 0
+Flags: HW
+VStem: 102 36<2 518>
+LayerCount: 2
+Fore
+SplineSet
+102 0 m 1
+ 102 518 l 1
+ 138 518 l 1
+ 138 0 l 1
+ 102 0 l 1
+EndSplineSet
 EndChar
 EndChars
 EndSplineFont

@@ -1,6 +1,6 @@
 
 FONT=lklug
-VERSION=0.5.4
+VERSION=0.6
 DIST=ttf-sinhala-$(FONT)-$(VERSION)
 
 all: ttf
